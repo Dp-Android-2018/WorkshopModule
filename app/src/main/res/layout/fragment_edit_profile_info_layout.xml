@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.dell.workshopmodule.viewmodel.EditProfileInfoViewModel"/>
+    </data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/dp16w"
+    android:paddingEnd="@dimen/dp16w"
+    android:paddingTop="@dimen/dp24w"
+    android:orientation="vertical">
+    
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp35w"
+        android:background="@drawable/et_edit_profile_background"
+        android:textSize="18.8sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColorHint="@color/colorgray"
+        android:textColor="@color/colorgray"
+        android:hint="@string/workshop_name"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dp12w"
+        android:inputType="text"
+        android:text="@={viewmodel.workshopName}"
+        />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp35w"
+        android:background="@drawable/et_edit_profile_background"
+        android:textSize="18.8sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColorHint="@color/colorgray"
+        android:textColor="@color/colorgray"
+        android:hint="Workshop Email"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dp12w"
+        android:layout_marginTop="@dimen/dp13h"
+        android:inputType="textEmailAddress"
+        android:text="@={viewmodel.workshopEmail}"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp35w"
+        android:background="@drawable/et_edit_profile_background"
+        android:textSize="18.8sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColorHint="@color/colorgray"
+        android:textColor="@color/colorgray"
+        android:hint="Workshop Phone"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dp12w"
+        android:layout_marginTop="@dimen/dp13h"
+        android:inputType="phone"
+        android:text="@={viewmodel.workshopPhone}"
+        />
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp35w"
+        android:background="@color/suncolor"
+        android:layout_marginTop="@dimen/dp13h"
+        android:paddingStart="@dimen/dp12h"
+        android:paddingEnd="@dimen/dp12h">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_group"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp5h"
+            android:textSize="18.8sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+           android:hint="@string/country"
+            android:layout_marginTop="@dimen/dp13h"
+            android:inputType="text"
+            android:textColor="@color/colorgray"
+            android:textColorHint="@color/colorgray"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:editable="false"
+            android:focusable="false"
+            android:text="@={viewmodel.workshopCountry}"
+
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp35w"
+        android:background="@color/suncolor"
+        android:layout_marginTop="@dimen/dp13h"
+        android:paddingStart="@dimen/dp12h"
+        android:paddingEnd="@dimen/dp12h">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_group"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp5h"
+            android:textSize="18.8sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:hint="@string/city"
+            android:layout_marginTop="@dimen/dp13h"
+            android:inputType="text"
+            android:textColor="@color/colorgray"
+            android:textColorHint="@color/colorgray"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:editable="false"
+            android:focusable="false"
+            android:text="@={viewmodel.workshopCity}"
+
+            />
+    </RelativeLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp35w"
+        android:background="@drawable/et_edit_profile_background"
+        android:textSize="18.8sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColorHint="@color/colorgray"
+        android:textColor="@color/colorgray"
+        android:hint="Workshop Website"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dp12w"
+        android:layout_marginTop="@dimen/dp13h"
+        android:inputType="textUri"
+        android:text="@={viewmodel.workshopWebsite}"
+        />
+
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="@dimen/dp146h"
+        android:layout_height="@dimen/dp41w"
+        android:layout_marginTop="@dimen/dp32h"
+
+        android:layout_marginBottom="@dimen/dp36h"
+        android:background="@drawable/button_edit_profile_background"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/submit"
+        android:textColor="@color/colorwhite"
+
+        android:textSize="15sp"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="normal"
+        android:textAllCaps="false"
+        />
+
+</LinearLayout>
+</layout>

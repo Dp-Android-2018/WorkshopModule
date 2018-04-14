@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewmodel"
+            type="com.example.dell.workshopmodule.viewmodel.FinalStep.FinalStepRegisterViewModel"/>
+        <variable
+            name="registerviewmodel"
+            type="com.example.dell.workshopmodule.viewmodel.FinalStep.HandleRegisterRequestViewModel"/>
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_parent">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="@{registerviewmodel.progressDialog==true ? View.VISIBLE : View.INVISIBLE}"
+        android:layout_above="@+id/iv_car_owner_image"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="@dimen/dp50h"
+        android:layout_centerHorizontal="true"
+        android:text="@string/please_upload_id"
+        />
+    
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+
+        android:id="@+id/iv_car_owner_image"
+        android:layout_width="@dimen/dp171h"
+        android:layout_height="@dimen/dp171h"
+        android:layout_centerInParent="true"
+        bind:imageBitmap="@{viewmodel.picBitmap}"
+        android:onClick="@{viewmodel::displayDialog}"
+
+        />
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom">
+        <TextView
+            android:id="@+id/tv_specialization_next_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16.7sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/next_step"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dp15h"
+            android:onClick="@{viewmodel::validate}"
+            />
+
+        <TextView
+            android:id="@+id/tv_specialization_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16.7sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/back"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/dp15h"
+            android:onClick="@{viewmodel::handleBackAction}"
+            />
+
+
+
+        <TextView
+            android:id="@+id/tv_specialization_num_of_steps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorgray"
+            android:layout_centerHorizontal="true"
+            android:text="@{viewmodel.step==1?@string/step_4_of_5:@string/step_5_of_5}"
+            android:layout_marginEnd="@dimen/dp15h"
+            android:layout_below="@+id/tv_sign_up_next_step"
+            android:layout_marginTop="@dimen/dp13h"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_specialization_num_of_steps"
+            android:layout_marginTop="@dimen/dp5h"
+            android:weightSum="5">
+
+            <View
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp9h"
+                android:background="@drawable/view_rectangle_step_background"
+                android:layout_marginEnd="@dimen/dp1h"/>
+
+            <View
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp9h"
+                android:background="@drawable/view_rectangle_step_background"
+                android:layout_marginEnd="@dimen/dp1h"/>
+
+            <View
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp9h"
+                android:background="@drawable/view_rectangle_step_background"
+                android:layout_marginEnd="@dimen/dp1h"/>
+
+            <View
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp9h"
+                android:background="@drawable/view_rectangle_step_background"
+                android:layout_marginEnd="@dimen/dp1h"/>
+
+            <View
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp9h"
+                android:background="@{viewmodel.step==1?@drawable/view_rectangle_step_disactive_background:@drawable/view_rectangle_step_background}"
+                android:layout_marginEnd="@dimen/dp1h"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
+</layout>

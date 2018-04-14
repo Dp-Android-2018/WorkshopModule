@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background Color -->
+    <solid android:color="@color/bluringRedColor"
+        />
+
+
+
+    <!-- Round Corners -->
+    <corners android:bottomLeftRadius="@dimen/dp22h"
+        android:topLeftRadius="@dimen/dp22h"
+        android:bottomRightRadius="@dimen/dp22h"
+        android:topRightRadius="@dimen/dp22h"/>
+</shape>
+

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<data>
+    <variable
+        name="carViewModel"
+        type="com.example.dell.workshopmodule.viewmodel.CarInfoFragmentViewModel"/>
+</data>
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_request_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_wrench"
+
+        android:tint="@color/bluecolor"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginTop="@dimen/dp15h"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_request_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_offer_added_2"
+        android:layout_toEndOf="@+id/iv_request_title"
+        android:textSize="17.3sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/bluecolor"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="-5.2sp"
+        android:gravity="center_horizontal"
+        android:text='@{carViewModel.specialization !=null ? carViewModel.specialization:" "}'
+        android:layout_marginStart="@dimen/dp11w"
+        android:layout_marginTop="@dimen/dp13h"
+        android:layout_marginEnd="@dimen/dp5h"
+
+        />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1h"
+        android:layout_below="@+id/tv_request_title"
+        android:background="@color/graybordercolor"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginEnd="@dimen/dp14w"
+        android:layout_marginTop="@dimen/dp11w"/>
+
+    <ImageView
+        android:layout_below="@+id/view1"
+        android:id="@+id/iv_car_type"
+        android:layout_width="@dimen/dp13w"
+        android:layout_height="@dimen/dp7h"
+        android:src="@mipmap/ic_sedan"
+
+        android:tint="@color/bluecolor"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginTop="@dimen/dp17h"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_request_car_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view1"
+        android:layout_toEndOf="@+id/iv_car_type"
+        android:textSize="15.2sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/bluecolor"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="-5.2sp"
+        android:gravity="center_horizontal"
+        android:text='@{carViewModel.CarInfo()!=null ? carViewModel.CarInfo():" "}'
+        android:layout_marginStart="@dimen/dp11w"
+        android:layout_marginTop="@dimen/dp12h"
+        android:layout_marginEnd="@dimen/dp5h"
+
+        />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1h"
+        android:layout_below="@+id/tv_request_car_type"
+        android:background="@color/graybordercolor"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginEnd="@dimen/dp14w"
+        android:layout_marginTop="@dimen/dp11w"/>
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_below="@+id/view2"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="normal"
+        android:textColor="@color/graycolor"
+        android:lineSpacingExtra="4sp"
+        android:text="Description"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginTop="@dimen/dp12h"
+        />
+    <EditText
+        android:id="@+id/et_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_description"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginEnd="@dimen/dp14w"
+        android:textColor="@color/bluecolor"
+        android:textSize="10sp"
+        android:layout_marginTop="@dimen/dp3h"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="normal"
+        android:background="@drawable/gray_edittext_background"
+        android:padding="@dimen/dp3h"
+        android:enabled="false"
+        android:focusable="false"
+        android:text='@{carViewModel.desc!=null ? carViewModel.desc:" "}'
+        />
+
+
+    <ImageView
+        android:layout_below="@+id/et_description"
+        android:id="@+id/iv_request_location"
+        android:layout_width="@dimen/dp9h"
+        android:layout_height="@dimen/dp13w"
+        android:src="@mipmap/ic_placeholder_outline"
+
+        android:tint="@color/bluecolor"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginTop="@dimen/dp13h"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_request_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_description"
+        android:layout_toEndOf="@+id/iv_request_location"
+        android:textSize="10.8sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/bluecolor"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="-5.2sp"
+        android:gravity="center_horizontal"
+
+        android:layout_marginStart="@dimen/dp11w"
+        android:layout_marginTop="@dimen/dp13h"
+        android:layout_marginEnd="@dimen/dp5h"
+        android:text='@{carViewModel.address!=null ? carViewModel.address:" "}'
+
+        />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1h"
+        android:layout_below="@+id/tv_request_location"
+        android:background="@color/graybordercolor"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginEnd="@dimen/dp14w"
+        android:layout_marginTop="@dimen/dp11w"/>
+
+
+
+    <ImageView
+        android:layout_below="@+id/view3"
+        android:id="@+id/iv_request_time"
+        android:layout_width="@dimen/dp12w"
+        android:layout_height="@dimen/dp13w"
+        android:src="@mipmap/ic_calendar"
+
+        android:tint="@color/bluecolor"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginTop="@dimen/dp13h"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_request_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view3"
+        android:layout_toEndOf="@+id/iv_request_time"
+        android:textSize="10.8sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/bluecolor"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="-5.2sp"
+        android:gravity="center_horizontal"
+        android:text='@{carViewModel.date!=null ? carViewModel.date:" "}'
+        android:layout_marginStart="@dimen/dp11w"
+        android:layout_marginTop="@dimen/dp13h"
+        android:layout_marginEnd="@dimen/dp5h"
+
+        />
+
+    <Button
+        android:layout_width="@dimen/dp123h"
+        android:layout_height="@dimen/dp32h"
+        android:layout_marginTop="@dimen/dp32w"
+        android:layout_marginBottom="@dimen/dp14h"
+        android:layout_below="@+id/tv_request_time"
+        android:background="@drawable/button_location_background"
+        android:layout_centerHorizontal="true"
+        android:text="@string/show_location"
+        android:textColor="@color/colorwhite"
+        android:textSize="15sp"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="normal"
+        android:textAllCaps="false"
+        android:onClick="@{carViewModel.navigate}"
+      />
+</RelativeLayout>
+</ScrollView>
+</layout>

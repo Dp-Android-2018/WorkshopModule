@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.dell.workshopmodule">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <application
+        android:name=".view.ui.Application.MyApplication"
+        android:allowBackup="true"
+        android:largeHeap="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".view.ui.activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
+        <activity android:name=".view.ui.activity.MyAdvertisementActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
+        <activity android:name=".view.ui.activity.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
+        <activity android:name=".view.ui.activity.NormalRequestActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".view.ui.activity.InProgressRequestDetail"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".view.ui.activity.FirstStepRegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
+
+
+
+        <activity android:name=".view.ui.activity.FinalStepRegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
+
+        <activity android:name=".view.ui.activity.ThirdStepRegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".view.ui.activity.UrgentRequestActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+
+
+        <activity android:name=".view.ui.activity.AddAdvertisement"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".view.ui.activity.RequestDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".view.ui.activity.AddAdvertismentDescription"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".view.ui.activity.AddAdvertismentCountry"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".view.ui.activity.AddAdvertismentRange"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".view.ui.activity.AdvertismentPublished"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".view.ui.activity.EditProfileInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".view.ui.activity.SecondStepRegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity android:name=".view.ui.activity.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+        <service android:name=".notification.FirebaseMessageService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service android:name=".notification.MyFirebaseInstanceIdService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCZW_YvDfcDpWZw0vfsczvKob3MqBJYos4"
+            tools:ignore="ManifestResource" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+    </application>
+
+</manifest>

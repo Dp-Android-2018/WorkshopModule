@@ -1,0 +1,94 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginEnd="@dimen/dp16h"
+    android:layout_marginStart="@dimen/dp16h"
+    android:layout_marginTop="@dimen/dp24h"
+    android:layout_marginBottom="@dimen/dp10h"
+    app:cardCornerRadius="@dimen/dp6w">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cardcolor">
+
+
+
+
+        <TextView
+            android:id="@+id/tv_client_name"
+            android:layout_width="@dimen/dp200h"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:layout_alignParentStart="true"
+            android:textColor="@color/colorBlueLight"
+            android:letterSpacing="0.01"
+            android:lineSpacingExtra="-3.8sp"
+
+            android:text="Bahaa Gabal"
+            android:layout_marginTop="@dimen/dp9h"
+            android:layout_marginStart="@dimen/dp15w"
+            android:layout_marginEnd="@dimen/dp5h"
+            />
+
+
+
+
+      <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="normal"
+            android:textColor="@color/colorBlueLight"
+            android:letterSpacing="0.01"
+            android:lineSpacingExtra="-3.8sp"
+          android:layout_alignParentEnd="true"
+            android:text="16-09- 2018"
+          android:layout_marginTop="@dimen/dp9h"
+          android:layout_marginEnd="@dimen/dp15w"
+          android:gravity="center"
+            />
+
+
+
+
+         <TextView
+            android:id="@+id/tv_adv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
+            android:textColor="@color/thirdblack"
+             android:text="Lorem ipsum dolor sit amet, consectetur . Lorem ipsum dolor sit amet, consectetur .Lorem ipsum dolor sit amet, consectetur ."
+            android:layout_below="@+id/tv_client_name"
+             android:layout_marginTop="@dimen/dp13h"
+             android:layout_marginStart="@dimen/dp15w"
+            android:layout_marginEnd="@dimen/dp26w"
+
+
+            />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="#c0adadad"
+            android:text="Saudi arabia - Gedda"
+            android:layout_below="@+id/tv_adv_desc"
+            android:layout_marginTop="@dimen/dp12w"
+            android:layout_marginStart="@dimen/dp15w"
+            android:layout_marginBottom="@dimen/dp15h"
+            />
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

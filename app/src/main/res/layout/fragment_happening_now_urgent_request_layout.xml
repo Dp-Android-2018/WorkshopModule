@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="@dimen/dp20w">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:id="@+id/rl_num_of_urgent_requests">
+
+        <TextView
+            android:id="@+id/tv_in_progress_request_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="21.7sp"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="normal"
+            android:textColor="@color/redColor"
+            android:gravity="center_horizontal"
+            android:text="5 "
+            android:layout_marginEnd="@dimen/dp3h"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_in_progress_request_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="21.7sp"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="normal"
+            android:textColor="@color/graycolor"
+            android:gravity="center_horizontal"
+            android:text="@string/requests"
+            android:layout_toEndOf="@+id/tv_in_progress_request_num"
+            />
+    </RelativeLayout>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_current_urgent_requests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_num_of_urgent_requests"
+        android:layout_marginTop="@dimen/dp12h"
+        tools:listitem="@layout/item_urgent_happing_now_layout"
+        android:layout_marginBottom="@dimen/dp116h"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp116h"
+        android:layout_alignParentBottom="true"
+        android:background="@color/cyancolor">
+
+        <TextView
+            android:id="@+id/tv_accepted_requests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13.3sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/colorgray"
+            android:gravity="center_horizontal"
+            android:text="@string/acceptted_requests"
+            android:layout_marginStart="@dimen/dp15h"
+            android:layout_marginTop="@dimen/dp2h"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_accepted_urgent_requests"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_accepted_requests"
+            android:layout_marginTop="@dimen/dp4h"
+            tools:listitem="@layout/item_accepted_urgent_requests"
+            android:orientation="horizontal"
+
+
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

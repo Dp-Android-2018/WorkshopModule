@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="addOfferViewModel"
+            type="com.example.dell.workshopmodule.viewmodel.AddOfferViewModel"/>
+    </data>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dp270w"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cv_parent"
+    android:layout_marginEnd="@dimen/dp26h"
+    android:layout_marginStart="@dimen/dp26h"
+    app:cardCornerRadius="@dimen/dp6h">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorwhite">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp30h"
+            android:background="@color/bluecolor"
+            android:id="@+id/fl_text"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textColor="@color/colorwhite"
+                android:text="@string/add_offer"
+
+                />
+        </FrameLayout>
+
+
+        <TextView
+            android:id="@+id/tv_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11.7sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorgray"
+            android:text="@string/description"
+            android:layout_below="@+id/fl_text"
+            android:layout_marginTop="@dimen/dp19w"
+            android:layout_marginStart="@dimen/dp8w"
+            />
+
+
+        <EditText
+            android:id="@+id/et_description"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp195h"
+            android:layout_below="@+id/tv_description"
+            android:layout_marginTop="@dimen/dp2h"
+            android:layout_marginStart="@dimen/dp6w"
+            android:layout_marginEnd="@dimen/dp6w"
+            android:background="@drawable/et_add_offer_background"
+            android:hint="@string/write_your_description_to_add_your_offer"
+            android:gravity="start"
+            android:paddingStart="@dimen/dp17w"
+            android:paddingTop="@dimen/dp10h"
+            android:paddingEnd="@dimen/dp4h"
+            android:textColorHint="@color/advertisment_border_color"
+            android:textColor="@color/advertisment_border_color"
+            android:textSize="11.7sp"
+            android:text="@={addOfferViewModel.description}"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"/>
+
+
+        <TextView
+            android:id="@+id/tv_add_average_price"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11.7sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorgray"
+            android:text="@string/add_average_price"
+            android:layout_below="@+id/et_description"
+            android:layout_marginTop="@dimen/dp19w"
+            android:layout_marginStart="@dimen/dp8w"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp6w"
+            android:layout_marginEnd="@dimen/dp6w"
+            android:layout_below="@+id/tv_add_average_price"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dp3w"
+            >
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp55h"
+                android:layout_height="@dimen/dp27h"
+                android:id="@+id/rl_price_1"
+                android:background="@{addOfferViewModel.selectorPosition==1?@drawable/tab_active_background:@drawable/rl_disactive_background}"
+                android:layout_marginEnd="@dimen/dp12h"
+                android:onClick="@{addOfferViewModel::priceSelector}"
+
+                >
+
+                <TextView
+                    android:id="@+id/tv_price_range_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="0 : 99"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp2w"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/tv_price_range_1"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="@string/sar"
+                    android:layout_marginBottom="@dimen/dp2w"
+                    />
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp55h"
+                android:layout_height="@dimen/dp27h"
+                android:id="@+id/rl_price_2"
+                android:background="@{addOfferViewModel.selectorPosition==2?@drawable/tab_active_background:@drawable/rl_disactive_background}"
+                android:layout_marginEnd="@dimen/dp12h"
+                android:onClick="@{addOfferViewModel::priceSelector}"
+                >
+
+                <TextView
+                    android:id="@+id/tv_price_range_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="100: 499"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp2w"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/tv_price_range_2"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="@string/sar"
+                    android:layout_marginBottom="@dimen/dp2w"
+                    />
+            </RelativeLayout>
+
+
+
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp55h"
+                android:layout_height="@dimen/dp27h"
+                android:id="@+id/rl_price_3"
+                android:layout_marginEnd="@dimen/dp12h"
+                android:background="@{addOfferViewModel.selectorPosition==3?@drawable/tab_active_background:@drawable/rl_disactive_background}"
+                android:onClick="@{addOfferViewModel::priceSelector}"
+                >
+
+                <TextView
+                    android:id="@+id/tv_price_range_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="500 : 1000"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp2w"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/tv_price_range_3"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="@string/sar"
+                    android:layout_marginBottom="@dimen/dp2w"
+                    />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_price_4"
+                android:layout_width="@dimen/dp55h"
+                android:layout_height="@dimen/dp27h"
+                android:background="@{addOfferViewModel.selectorPosition==4?@drawable/tab_active_background:@drawable/rl_disactive_background}"
+                android:layout_marginEnd="@dimen/dp12h"
+                android:onClick="@{addOfferViewModel::priceSelector}"
+                >
+
+                <TextView
+                    android:id="@+id/tv_price_range_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="1000 : 10000"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp2w"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/tv_price_range_4"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="@string/sar"
+                    android:layout_marginBottom="@dimen/dp2w"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+
+
+        <TextView
+            android:id="@+id/tv_add_average_date"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11.7sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorgray"
+            android:text="@string/avg_date"
+            android:layout_below="@+id/ll_1"
+            android:layout_marginTop="@dimen/dp19w"
+            android:layout_marginStart="@dimen/dp8w"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp6w"
+            android:layout_marginEnd="@dimen/dp6w"
+            android:layout_below="@+id/tv_add_average_date"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dp3w"
+            >
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp55h"
+                android:layout_height="@dimen/dp27h"
+                android:id="@+id/rl_date_1"
+                android:onClick="@{addOfferViewModel::dateSelector}"
+                android:layout_marginEnd="@dimen/dp12h"
+                android:background="@{addOfferViewModel.selectorDate==1?@drawable/tab_active_background:@drawable/rl_disactive_background}"
+                >
+
+                <TextView
+                    android:id="@+id/tv_date_range_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="1 : 6"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp2w"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/tv_date_range_1"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="@string/days"
+                    android:layout_marginBottom="@dimen/dp2w"
+                    />
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp55h"
+                android:layout_height="@dimen/dp27h"
+                android:id="@+id/rl_date_2"
+                android:onClick="@{addOfferViewModel::dateSelector}"
+                android:layout_marginEnd="@dimen/dp12h"
+                android:background="@{addOfferViewModel.selectorDate==2?@drawable/tab_active_background:@drawable/rl_disactive_background}"
+                >
+
+                <TextView
+                    android:id="@+id/tv_date_range_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="7 : 14"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp2w"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/tv_date_range_2"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="@string/days"
+                    android:layout_marginBottom="@dimen/dp2w"
+                    />
+            </RelativeLayout>
+
+
+
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp55h"
+                android:layout_height="@dimen/dp27h"
+                android:id="@+id/rl_date_3"
+                android:onClick="@{addOfferViewModel::dateSelector}"
+                android:layout_marginEnd="@dimen/dp12h"
+                android:background="@{addOfferViewModel.selectorDate==3?@drawable/tab_active_background:@drawable/rl_disactive_background}"
+                >
+
+                <TextView
+                    android:id="@+id/tv_date_range_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="15 : 29"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp2w"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/tv_date_range_3"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="@string/days"
+                    android:layout_marginBottom="@dimen/dp2w"
+                    />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_date_4"
+                android:layout_width="@dimen/dp55h"
+                android:layout_height="@dimen/dp27h"
+                android:onClick="@{addOfferViewModel::dateSelector}"
+                android:background="@{addOfferViewModel.selectorDate==4?@drawable/tab_active_background:@drawable/rl_disactive_background}"
+                android:layout_marginEnd="@dimen/dp12h">
+
+                <TextView
+                    android:id="@+id/tv_date_range_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="30 : 60"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp2w"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/tv_date_range_4"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/colorwhite"
+                    android:gravity="center_horizontal"
+                    android:text="@string/days"
+                    android:layout_marginBottom="@dimen/dp2w"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+        <Button
+            android:layout_width="@dimen/dp123h"
+            android:layout_height="@dimen/dp32h"
+            android:layout_marginTop="@dimen/dp19h"
+            android:layout_marginBottom="@dimen/dp15h"
+            android:layout_below="@+id/ll_2"
+            android:background="@drawable/button_location_background"
+            android:layout_centerHorizontal="true"
+            android:text="@string/send_offer"
+            android:textColor="@color/colorwhite"
+            android:textSize="12.7sp"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:onClick="@{addOfferViewModel::addOfferAction}"
+            />
+
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+</layout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="progressViewModel"
+            type="com.example.dell.workshopmodule.viewmodel.InProgress.InProgressViewModel"/>
+    </data>
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="@dimen/dp24h"
+    android:id="@+id/rl_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:id="@+id/rl_num_of_requests">
+
+        <TextView
+            android:id="@+id/tv_in_progress_request_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="normal"
+            android:textColor="@color/bluecolor"
+            android:gravity="center_horizontal"
+            android:text="5 "
+            android:layout_marginEnd="@dimen/dp3h"
+
+            />
+
+    <TextView
+        android:id="@+id/tv_in_progress_request_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="normal"
+        android:textColor="@color/graycolor"
+        android:gravity="center_horizontal"
+        android:text="@string/requests_in_progress"
+        android:layout_toEndOf="@+id/tv_in_progress_request_num"
+        />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_in_progress_requests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_num_of_requests"
+        android:layout_marginTop="@dimen/dp13h"
+        bind:inProgressItems="@{progressViewModel.inProgressRequest}"
+        tools:listitem="@layout/item_in_progress_requests_layout"
+        />
+</RelativeLayout>
+</layout>

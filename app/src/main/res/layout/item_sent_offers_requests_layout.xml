@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="pendingviewmodel"
+            type="com.example.dell.workshopmodule.viewmodel.HappeningNow.ItemRequestViewModel"/>
+    </data>
+
+<android.support.v7.widget.CardView
+    android:layout_width="@dimen/dp87w"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginEnd="@dimen/dp12h"
+    android:layout_height="match_parent"
+    android:id="@+id/cv_parent"
+    app:cardCornerRadius="@dimen/dp6h"
+    android:onClick="@{pendingviewmodel::moveToOfferedDetailPage}">
+<RelativeLayout
+   android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/greencolor">
+
+    <com.elyeproj.loaderviewlibrary.LoaderImageView
+        android:id="@+id/iv_request"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp49h"
+        app:corners="16"
+        app:height_weight="0.8"
+        app:width_weight="0.4"
+        android:scaleType="fitXY"/>
+
+    <ImageView
+        android:id="@+id/iv_request_title"
+        android:layout_width="@dimen/dp7h"
+        android:layout_height="@dimen/dp7h"
+        android:src="@mipmap/ic_wrench"
+        android:layout_below="@+id/iv_request"
+        android:layout_marginStart="@dimen/dp6h"
+        android:layout_marginTop="@dimen/dp6h"/>
+
+    <com.elyeproj.loaderviewlibrary.LoaderTextView
+        android:id="@+id/tv_request_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="7.8sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/colorwhite"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="-3.8sp"
+        android:gravity="center_horizontal"
+        android:layout_toEndOf="@+id/iv_request_title"
+        android:layout_below="@+id/iv_request"
+        android:text="@{pendingviewmodel.requestTitle}"
+        android:layout_marginTop="@dimen/dp6h"
+        android:layout_marginStart="@dimen/dp5w"
+        android:layout_marginEnd="@dimen/dp6h"
+        app:height_weight="0.8"
+        app:width_weight="0.9"
+        app:corners="8"
+        />
+
+
+    <ImageView
+        android:id="@+id/iv_car_type"
+        android:layout_width="@dimen/dp7h"
+        android:layout_height="@dimen/dp4w"
+        android:src="@mipmap/ic_sedan"
+        android:layout_below="@+id/tv_request_title"
+        android:layout_marginStart="@dimen/dp6h"
+        android:layout_marginTop="@dimen/dp8h"
+        android:layout_centerVertical="true"
+
+
+        />
+
+    <com.elyeproj.loaderviewlibrary.LoaderTextView
+        android:id="@+id/tv_car_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="6.8sp"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="bold"
+        android:textColor="@color/colorwhite"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="-3.8sp"
+        app:height_weight="0.8"
+        app:width_weight="0.9"
+        app:corners="8"
+        android:text="@{pendingviewmodel.carType}"
+        android:layout_toEndOf="@+id/iv_car_type"
+        android:layout_below="@+id/tv_request_title"
+
+        android:layout_marginTop="@dimen/dp8h"
+        android:layout_marginStart="@dimen/dp5w"
+        android:layout_marginEnd="@dimen/dp6h"
+        />
+
+
+    <ImageView
+        android:id="@+id/iv_request_location"
+        android:layout_width="@dimen/dp5w"
+        android:layout_height="@dimen/dp7h"
+        android:src="@mipmap/ic_placeholder_outline"
+        android:layout_below="@+id/tv_car_type"
+        android:layout_marginStart="@dimen/dp6h"
+        android:layout_marginTop="@dimen/dp8h"
+        android:gravity="center_horizontal"
+        android:layout_centerVertical="true"
+        />
+
+    <com.elyeproj.loaderviewlibrary.LoaderTextView
+        android:id="@+id/tv_request_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="4.8sp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="normal"
+        android:textColor="@color/colorwhite"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="11.2sp"
+        android:text="@{pendingviewmodel.address}"
+        android:layout_below="@+id/tv_car_type"
+        android:layout_toEndOf="@+id/iv_request_location"
+        android:layout_marginTop="@dimen/dp8h"
+        android:layout_marginStart="@dimen/dp5w"
+        android:layout_marginEnd="@dimen/dp6h"
+        app:height_weight="0.8"
+        app:width_weight="0.9"
+        app:corners="8"
+        />
+
+    <ImageView
+        android:id="@+id/iv_calendar"
+        android:layout_width="@dimen/dp7h"
+        android:layout_height="@dimen/dp7h"
+        android:src="@mipmap/ic_calendar"
+        android:layout_below="@+id/tv_request_location"
+        android:layout_marginStart="@dimen/dp6h"
+        android:layout_marginTop="@dimen/dp8h"
+        android:gravity="center_horizontal"
+        android:layout_centerVertical="true"
+        />
+
+    <com.elyeproj.loaderviewlibrary.LoaderTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="4.8sp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="normal"
+        android:textColor="@color/colorwhite"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="11.2sp"
+
+        android:text="@{pendingviewmodel.date}"
+        android:layout_marginTop="@dimen/dp8h"
+        android:layout_marginStart="@dimen/dp5w"
+        android:layout_marginEnd="@dimen/dp6h"
+        app:height_weight="0.8"
+        app:width_weight="0.9"
+        app:corners="8"
+        android:layout_below="@+id/tv_request_location"
+        android:layout_toEndOf="@+id/iv_calendar"
+        />
+</RelativeLayout>
+</android.support.v7.widget.CardView>
+</layout>

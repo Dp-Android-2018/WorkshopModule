@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1456a6</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorBlueLight">#2974cf</color>
+    <color name="colorwhite">#fafafa</color>
+    <color name="colorgray">#4d4d4d</color>
+    <color name="colorBlue">#de216eb7</color>
+    <color name="grayColor">#989898</color>
+    <color name="dimgray">#6d6d6d</color>
+    <color name="bluecolor">#3498db</color>
+    <color name="colorwhitenormal">#defafafa</color>
+    <color name="colorblue">#9ac1db</color>
+    <color name="graycolor">#adadad</color>
+    <color name="greencolor">#27ae60</color>
+    <color name="blackcolor">#000000</color>
+    <color name="graybordercolor">#c7c7c7</color>
+    <color name="redColor">#e74c3c</color>
+    <color name="bluringRedColor">#e8aea7</color>
+    <color name="darkcolor">#144054</color>
+    <color name="cyancolor">#BFfbf6f6</color>
+    <color name="blacklightcolor">#515151</color>
+    <color name="bordercolor">#d2d2d2</color>
+    <color name="advertisment_toolbar_color">#212121</color>
+    <color name="advertisement_title_color">#28252e</color>
+    <color name="advertisment_border_color">#c1c1c1</color>
+    <color name="suncolor">#fad2ac</color>
+    <color name="orangecolor">#fa983a</color>
+    <color name="cardcolor">#dedede</color>
+    <color name="thirdblack">#cc4d4d4d</color>
+    <color name="chat_sender_color">#546e7a</color>
+    <color name="chat_reciever_color">#233b46</color>
+    <color name="graysecondary">#cacaca</color>
+</resources>

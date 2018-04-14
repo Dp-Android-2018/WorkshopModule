@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout  xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.ThirdStepRegisterViewModel"/>
+
+        <variable
+            name="satviewModel"
+            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.SaturdayViewModel"/>
+
+        <variable
+            name="sunviewModel"
+            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.SunDayViewModel"/>
+
+        <variable
+            name="monviewModel"
+            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.MonDayViewModel"/>
+
+        <variable
+            name="tueviewModel"
+            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.TuesdayViewModel"/>
+
+        <variable
+            name="wedviewModel"
+            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.WednesDayViewModel"/>
+
+        <variable
+            name="thuviewModel"
+            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.ThursDayViewModel"/>
+
+        <variable
+            name="friviewModel"
+            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.FriDayViewModel"/>
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_parent">
+
+    <TextView
+        android:id="@+id/tv_working_time_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="#1456a6"
+        android:text="@string/working_time"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp50h"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rl_working_time_saturday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_working_time_text"
+        android:layout_marginTop="@dimen/dp36h">
+
+
+    <EditText
+        android:layout_width="@dimen/dp60h"
+        android:layout_height="@dimen/dp15h"
+        android:background="@drawable/login_edittext_rounded_background"
+        android:layout_marginStart="@dimen/dp42h"
+        android:hint="@string/from"
+        android:gravity="center"
+        android:textColorHint="@color/colorPrimary"
+        android:focusable="false"
+        android:textSize="10sp"
+        android:afterTextChanged="@{satviewModel.onFromValueChanged}"
+        android:text="@={satviewModel.fromSat}"
+        android:onClick="@{satviewModel::showTimePickerFrom}"
+        android:fontFamily="sans-serif-medium"
+        android:layout_centerVertical="true"
+        android:textStyle="normal"
+        />
+
+        <EditText
+            android:layout_width="@dimen/dp60h"
+            android:layout_height="@dimen/dp15h"
+            android:background="@drawable/login_edittext_rounded_background"
+            android:layout_marginEnd="@dimen/dp42h"
+            android:layout_alignParentEnd="true"
+            android:hint="@string/to"
+            android:gravity="center"
+            android:focusable="false"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="10sp"
+            android:afterTextChanged="@{satviewModel.onToValueChanged}"
+            android:text="@={satviewModel.toSat}"
+            android:onClick="@{satviewModel::showTimePickerTo}"
+            android:fontFamily="sans-serif-medium"
+            android:layout_centerVertical="true"
+            android:textStyle="normal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13.3sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/colorwhite"
+            android:text="Sa"
+            android:layout_centerHorizontal="true"
+            android:background="@{satviewModel.checker? @drawable/circle_active_background:@drawable/circle_background}"
+            android:onClick="@{satviewModel::resetDay}"
+            android:gravity="center|center_vertical"
+            />
+    </RelativeLayout>
+    
+    <View
+        android:id="@+id/view1"
+        android:layout_width="@dimen/dp1w"
+        android:layout_height="335dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/rl_working_time_saturday"
+        android:layout_centerHorizontal="true"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_working_time_sun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_working_time_saturday"
+        android:layout_marginTop="@dimen/dp17w">
+
+
+        <EditText
+            android:layout_width="@dimen/dp60h"
+            android:layout_height="@dimen/dp15h"
+            android:background="@drawable/login_edittext_rounded_background"
+            android:layout_marginStart="@dimen/dp42h"
+            android:hint="@string/from"
+            android:gravity="center"
+            android:textColorHint="@color/colorPrimary"
+            android:focusable="false"
+            android:afterTextChanged="@{sunviewModel.onFromValueChanged}"
+            android:text="@={sunviewModel.fromSun}"
+            android:onClick="@{sunviewModel::showTimePickerFrom}"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_centerVertical="true"
+            android:textStyle="normal"/>
+
+        <EditText
+            android:layout_width="@dimen/dp60h"
+            android:layout_height="@dimen/dp15h"
+            android:background="@drawable/login_edittext_rounded_background"
+            android:layout_marginEnd="@dimen/dp42h"
+            android:layout_alignParentEnd="true"
+            android:hint="@string/to"
+            android:focusable="false"
+            android:gravity="center"
+            android:afterTextChanged="@{sunviewModel.onToValueChanged}"
+            android:text="@={sunviewModel.toSun}"
+            android:onClick="@{sunviewModel::showTimePickerTo}"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_centerVertical="true"
+            android:textStyle="normal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13.3sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/colorwhite"
+            android:text="Sa"
+            android:layout_centerHorizontal="true"
+            android:background="@{sunviewModel.checker? @drawable/circle_active_background:@drawable/circle_background}"
+            android:onClick="@{sunviewModel::resetDay}"
+            android:gravity="center|center_vertical"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+    android:id="@+id/rl_working_time_mon"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/rl_working_time_sun"
+    android:layout_marginTop="@dimen/dp17w">
+
+
+    <EditText
+        android:layout_width="@dimen/dp60h"
+        android:layout_height="@dimen/dp15h"
+        android:background="@drawable/login_edittext_rounded_background"
+        android:layout_marginStart="@dimen/dp42h"
+        android:hint="@string/from"
+        android:gravity="center"
+        android:focusable="false"
+        android:textColorHint="@color/colorPrimary"
+        android:afterTextChanged="@{monviewModel.onFromValueChanged}"
+        android:text="@={monviewModel.fromMon}"
+        android:onClick="@{monviewModel::showTimePickerFrom}"
+        android:textSize="10sp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_centerVertical="true"
+        android:textStyle="normal"/>
+
+    <EditText
+        android:layout_width="@dimen/dp60h"
+        android:layout_height="@dimen/dp15h"
+        android:background="@drawable/login_edittext_rounded_background"
+        android:layout_marginEnd="@dimen/dp42h"
+        android:layout_alignParentEnd="true"
+        android:hint="@string/to"
+        android:gravity="center"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="10sp"
+        android:focusable="false"
+        android:fontFamily="sans-serif-medium"
+        android:layout_centerVertical="true"
+        android:afterTextChanged="@{monviewModel.onToValueChanged}"
+        android:text="@={monviewModel.toMon}"
+        android:onClick="@{monviewModel::showTimePickerTo}"
+        android:textStyle="normal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13.3sp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="normal"
+        android:textColor="@color/colorwhite"
+        android:text="Sa"
+        android:layout_centerHorizontal="true"
+        android:background="@{monviewModel.checker? @drawable/circle_active_background:@drawable/circle_background}"
+        android:onClick="@{monviewModel::resetDay}"
+        android:gravity="center|center_vertical"
+        />
+</RelativeLayout>
+
+
+    
+    <RelativeLayout
+        android:id="@+id/rl_working_time_tue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_working_time_mon"
+        android:layout_marginTop="@dimen/dp17w">
+
+
+        <EditText
+            android:layout_width="@dimen/dp60h"
+            android:layout_height="@dimen/dp15h"
+            android:background="@drawable/login_edittext_rounded_background"
+            android:layout_marginStart="@dimen/dp42h"
+            android:hint="@string/from"
+            android:gravity="center"
+            android:textColorHint="@color/colorPrimary"
+            android:focusable="false"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_centerVertical="true"
+            android:textStyle="normal"
+            android:afterTextChanged="@{tueviewModel.onFromValueChanged}"
+            android:text="@={tueviewModel.fromTues}"
+            android:onClick="@{tueviewModel::showTimePickerFrom}"/>
+
+        <EditText
+            android:layout_width="@dimen/dp60h"
+            android:layout_height="@dimen/dp15h"
+            android:background="@drawable/login_edittext_rounded_background"
+            android:layout_marginEnd="@dimen/dp42h"
+            android:layout_alignParentEnd="true"
+            android:hint="@string/to"
+            android:focusable="false"
+            android:gravity="center"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_centerVertical="true"
+            android:textStyle="normal"
+            android:afterTextChanged="@{tueviewModel.onToValueChanged}"
+            android:text="@={tueviewModel.toTues}"
+            android:onClick="@{tueviewModel::showTimePickerTo}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13.3sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/colorwhite"
+            android:text="Sa"
+            android:layout_centerHorizontal="true"
+            android:background="@{tueviewModel.checker? @drawable/circle_active_background:@drawable/circle_background}"
+            android:onClick="@{tueviewModel::resetDay}"
+            android:gravity="center|center_vertical"
+            />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_working_time_wed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_working_time_tue"
+        android:layout_marginTop="@dimen/dp17w">
+
+
+        <EditText
+            android:layout_width="@dimen/dp60h"
+            android:layout_height="@dimen/dp15h"
+            android:background="@drawable/login_edittext_rounded_background"
+            android:layout_marginStart="@dimen/dp42h"
+            android:hint="@string/from"
+            android:gravity="center"
+            android:textColorHint="@color/colorPrimary"
+            android:focusable="false"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_centerVertical="true"
+            android:textStyle="normal"
+            android:afterTextChanged="@{wedviewModel.onFromValueChanged}"
+            android:text="@={wedviewModel.fromWed}"
+            android:onClick="@{wedviewModel::showTimePickerFrom}"/>
+
+        <EditText
+            android:layout_width="@dimen/dp60h"
+            android:layout_height="@dimen/dp15h"
+            android:background="@drawable/login_edittext_rounded_background"
+            android:layout_marginEnd="@dimen/dp42h"
+            android:layout_alignParentEnd="true"
+            android:hint="@string/to"
+            android:gravity="center"
+            android:focusable="false"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_centerVertical="true"
+            android:textStyle="normal"
+            android:afterTextChanged="@{wedviewModel.onToValueChanged}"
+            android:text="@={wedviewModel.toWed}"
+            android:onClick="@{wedviewModel::showTimePickerTo}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13.3sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/colorwhite"
+            android:text="Sa"
+            android:layout_centerHorizontal="true"
+            android:background="@{wedviewModel.checker? @drawable/circle_active_background:@drawable/circle_background}"
+            android:onClick="@{wedviewModel::resetDay}"
+            android:gravity="center|center_vertical"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_working_time_thu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_working_time_wed"
+        android:layout_marginTop="@dimen/dp17w">
+
+
+        <EditText
+            android:layout_width="@dimen/dp60h"
+            android:layout_height="@dimen/dp15h"
+            android:background="@drawable/login_edittext_rounded_background"
+            android:layout_marginStart="@dimen/dp42h"
+            android:hint="@string/from"
+            android:gravity="center"
+            android:textColorHint="@color/colorPrimary"
+            android:focusable="false"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_centerVertical="true"
+            android:textStyle="normal"
+            android:afterTextChanged="@{thuviewModel.onFromValueChanged}"
+            android:text="@={thuviewModel.fromThu}"
+            android:onClick="@{thuviewModel::showTimePickerFrom}"/>
+
+        <EditText
+            android:layout_width="@dimen/dp60h"
+            android:layout_height="@dimen/dp15h"
+            android:background="@drawable/login_edittext_rounded_background"
+            android:layout_marginEnd="@dimen/dp42h"
+            android:layout_alignParentEnd="true"
+            android:hint="@string/to"
+            android:gravity="center"
+            android:focusable="false"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_centerVertical="true"
+            android:textStyle="normal"
+            android:afterTextChanged="@{thuviewModel.onToValueChanged}"
+            android:text="@={thuviewModel.toThu}"
+            android:onClick="@{thuviewModel::showTimePickerTo}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13.3sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/colorwhite"
+            android:text="Sa"
+            android:layout_centerHorizontal="true"
+            android:background="@{thuviewModel.checker? @drawable/circle_active_background:@drawable/circle_background}"
+            android:onClick="@{thuviewModel::resetDay}"
+            android:gravity="center|center_vertical"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_working_time_fri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_working_time_thu"
+        android:layout_marginTop="@dimen/dp17w">
+
+
+        <EditText
+            android:layout_width="@dimen/dp60h"
+            android:layout_height="@dimen/dp15h"
+            android:background="@drawable/login_edittext_rounded_background"
+            android:layout_marginStart="@dimen/dp42h"
+            android:hint="@string/from"
+            android:gravity="center"
+            android:textColorHint="@color/colorPrimary"
+            android:focusable="false"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif-medium"
+            android:layout_centerVertical="true"
+            android:textStyle="normal"
+            android:afterTextChanged="@{friviewModel.onFromValueChanged}"
+            android:text="@={friviewModel.fromFri}"
+            android:onClick="@{friviewModel::showTimePickerFrom}"
+            />
+
+        <EditText
+            android:layout_width="@dimen/dp60h"
+            android:layout_height="@dimen/dp15h"
+            android:background="@drawable/login_edittext_rounded_background"
+            android:layout_marginEnd="@dimen/dp42h"
+            android:layout_alignParentEnd="true"
+            android:hint="@string/to"
+            android:gravity="center"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="10sp"
+            android:focusable="false"
+            android:fontFamily="sans-serif-medium"
+            android:layout_centerVertical="true"
+            android:textStyle="normal"
+            android:afterTextChanged="@{friviewModel.onToValueChanged}"
+            android:text="@={friviewModel.toFri}"
+            android:onClick="@{friviewModel::showTimePickerTo}"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13.3sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/colorwhite"
+            android:text="Sa"
+            android:layout_centerHorizontal="true"
+            android:background="@{friviewModel.checker? @drawable/circle_active_background:@drawable/circle_background}"
+            android:onClick="@{friviewModel::resetDay}"
+            android:gravity="center|center_vertical"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom">
+        <TextView
+            android:id="@+id/tv_specialization_next_step"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16.7sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/next_step"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dp15h"
+            android:onClick="@{viewModel::validate}"
+            />
+
+        <TextView
+            android:id="@+id/tv_specialization_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16.7sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/back"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="@dimen/dp15h"
+            android:onClick="@{viewModel::validate}"
+            />
+
+
+
+        <TextView
+            android:id="@+id/tv_specialization_num_of_steps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorgray"
+            android:layout_centerHorizontal="true"
+            android:text="@string/step_3_of_5"
+            android:layout_marginEnd="@dimen/dp15h"
+            android:layout_below="@+id/tv_sign_up_next_step"
+            android:layout_marginTop="@dimen/dp13h"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_specialization_num_of_steps"
+            android:layout_marginTop="@dimen/dp5h"
+            android:weightSum="5">
+
+            <View
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp9h"
+                android:background="@drawable/view_rectangle_step_background"
+                android:layout_marginEnd="@dimen/dp1h"/>
+
+            <View
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp9h"
+                android:background="@drawable/view_rectangle_step_background"
+                android:layout_marginEnd="@dimen/dp1h"/>
+
+            <View
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp9h"
+                android:background="@drawable/view_rectangle_step_background"
+                android:layout_marginEnd="@dimen/dp1h"/>
+
+            <View
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp9h"
+                android:background="@drawable/view_rectangle_step_disactive_background"
+                android:layout_marginEnd="@dimen/dp1h"/>
+
+            <View
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp9h"
+                android:background="@drawable/view_rectangle_step_disactive_background"
+                android:layout_marginEnd="@dimen/dp1h"/>
+        </LinearLayout
+
+            >
+    </RelativeLayout>
+
+</RelativeLayout>
+</layout>

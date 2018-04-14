@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<data>
+    <variable
+        name="inprogressdetailviewmodel"
+        type="com.example.dell.workshopmodule.viewmodel.InProgressDetail.InProgressrequestDetailViewModel"/>
+</data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_parent"
+    android:background="@color/colorwhite">
+    <include layout="@layout/toolbar_layout"
+        android:id="@+id/toolbar"/>
+
+    <ss.com.bannerslider.views.BannerSlider
+        android:id="@+id/banner_slider1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp182h"
+        android:layout_below="@+id/toolbar"
+        app:interval="5000"
+        app:loopSlides="true"
+        app:defaultIndicators="circle"
+        app:defaultBanner="1"
+        app:animateIndicators="true"
+        app:indicatorSize="8dp"
+        bind:setBanners="@{inprogressdetailviewmodel.remoteBanners}"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_normal_request"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp42h"
+        android:layoutDirection="ltr"
+        app:tabGravity="fill"
+        android:background="@drawable/tab_normal_requests_background"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        android:layout_marginTop="@dimen/dp12h"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginEnd="@dimen/dp15h"
+        app:tabIndicatorColor="@android:color/transparent"
+        app:tabPaddingStart="-1dp"
+        app:tabPaddingEnd="-1dp"
+        app:tabSelectedTextColor="@color/colorwhite"
+        app:tabTextAppearance="@style/TabLayoutTextStyle"
+        app:tabTextColor="@color/colorwhite"
+        android:layout_below="@+id/banner_slider1"
+        />
+
+
+    <android.support.v4.view.ViewPager
+
+        android:id="@+id/viewpager_normal_requests"
+        android:layout_below="@+id/tab_normal_request"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp34w"
+        android:layout_alignParentBottom="true"
+        android:background="@color/greencolor"
+        android:text="@string/complete_the_fixation"
+        android:textAllCaps="false"
+        android:textColor="@color/colorwhite"
+        android:textSize="15sp"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="normal"
+        android:onClick="@{inprogressdetailviewmodel::completeRequest}"/>
+</RelativeLayout>
+</layout>

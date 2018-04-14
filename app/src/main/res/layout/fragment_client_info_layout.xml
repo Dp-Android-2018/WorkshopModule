@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+
+        android:id="@+id/iv_car_owner_image"
+        android:layout_width="@dimen/dp63h"
+        android:layout_height="@dimen/dp63h"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp22w"
+        android:src="@drawable/ic_launcher_background"
+        />
+
+    <TextView
+        android:id="@+id/tv_car_owner_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15.2sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/bluecolor"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/iv_car_owner_image"
+        android:layout_marginTop="@dimen/dp12w"
+       android:text="Mohamed Ahmed"
+        />
+    <TextView
+        android:id="@+id/tv_car_owner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/graycolor"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/tv_car_owner_name"
+        android:text="@string/car_owner"
+        />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1h"
+        android:layout_below="@+id/tv_car_owner"
+        android:background="@color/graybordercolor"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginEnd="@dimen/dp14w"
+        android:layout_marginTop="@dimen/dp11w"/>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/view1"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp18w">
+
+        <Button
+            android:layout_width="@dimen/dp123h"
+            android:layout_height="@dimen/dp32h"
+            android:layout_marginTop="@dimen/dp14h"
+            android:layout_marginBottom="@dimen/dp14h"
+            android:layout_below="@+id/tv_request_need_winch"
+            android:background="@drawable/client_info_button_background"
+            android:layout_centerHorizontal="true"
+            android:text="@string/show_location"
+            android:textColor="@color/bluecolor"
+            android:textSize="11.7sp"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:layout_marginEnd="@dimen/dp9w"
+           />
+
+        <Button
+            android:layout_width="@dimen/dp123h"
+            android:layout_height="@dimen/dp32h"
+            android:layout_marginTop="@dimen/dp14h"
+            android:layout_marginBottom="@dimen/dp14h"
+            android:layout_below="@+id/tv_request_need_winch"
+            android:background="@drawable/client_info_button_background"
+            android:layout_centerHorizontal="true"
+            android:text="@string/start_chat"
+            android:textColor="@color/bluecolor"
+            android:textSize="11.7sp"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            />
+    </LinearLayout>
+</RelativeLayout>

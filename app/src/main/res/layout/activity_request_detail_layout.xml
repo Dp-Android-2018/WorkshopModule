@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="requestDetailViewModel"
+            type="com.example.dell.workshopmodule.viewmodel.PublishedRequestDetail.RequestDetailViewModel"/>
+    </data>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/sv_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:background="@color/colorwhite">
+
+            <include layout="@layout/toolbar_layout"
+                android:id="@+id/toolbar"/>
+
+            <ss.com.bannerslider.views.BannerSlider
+                android:id="@+id/banner_slider1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp182h"
+                android:layout_below="@+id/toolbar"
+                app:interval="5000"
+                app:loopSlides="true"
+                app:defaultIndicators="circle"
+                app:defaultBanner="1"
+                app:animateIndicators="true"
+                app:indicatorSize="8dp"
+                bind:setBanners="@{requestDetailViewModel.remoteBanners}"/>
+
+            <TextView
+                android:id="@+id/tv_offer_added"
+                android:layout_below="@+id/banner_slider1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-black"
+                android:textStyle="normal"
+                android:textColor="@color/greencolor"
+                android:lineSpacingExtra="3.3sp"
+                android:gravity="center_horizontal"
+                android:text="@string/you_added_an_offer_to_this_car"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp12w"
+                    android:visibility="@{requestDetailViewModel.requestDetailType==215 ? View.VISIBLE : View.GONE}"
+                />
+            <TextView
+                android:id="@+id/tv_offer_added_2"
+                android:layout_below="@+id/tv_offer_added"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+
+                android:fontFamily="sans-serif-black"
+                android:textStyle="normal"
+                android:textColor="@color/greencolor"
+                android:lineSpacingExtra="3.3sp"
+                android:gravity="center_horizontal"
+                android:text="@string/wait_the_client_accepts_you"
+                android:layout_centerHorizontal="true"
+                android:visibility="@{requestDetailViewModel.requestDetailType==215 ? View.VISIBLE : View.GONE}"
+                />
+
+
+            <ImageView
+
+                android:layout_toEndOf="@+id/tv_offer_added"
+                android:id="@+id/iv_delete_offer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_border_color_black_24dp"
+                android:layout_centerInParent="true"
+
+                android:tint="@color/bluecolor"
+                android:layout_marginStart="@dimen/dp17w"
+
+
+                />
+
+            <ImageView
+                android:layout_below="@+id/tv_offer_added_2"
+                android:id="@+id/iv_request_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_wrench"
+
+                android:tint="@color/bluecolor"
+                android:layout_marginStart="@dimen/dp17w"
+                android:layout_marginTop="@dimen/dp15h"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_request_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_offer_added_2"
+                android:layout_toEndOf="@+id/iv_request_title"
+                android:textSize="17.3sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="@color/bluecolor"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="-5.2sp"
+                android:gravity="center_horizontal"
+                android:text='@{requestDetailViewModel.specialization!=null ? requestDetailViewModel.specialization:""}'
+                android:layout_marginStart="@dimen/dp11w"
+                android:layout_marginTop="@dimen/dp13h"
+                android:layout_marginEnd="@dimen/dp5h"
+
+                />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1h"
+                android:layout_below="@+id/tv_request_title"
+                android:background="@color/graybordercolor"
+                android:layout_marginStart="@dimen/dp17w"
+                android:layout_marginEnd="@dimen/dp14w"
+                android:layout_marginTop="@dimen/dp11w"/>
+
+            <ImageView
+                android:layout_below="@+id/view1"
+                android:id="@+id/iv_car_type"
+                android:layout_width="@dimen/dp13w"
+                android:layout_height="@dimen/dp7h"
+                android:src="@mipmap/ic_sedan"
+
+                android:tint="@color/bluecolor"
+                android:layout_marginStart="@dimen/dp17w"
+                android:layout_marginTop="@dimen/dp17h"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_request_car_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view1"
+                android:layout_toEndOf="@+id/iv_car_type"
+                android:textSize="15.2sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="@color/bluecolor"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="-5.2sp"
+                android:gravity="center_horizontal"
+                android:text='@{requestDetailViewModel.CarInfo()!=null ? requestDetailViewModel.CarInfo():""}'
+                android:layout_marginStart="@dimen/dp11w"
+                android:layout_marginTop="@dimen/dp12h"
+                android:layout_marginEnd="@dimen/dp5h"
+
+                />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1h"
+                android:layout_below="@+id/tv_request_car_type"
+                android:background="@color/graybordercolor"
+                android:layout_marginStart="@dimen/dp17w"
+                android:layout_marginEnd="@dimen/dp14w"
+                android:layout_marginTop="@dimen/dp11w"/>
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:layout_below="@+id/view2"
+                android:fontFamily="sans-serif-black"
+                android:textStyle="normal"
+                android:textColor="@color/graycolor"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/description"
+                android:layout_marginStart="@dimen/dp17w"
+                android:layout_marginTop="@dimen/dp12h"
+                />
+            <EditText
+                android:id="@+id/et_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_description"
+                android:layout_marginStart="@dimen/dp17w"
+                android:layout_marginEnd="@dimen/dp14w"
+                android:textColor="@color/bluecolor"
+                android:textSize="10sp"
+                android:layout_marginTop="@dimen/dp3h"
+                android:fontFamily="sans-serif-black"
+                android:textStyle="normal"
+                android:background="@drawable/gray_edittext_background"
+                android:padding="@dimen/dp3h"
+                android:enabled="false"
+                android:focusable="false"
+                android:text='@{requestDetailViewModel.desc!=null ? requestDetailViewModel.desc:""}'
+                />
+
+
+            <ImageView
+                android:layout_below="@+id/et_description"
+                android:id="@+id/iv_request_location"
+                android:layout_width="@dimen/dp9h"
+                android:layout_height="@dimen/dp13w"
+                android:src="@mipmap/ic_placeholder_outline"
+
+                android:tint="@color/bluecolor"
+                android:layout_marginStart="@dimen/dp17w"
+                android:layout_marginTop="@dimen/dp13h"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_request_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/et_description"
+                android:layout_toEndOf="@+id/iv_request_location"
+                android:textSize="10.8sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="@color/bluecolor"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="-5.2sp"
+                android:gravity="center_horizontal"
+                android:text='@{requestDetailViewModel.address !=null ? requestDetailViewModel.address:""}'
+                android:layout_marginStart="@dimen/dp11w"
+                android:layout_marginTop="@dimen/dp13h"
+                android:layout_marginEnd="@dimen/dp5h"
+
+                />
+
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1h"
+                android:layout_below="@+id/tv_request_location"
+                android:background="@color/graybordercolor"
+                android:layout_marginStart="@dimen/dp17w"
+                android:layout_marginEnd="@dimen/dp14w"
+                android:layout_marginTop="@dimen/dp11w"/>
+
+
+
+            <ImageView
+                android:layout_below="@+id/view3"
+                android:id="@+id/iv_request_time"
+                android:layout_width="@dimen/dp12w"
+                android:layout_height="@dimen/dp13w"
+                android:src="@mipmap/ic_calendar"
+
+                android:tint="@color/bluecolor"
+                android:layout_marginStart="@dimen/dp17w"
+                android:layout_marginTop="@dimen/dp13h"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_request_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view3"
+                android:layout_toEndOf="@+id/iv_request_time"
+                android:textSize="10.8sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="@color/bluecolor"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="-5.2sp"
+                android:gravity="center_horizontal"
+                android:text='@{requestDetailViewModel.date!=null ? requestDetailViewModel.date:""}'
+                android:layout_marginStart="@dimen/dp11w"
+                android:layout_marginTop="@dimen/dp13h"
+                android:layout_marginEnd="@dimen/dp5h"
+
+                />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1h"
+                android:layout_below="@+id/tv_request_time"
+                android:background="@color/graybordercolor"
+                android:layout_marginStart="@dimen/dp17w"
+                android:layout_marginEnd="@dimen/dp14w"
+                android:layout_marginTop="@dimen/dp11w"/>
+
+
+
+            <ImageView
+                android:layout_below="@+id/view4"
+                android:id="@+id/iv_request_need_winch"
+                android:layout_width="@dimen/dp12w"
+                android:layout_height="@dimen/dp13w"
+                android:src="@mipmap/ic_calendar"
+
+                android:tint="@color/bluecolor"
+                android:layout_marginStart="@dimen/dp17w"
+                android:layout_marginTop="@dimen/dp13h"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_request_need_winch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view4"
+                android:layout_toEndOf="@+id/iv_request_time"
+                android:textSize="10.8sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="@color/bluecolor"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="-5.2sp"
+                android:gravity="center_horizontal"
+                android:text='@{requestDetailViewModel.needWinch()!=null ? requestDetailViewModel.needWinch():""}'
+                android:layout_marginStart="@dimen/dp11w"
+                android:layout_marginTop="@dimen/dp13h"
+                android:layout_marginEnd="@dimen/dp5h"
+
+                />
+
+
+            <Button
+                android:layout_width="@dimen/dp123h"
+                android:layout_height="@dimen/dp32h"
+                android:layout_marginTop="@dimen/dp14h"
+                android:layout_marginBottom="@dimen/dp14h"
+                android:layout_below="@+id/tv_request_need_winch"
+                android:background="@drawable/button_location_background"
+                android:layout_centerHorizontal="true"
+                android:text="@string/show_location"
+                android:textColor="@color/colorwhite"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-black"
+                android:textStyle="normal"
+                android:textAllCaps="false"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="@dimen/dp255w"
+                android:layout_height="@dimen/dp41h"
+                android:layout_below="@+id/tv_request_need_winch"
+                android:layout_marginTop="@dimen/dp14h"
+                android:layout_marginBottom="@dimen/dp9h"
+                android:background="@drawable/relative_request_detail_background"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+
+                    android:background="@android:color/transparent"
+                    android:text="@string/show_location"
+                    android:textColor="@color/colorwhite"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-black"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    android:onClick="@{requestDetailViewModel::navigate}"
+                    />
+
+                <View
+                    android:layout_width="@dimen/dp1h"
+                    android:layout_height="@dimen/dp18w"
+                    android:background="@color/colorwhite"
+                    android:layout_gravity="center"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text='@{requestDetailViewModel.requestDetailType==214? @string/add_offer:@string/update_offer }'
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/colorwhite"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-black"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    android:onClick="@{requestDetailViewModel::displayDialog}"
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</layout>

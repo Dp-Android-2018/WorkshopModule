@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="itemViewModel"
+            type="com.example.dell.workshopmodule.viewmodel.CustomDialogItemViewModel"/>
+
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:id="@+id/rl_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp10w"
+    android:layout_marginEnd="@dimen/dp10w"
+    android:layout_marginTop="@dimen/dp10h">
+
+
+
+
+
+    <TextView
+        android:id="@+id/tv_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{itemViewModel.itemName}"
+        android:layout_marginStart="@dimen/dp10w"
+        android:layout_centerVertical="true"
+        />
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:buttonTint="@color/colorPrimary"
+        android:checked="@{itemViewModel.checked}"
+        android:onClick="@{itemViewModel::setCheckedListener}"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/dp10h"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@+id/checkbox"
+        android:layout_marginStart="@dimen/dp25w"
+        android:layout_marginEnd="@dimen/dp25w"/>
+
+</RelativeLayout>
+</layout>

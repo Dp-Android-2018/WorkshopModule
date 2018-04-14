@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/toolbar_layout"
+        android:id="@+id/toolbar"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/rv_chat"
+        android:layout_marginTop="@dimen/dp15h"
+        tools:listitem="@layout/item_chat_layout"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp41h"
+        android:background="@drawable/relative_chat_background"
+        android:layout_marginTop="@dimen/dp6h"
+        android:paddingStart="@dimen/dp12h"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp9h"
+        android:layout_marginStart="@dimen/dp7h"
+        android:layout_marginEnd="@dimen/dp7h"
+        android:paddingEnd="@dimen/dp12h">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_group"
+            android:tint="@color/colorwhite"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp20h"
+            android:layout_marginBottom="@dimen/dp15h"
+            android:textSize="11.7sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorwhite"
+            android:textColorHint="@color/colorwhite"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:hint="@string/type_your_message_here"
+            />
+    </RelativeLayout>
+</RelativeLayout>

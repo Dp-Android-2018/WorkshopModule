@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+<data>
+    <variable
+        name="viewmodel"
+        type="com.example.dell.workshopmodule.viewmodel.CountryItemViewModel"/>
+</data>
+
+<RelativeLayout
+     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dp19h"
+    android:id="@+id/rl_parent"
+    android:onClick="@{viewmodel::onItemClicked}">
+
+    <TextView
+        android:id="@+id/tv_item_country_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16.7sp"
+        android:textColor="@color/dimgray"
+        android:lineSpacingExtra="-8.7sp"
+        android:text="@{viewmodel.countryName}"
+        android:layout_marginStart="@dimen/dp31h"
+        android:gravity="center"
+
+        />
+
+    <ImageView
+        android:id="@+id/iv_item_country_flag"
+        android:layout_width="@dimen/dp26h"
+        android:layout_height="@dimen/dp16h"
+        android:layout_alignParentEnd="true"
+       bind:imageUrl="@{viewmodel.countryPic}"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="@dimen/dp10h"
+
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1h"
+        android:background="@color/grayColor"
+        android:layout_marginTop="@dimen/dp20h"
+        android:layout_below="@+id/tv_item_country_name"
+        />
+</RelativeLayout>
+
+</layout>

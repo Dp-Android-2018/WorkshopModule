@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<data>
+    <variable
+        name="offerViewModel"
+        type="com.example.dell.workshopmodule.viewmodel.OfferInfoViewModel"/>
+</data>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_parent">
+
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="normal"
+        android:textColor="@color/graycolor"
+        android:lineSpacingExtra="4sp"
+        android:text="@string/description"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginTop="@dimen/dp12h"
+        />
+    <EditText
+        android:id="@+id/et_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_description"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginEnd="@dimen/dp14w"
+        android:textColor="@color/bluecolor"
+        android:textSize="10sp"
+        android:layout_marginTop="@dimen/dp3h"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="normal"
+        android:background="@drawable/gray_edittext_background"
+        android:padding="@dimen/dp3h"
+        android:enabled="false"
+        android:focusable="false"
+        android:text='@{offerViewModel.offerDesc!=null ? offerViewModel.offerDesc:""}'
+        />
+
+
+    <ImageView
+        android:layout_below="@+id/et_description"
+        android:id="@+id/iv_request_location"
+        android:layout_width="@dimen/dp13h"
+        android:layout_height="@dimen/dp13w"
+        android:src="@mipmap/ic_wallet"
+
+        android:tint="@color/bluecolor"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginTop="@dimen/dp13h"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_request_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_description"
+        android:layout_toEndOf="@+id/iv_request_location"
+        android:textSize="15.2sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/bluecolor"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="-5.2sp"
+        android:gravity="center_horizontal"
+        android:text='@{offerViewModel.salaryRange!=null ? offerViewModel.salaryRange:""}'
+        android:layout_marginStart="@dimen/dp11w"
+        android:layout_marginTop="@dimen/dp13h"
+        android:layout_marginEnd="@dimen/dp5h"
+
+        />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1h"
+        android:layout_below="@+id/tv_request_location"
+        android:background="@color/graybordercolor"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginEnd="@dimen/dp14w"
+        android:layout_marginTop="@dimen/dp11w"/>
+
+
+
+    <ImageView
+        android:layout_below="@+id/view3"
+        android:id="@+id/iv_request_time"
+        android:layout_width="@dimen/dp13h"
+        android:layout_height="@dimen/dp13w"
+        android:src="@mipmap/ic_calendar"
+
+        android:tint="@color/bluecolor"
+        android:layout_marginStart="@dimen/dp17w"
+        android:layout_marginTop="@dimen/dp13h"
+
+        />
+
+    <TextView
+        android:id="@+id/tv_request_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view3"
+        android:layout_toEndOf="@+id/iv_request_time"
+        android:textSize="15.2sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/bluecolor"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="-5.2sp"
+        android:gravity="center_horizontal"
+        android:text='@{offerViewModel.periodRange!=null ? offerViewModel.periodRange:""}'
+        android:layout_marginStart="@dimen/dp11w"
+        android:layout_marginTop="@dimen/dp13h"
+        android:layout_marginEnd="@dimen/dp5h"
+
+        />
+</RelativeLayout>
+</layout>

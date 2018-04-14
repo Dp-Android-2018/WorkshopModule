@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="progressViewModel"
+            type="com.example.dell.workshopmodule.viewmodel.HappeningNow.ItemRequestViewModel"/>
+    </data>
+
+
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp83w"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="@dimen/dp16h"
+    android:layout_marginEnd="@dimen/dp16h"
+    android:layout_marginBottom="@dimen/dp12h"
+    android:id="@+id/cv_parent"
+    app:cardCornerRadius="@dimen/dp6h"
+    android:onClick="@{progressViewModel::moveToInProgressDetailPage}">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent">
+
+        <com.elyeproj.loaderviewlibrary.LoaderImageView
+            android:id="@+id/iv_request"
+            android:layout_width="@dimen/dp126h"
+            android:layout_height="@dimen/dp73w"
+            app:height_weight="0.8"
+            app:width_weight="0.4"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY"
+            />
+        
+        <RelativeLayout
+            android:id="@+id/rl_request_data"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp73w"
+            android:layout_toEndOf="@+id/iv_request"
+            android:background="@color/bluecolor">
+
+        <ImageView
+            android:id="@+id/iv_request_title"
+            android:layout_width="@dimen/dp9w"
+            android:layout_height="@dimen/dp9w"
+            android:src="@mipmap/ic_wrench"
+
+            android:layout_marginStart="@dimen/dp11w"
+            android:layout_marginTop="@dimen/dp6h"
+            />
+
+        <com.elyeproj.loaderviewlibrary.LoaderTextView
+            android:id="@+id/tv_request_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13.3sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorwhite"
+            android:letterSpacing="0.01"
+            android:lineSpacingExtra="-3.8sp"
+            android:layout_toEndOf="@+id/iv_request_title"
+            android:text="@{progressViewModel.requestTitle}"
+            android:layout_marginStart="@dimen/dp8w"
+            android:layout_marginTop="@dimen/dp4h"
+            android:layout_marginEnd="@dimen/dp3h"
+            app:height_weight="0.8"
+            app:width_weight="0.9"
+            app:corners="8"
+            />
+
+
+       <ImageView
+            android:id="@+id/iv_car_type"
+            android:layout_width="@dimen/dp9w"
+            android:layout_height="@dimen/dp5w"
+            android:src="@mipmap/ic_sedan"
+            android:layout_below="@+id/tv_request_title"
+
+           android:layout_marginStart="@dimen/dp11w"
+           android:layout_marginTop="@dimen/dp7h"
+           />
+
+        <com.elyeproj.loaderviewlibrary.LoaderTextView
+            android:id="@+id/tv_car_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11.7sp"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="bold"
+            android:textColor="@color/colorwhite"
+            android:letterSpacing="0.01"
+            android:lineSpacingExtra="-3.8sp"
+            app:height_weight="0.8"
+            app:width_weight="0.9"
+            app:corners="8"
+            android:layout_toEndOf="@+id/iv_car_type"
+            android:layout_below="@+id/tv_request_title"
+            android:text="@{progressViewModel.carType}"
+            android:layout_marginTop="@dimen/dp5h"
+            android:layout_marginStart="@dimen/dp8w"
+            android:layout_marginEnd="@dimen/dp3h"
+            />
+
+
+        <ImageView
+            android:id="@+id/iv_request_location"
+            android:layout_width="@dimen/dp7w"
+            android:layout_height="@dimen/dp9h"
+            android:src="@mipmap/ic_placeholder_outline"
+            android:layout_below="@+id/tv_car_type"
+
+            android:layout_marginStart="@dimen/dp11w"
+            android:layout_marginTop="@dimen/dp7h"
+
+
+            />
+
+        <com.elyeproj.loaderviewlibrary.LoaderTextView
+            android:id="@+id/tv_request_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8.3sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/colorwhite"
+            android:letterSpacing="0.01"
+            android:lineSpacingExtra="11.2sp"
+            android:text="@{progressViewModel.address}"
+            android:layout_below="@+id/tv_car_type"
+            android:layout_toEndOf="@+id/iv_request_location"
+            android:layout_marginTop="@dimen/dp5h"
+            android:layout_marginStart="@dimen/dp8w"
+            android:layout_marginEnd="@dimen/dp3h"
+            app:height_weight="0.8"
+            app:width_weight="0.9"
+            app:corners="8"
+            />
+
+        <ImageView
+            android:id="@+id/iv_calendar"
+            android:layout_width="@dimen/dp9w"
+            android:layout_height="@dimen/dp9w"
+            android:src="@mipmap/ic_calendar"
+            android:layout_below="@+id/tv_request_location"
+            android:gravity="center_horizontal"
+
+            android:layout_marginStart="@dimen/dp11w"
+            android:layout_marginTop="@dimen/dp7h"
+            />
+
+        <com.elyeproj.loaderviewlibrary.LoaderTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8.3sp"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/colorwhite"
+            android:letterSpacing="0.01"
+            android:lineSpacingExtra="11.2sp"
+            android:text="@{progressViewModel.date}"
+            android:layout_marginTop="@dimen/dp5h"
+            android:layout_marginStart="@dimen/dp8w"
+            android:layout_marginEnd="@dimen/dp3h"
+            android:layout_below="@+id/tv_request_location"
+            android:layout_toEndOf="@+id/iv_calendar"
+            app:height_weight="0.8"
+            app:width_weight="0.9"
+            app:corners="8"
+            />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/rl_request_data">
+        <ProgressBar
+            android:id="@+id/myprogressbar"
+
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:progress="55"
+            android:progressDrawable="@drawable/custom_progress_bar_background"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="7sp"
+                android:fontFamily="sans-serif-black"
+                android:textStyle="normal"
+                android:textColor="@color/colorgray"
+                android:text="33%"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+</layout>

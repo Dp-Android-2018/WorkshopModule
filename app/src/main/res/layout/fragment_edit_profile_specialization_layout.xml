@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<data>
+    <variable
+        name="viewmodel"
+        type="com.example.dell.workshopmodule.viewmodel.EditProfileSpecializationViewModel"/>
+</data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/dp15h"
+    android:paddingStart="@dimen/dp16w"
+    android:paddingEnd="@dimen/dp16w"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13.2sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/graycolor"
+        android:gravity="start"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="7sp"
+        android:text="@string/brands"
+        />
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60h"
+        android:background="@color/suncolor"
+        android:layout_marginTop="@dimen/dp6h"
+        android:paddingStart="@dimen/dp12h"
+        android:paddingEnd="@dimen/dp12h">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_group"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp20h"
+            android:textSize="13.2sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorgray"
+            android:textColorHint="@color/colorgray"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:editable="false"
+            android:focusable="false"
+            android:text="@={viewmodel.brands}"
+            />
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13.2sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/graycolor"
+        android:layout_marginTop="@dimen/dp20w"
+        android:gravity="start"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="7sp"
+        android:text="@string/specialization"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60h"
+        android:background="@color/suncolor"
+        android:layout_marginTop="@dimen/dp6h"
+        android:paddingStart="@dimen/dp12h"
+        android:paddingEnd="@dimen/dp12h">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_group"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp20h"
+            android:textSize="13.2sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorgray"
+            android:textColorHint="@color/colorgray"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:editable="false"
+            android:focusable="false"
+            android:text="@={viewmodel.specialization}"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13.2sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/graycolor"
+        android:gravity="start"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="7sp"
+        android:text="@string/uregnt_request"
+        android:layout_marginTop="@dimen/dp20w"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60h"
+        android:background="@color/suncolor"
+        android:layout_marginTop="@dimen/dp6h"
+        android:paddingStart="@dimen/dp12h"
+        android:paddingEnd="@dimen/dp12h">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_group"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/dp20h"
+            android:textSize="13.2sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorgray"
+            android:textColorHint="@color/colorgray"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:editable="false"
+            android:focusable="false"
+            android:text="@={viewmodel.urgentRequest}"
+            />
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="@dimen/dp146h"
+        android:layout_height="@dimen/dp41w"
+        android:layout_marginTop="@dimen/dp56h"
+
+        android:layout_marginBottom="@dimen/dp36h"
+        android:background="@drawable/button_edit_profile_background"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/submit"
+        android:textColor="@color/colorwhite"
+
+        android:textSize="15sp"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="normal"
+        android:textAllCaps="false"
+        />
+
+</LinearLayout>
+</layout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="requestviewModel"
+            type="com.example.dell.workshopmodule.viewmodel.HappeningNow.CurrentRequestsViewModel"/>
+    </data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ll_parent"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/dp45h"
+    android:paddingStart="@dimen/dp16w"
+    android:paddingEnd="@dimen/dp16w">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13.3sp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="normal"
+        android:textColor="@color/graycolor"
+        android:gravity="center_horizontal"
+        android:text="@string/current_request"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_current_requests"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp190h"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/dp8h"
+        bind:request="@{requestviewModel.normalRequest}"
+        tools:listitem="@layout/item_current_requests_layout"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp36h"
+        android:textSize="13.3sp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="normal"
+        android:textColor="@color/graycolor"
+        android:gravity="center_horizontal"
+        android:text="@string/sent_offers"
+
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_requsts_with_offers"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp111w"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/dp12h"
+        bind:pendingrequest="@{requestviewModel.pendingRequest}"
+        tools:listitem="@layout/item_sent_offers_requests_layout"
+        />
+</LinearLayout>
+</layout>

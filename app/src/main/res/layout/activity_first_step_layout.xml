@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="FirstStepRegisterViewModel"
+            type="com.example.dell.workshopmodule.viewmodel.FirstStepRegistration.FirstStepRegisterViewModel"/>
+
+        <variable
+            name="FirstStepValidation"
+            type="com.example.dell.workshopmodule.viewmodel.FirstStepRegistration.FirstStepRegisterValidations"/>
+    </data>
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scroll_view_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{FirstStepRegisterViewModel.progressDialog}"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_sign_up_workshop_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp50h"
+                android:fontFamily="sans-serif"
+                android:text="Workshop Data"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_workshop_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_sign_up_workshop_data"
+                android:layout_marginEnd="@dimen/dp20h"
+                android:layout_marginStart="@dimen/dp20h"
+                android:layout_marginTop="@dimen/dp30h"
+                android:textColorHint="@color/colorPrimary"
+                bind:errorText="@{FirstStepValidation.workshopNameError}"
+               >
+
+                <EditText
+                    android:id="@+id/et_sign_up_workshop_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp35h"
+
+                    android:layout_marginTop="@dimen/dp5h"
+                    android:background="@drawable/login_edittext_rounded_background"
+                    android:hint="@string/workshop_name"
+                    android:inputType="text"
+                    android:paddingStart="@dimen/dp15h"
+                    android:paddingEnd="@dimen/dp5w"
+                    android:text="@={FirstStepRegisterViewModel.workshopName}"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_sign_up_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/input_layout_workshop_name"
+                android:layout_marginEnd="@dimen/dp20h"
+                android:layout_marginStart="@dimen/dp20h"
+                android:layout_marginTop="@dimen/dp13h"
+                android:textColorHint="@color/colorPrimary"
+                bind:errorText="@{FirstStepValidation.emaildError}">
+
+                <EditText
+                    android:id="@+id/et_sign_up_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp35h"
+                    android:layout_gravity="center"
+                    android:afterTextChanged="@{FirstStepRegisterViewModel.onEmailChanged}"
+                    android:background="@drawable/login_edittext_rounded_background"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress"
+                    android:paddingStart="@dimen/dp15h"
+                    android:text="@={FirstStepRegisterViewModel.email}"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary"
+
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_sign_up_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/input_layout_sign_up_email"
+                android:layout_marginEnd="@dimen/dp20h"
+                android:layout_marginStart="@dimen/dp20h"
+                android:layout_marginTop="@dimen/dp13h"
+                android:textColorHint="@color/colorPrimary"
+                bind:errorText="@{FirstStepValidation.passwordError}">
+
+                <EditText
+                    android:id="@+id/et_sign_up_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp35h"
+                    android:layout_gravity="center"
+                    android:background="@drawable/login_edittext_rounded_background"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:afterTextChanged="@{FirstStepRegisterViewModel.onPasswordChanged}"
+                    android:paddingStart="@dimen/dp15h"
+                    android:text="@={FirstStepRegisterViewModel.password}"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_sign_up_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/input_layout_sign_up_password"
+                android:layout_marginEnd="@dimen/dp20h"
+                android:layout_marginStart="@dimen/dp20h"
+                android:layout_marginTop="@dimen/dp13h"
+                android:textColorHint="@color/colorPrimary"
+                bind:errorText="@{FirstStepValidation.passwordConfirmationError}">
+
+                <EditText
+                    android:id="@+id/et_sign_up_confirm_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp35h"
+                    android:layout_gravity="center"
+
+                    android:background="@drawable/login_edittext_rounded_background"
+                    android:hint="@string/confirm_password"
+                    android:inputType="textPassword"
+                    android:paddingStart="@dimen/dp15h"
+                    android:afterTextChanged="@{FirstStepRegisterViewModel.onConfirmPasswordChanged}"
+                    android:text="@={FirstStepRegisterViewModel.confirmpassword}"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_sign_up_workshop_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/input_layout_sign_up_confirm_password"
+                android:layout_marginEnd="@dimen/dp20h"
+                android:layout_marginStart="@dimen/dp20h"
+                android:layout_marginTop="@dimen/dp13h"
+                android:textColorHint="@color/colorPrimary"
+                bind:errorText="@{FirstStepValidation.workshopPhoneError}">
+
+                <EditText
+                    android:id="@+id/et_sign_up_workshop_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp35h"
+                    android:layout_gravity="center"
+                    android:background="@drawable/login_edittext_rounded_background"
+                    android:hint="@string/workshop_phone"
+                    android:inputType="phone"
+                    android:paddingStart="@dimen/dp15h"
+                    android:afterTextChanged="@{FirstStepRegisterViewModel.onMobileChanged}"
+                    android:text="@={FirstStepRegisterViewModel.workshopPhone}"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_sign_up_country"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp35h"
+                android:layout_below="@+id/input_layout_sign_up_workshop_phone"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/dp20h"
+                android:layout_marginStart="@dimen/dp20h"
+                android:layout_marginTop="@dimen/dp20h"
+                android:background="@drawable/login_edittext_rounded_background"
+                android:onClick="@{FirstStepRegisterViewModel::showDialog}"
+                android:paddingStart="@dimen/dp15h">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center_vertical"
+                    android:text="@{FirstStepRegisterViewModel.country!=null ? FirstStepRegisterViewModel.country :@string/country}"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="11.7sp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/dp15h"
+                    android:src="@mipmap/ic_down_arrow" />
+
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/rl_sign_up_city"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp35h"
+                android:layout_below="@+id/rl_sign_up_country"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/dp20h"
+                android:layout_marginStart="@dimen/dp20h"
+                android:layout_marginTop="@dimen/dp20h"
+                android:background="@drawable/login_edittext_rounded_background"
+                android:onClick="@{FirstStepRegisterViewModel::showDialog}"
+                android:paddingStart="@dimen/dp15h">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center_vertical"
+                    android:text="@{FirstStepRegisterViewModel.city!=null ? FirstStepRegisterViewModel.city :@string/city}"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="11.7sp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/dp15h"
+                    android:src="@mipmap/ic_down_arrow" />
+
+            </RelativeLayout>
+
+
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_sign_up_workshop_website"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginEnd="@dimen/dp20h"
+                android:layout_marginStart="@dimen/dp20h"
+                android:layout_marginTop="@dimen/dp13h"
+                android:layout_below="@+id/rl_sign_up_city"
+                android:textColorHint="@color/colorPrimary"
+                android:layout_gravity="center"
+                bind:errorText="@{FirstStepValidation.workshopWebsite}"
+                >
+
+                <EditText
+                    android:id="@+id/et_sign_up_workshop_website"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp35h"
+                    android:background="@drawable/login_edittext_rounded_background"
+                    android:hint="@string/website"
+                    android:inputType="textUri"
+                    android:paddingStart="@dimen/dp15h"
+                    android:text="@={FirstStepRegisterViewModel.workshopWebsite}"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary" />
+            </android.support.design.widget.TextInputLayout>
+
+
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="@dimen/dp135w"
+                android:layout_height="@dimen/dp32h"
+                android:layout_below="@+id/input_layout_sign_up_workshop_website"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp13h"
+                android:background="@drawable/login_button_rounded_background"
+                android:fontFamily="sans-serif-medium"
+                android:onClick="@{FirstStepRegisterViewModel::startPlacePicker}"
+                android:text="@string/select_location"
+                android:textAllCaps="false"
+                android:textColor="@color/colorwhite"
+                android:textSize="13.3sp" />
+
+            <EditText
+                android:id="@+id/et_sign_up_workshop_location"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp30h"
+                android:layout_below="@+id/btn_login"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/dp15h"
+                android:layout_marginStart="@dimen/dp15h"
+                android:layout_marginTop="@dimen/dp9h"
+                android:backgroundTint="@color/colorPrimary"
+
+                android:inputType="text"
+                android:paddingStart="@dimen/dp15h"
+                android:text="@={FirstStepRegisterViewModel.location}"
+                android:textColor="@color/colorPrimary"
+                android:textSize="11.7sp"
+                android:textStyle="bold"
+                android:visibility="@{FirstStepRegisterViewModel.location !=null ? View.VISIBLE : View.INVISIBLE}"
+
+                />
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:layout_below="@+id/et_sign_up_workshop_location">
+
+                <TextView
+                    android:id="@+id/tv_sign_up_next_step"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/dp15h"
+                    android:fontFamily="sans-serif"
+                    android:onClick="@{FirstStepRegisterViewModel::validateUniqeMailandPhone}"
+                    android:text="@string/next_step"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16.7sp"
+                    android:textStyle="bold"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tv_sign_up_num_of_steps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_sign_up_next_step"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginEnd="@dimen/dp15h"
+                    android:layout_marginTop="@dimen/dp13h"
+                    android:fontFamily="sans-serif"
+                    android:text="@string/step_1_of_5"
+                    android:textColor="@color/colorgray"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_sign_up_num_of_steps"
+                    android:layout_marginTop="@dimen/dp5h"
+                    android:weightSum="5">
+
+                    <View
+
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp9h"
+                        android:layout_marginEnd="@dimen/dp1h"
+                        android:layout_weight="1"
+                        android:background="@drawable/view_rectangle_step_background" />
+
+                    <View
+
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp9h"
+                        android:layout_marginEnd="@dimen/dp1h"
+                        android:layout_weight="1"
+                        android:background="@drawable/view_rectangle_step_disactive_background" />
+
+                    <View
+
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp9h"
+                        android:layout_marginEnd="@dimen/dp1h"
+                        android:layout_weight="1"
+                        android:background="@drawable/view_rectangle_step_disactive_background" />
+
+                    <View
+
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp9h"
+                        android:layout_marginEnd="@dimen/dp1h"
+                        android:layout_weight="1"
+                        android:background="@drawable/view_rectangle_step_disactive_background" />
+
+                    <View
+
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp9h"
+                        android:layout_marginEnd="@dimen/dp1h"
+                        android:layout_weight="1"
+                        android:background="@drawable/view_rectangle_step_disactive_background" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+</layout>

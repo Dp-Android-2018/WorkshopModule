@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl_sender_message"
+        android:layout_width="@dimen/dp217w"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp40h"
+        android:layout_marginEnd="@dimen/dp64h"
+        android:background="@drawable/rl_chat_sender_background"
+        android:layout_marginTop="@dimen/dp15h">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorwhite"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing
+elit, sed do eiusmod tempor incididunt ut labore et
+dolore magna aliqua."
+            android:layout_marginTop="@dimen/dp9h"
+            android:layout_marginBottom="@dimen/dp6w"
+            android:layout_marginStart="@dimen/dp6w"
+            android:layout_marginEnd="@dimen/dp6w"
+            />
+    </RelativeLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+
+        android:id="@+id/iv_sender"
+        android:layout_width="@dimen/dp25w"
+        android:layout_height="@dimen/dp25w"
+        android:layout_marginStart="@dimen/dp16h"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_below="@+id/rl_sender_message"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/rl_reciever_message"
+        android:layout_width="@dimen/dp217w"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp40h"
+        android:layout_marginStart="@dimen/dp64h"
+        android:background="@drawable/rl_chat_reciever_background"
+        android:layout_marginTop="@dimen/dp19w"
+        android:layout_below="@+id/iv_sender">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorwhite"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing
+elit, sed do eiusmod tempor incididunt ut labore et
+dolore magna aliqua."
+            android:layout_marginTop="@dimen/dp9h"
+            android:layout_marginBottom="@dimen/dp6w"
+            android:layout_marginStart="@dimen/dp6w"
+            android:layout_marginEnd="@dimen/dp6w"
+            />
+    </RelativeLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+
+        android:id="@+id/iv_reciever"
+        android:layout_width="@dimen/dp25w"
+        android:layout_height="@dimen/dp25w"
+        android:layout_marginEnd="@dimen/dp16h"
+        android:src="@drawable/ic_launcher_background"
+        android:layout_below="@+id/rl_reciever_message"
+        android:layout_alignParentEnd="true"
+        />
+</RelativeLayout>

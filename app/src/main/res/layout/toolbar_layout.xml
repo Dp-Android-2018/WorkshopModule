@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/bluecolor">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp16h"
+    android:layout_marginEnd="@dimen/dp16h">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_home"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/tv_toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="normal"
+        android:layout_marginStart="@dimen/dp49h"
+        android:textColor="@color/colorwhitenormal"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="8sp"
+        android:text="@string/normal_request"
+        />
+
+    <ImageView
+        android:id="@+id/iv_toolbar_messages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_chat"
+       android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"/>
+
+    <ImageView
+        android:layout_toStartOf="@+id/iv_toolbar_messages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_notification"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/dp18h"/>
+</RelativeLayout>
+</android.support.v7.widget.Toolbar>

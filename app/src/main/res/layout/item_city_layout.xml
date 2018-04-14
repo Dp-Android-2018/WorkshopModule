@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android">
+<data>
+    <variable
+        name="cityViewModel"
+        type="com.example.dell.workshopmodule.viewmodel.CityItemViewModel"/>
+</data>
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rl_parent"
+    android:onClick="@{cityViewModel::onItemClicked}">
+
+    <TextView
+        android:id="@+id/tv_city_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="normal"
+        android:textColor="@color/colorPrimary"
+        android:text="@{cityViewModel.cityName}"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/dp15h"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1h"
+        android:background="@color/grayColor"
+        android:layout_marginTop="@dimen/dp10h"
+        android:id="@+id/view1"
+        android:layout_below="@+id/tv_city_name"/>
+</RelativeLayout>
+</layout>
