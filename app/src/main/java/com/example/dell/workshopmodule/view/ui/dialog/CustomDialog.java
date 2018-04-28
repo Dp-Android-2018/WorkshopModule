@@ -24,8 +24,8 @@ public class CustomDialog extends Dialog implements BaseInterface {
     private Context context;
     private CustomDialogViewModel viewModel;
     private int code;
-    private DisplayDialogNavigator navigator;
-    public CustomDialog(@NonNull Context context, int code, DisplayDialogNavigator navigator) {
+    private BaseInterface navigator;
+    public CustomDialog(@NonNull Context context, int code, BaseInterface navigator) {
         super(context);
         this.context=context;
         this.code=code;

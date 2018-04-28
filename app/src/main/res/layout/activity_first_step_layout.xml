@@ -310,9 +310,9 @@
             <EditText
                 android:id="@+id/et_sign_up_workshop_location"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dp30h"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/btn_login"
-                android:layout_gravity="center"
+
                 android:layout_marginEnd="@dimen/dp15h"
                 android:layout_marginStart="@dimen/dp15h"
                 android:layout_marginTop="@dimen/dp9h"
@@ -320,9 +320,10 @@
 
                 android:inputType="text"
                 android:paddingStart="@dimen/dp15h"
+                android:gravity="center"
                 android:text="@={FirstStepRegisterViewModel.location}"
                 android:textColor="@color/colorPrimary"
-                android:textSize="11.7sp"
+                android:textSize="@dimen/sp10_5"
                 android:textStyle="bold"
                 android:visibility="@{FirstStepRegisterViewModel.location !=null ? View.VISIBLE : View.INVISIBLE}"
 

@@ -3,10 +3,13 @@ package com.example.dell.workshopmodule.viewmodel;
 import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.databinding.Observable;
+import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
 import android.view.View;
 
 import com.example.dell.workshopmodule.BR;
+import com.example.dell.workshopmodule.R;
 import com.example.dell.workshopmodule.model.global.BaseModel;
 import com.example.dell.workshopmodule.model.response.BrandsResponse;
 import com.example.dell.workshopmodule.model.response.SpecializationResponse;
@@ -39,21 +42,27 @@ public class CustomDialogViewModel extends BaseObservable {
     private int code;
     private List<BaseModel> data;
     private BaseInterface navigator;
-    private DisplayDialogNavigator updateViewModel;
+    private BaseInterface updateViewModel;
     private SharedPrefrenceUtils prefrenceUtils;
     public ObservableInt progressBar;
-    public CustomDialogViewModel(Context context, int code, BaseInterface navigator, DisplayDialogNavigator updateViewModel) {
+    public ObservableField<String>dialogTitle;
+    public CustomDialogViewModel(Context context, int code, BaseInterface navigator, BaseInterface updateViewModel) {
         this.code = code;
         this.context = context;
         this.navigator = navigator;
         this.updateViewModel = updateViewModel;
         progressBar=new ObservableInt(View.GONE);
+        dialogTitle=new ObservableField<>();
         prefrenceUtils=new SharedPrefrenceUtils(context);
         data = new ArrayList<>();
-        if (code == ConfigurationFile.Constants.DISPLAY_SPECIALIZATION_DIALOG)
+        if (code == ConfigurationFile.Constants.DISPLAY_SPECIALIZATION_DIALOG) {
+            dialogTitle.set(context.getResources().getString(R.string.specialization));
             getSpecializations();
-        else if (code == ConfigurationFile.Constants.DISPLAY_URGENT_TYPES_DIALOG)
+        }
+        else if (code == ConfigurationFile.Constants.DISPLAY_URGENT_TYPES_DIALOG) {
+            dialogTitle.set(context.getResources().getString(R.string.uregnt_request));
             getUrgentRequestTypes();
+        }
 
         ((MyApplication)(MyApplication.getAppContext())).setCustomDialogCode(code);
     }
@@ -195,7 +204,7 @@ public class CustomDialogViewModel extends BaseObservable {
         else
             ((MyApplication) (MyApplication.getAppContext())).setBasicUrgentTypes( ((MyApplication) (MyApplication.getAppContext())).getTempUrgentTypes());
         navigator.updateUi(ConfigurationFile.Constants.SUBMIT_DIALOG_DATA);
-        updateViewModel.updateWorkshopData(code);
+        updateViewModel.updateUi(code==ConfigurationFile.Constants.DISPLAY_SPECIALIZATION_DIALOG ? ConfigurationFile.Constants.DISPLAY_SPECIALIZATION_DIALOG_TEXT:ConfigurationFile.Constants.DISPLAY_URGENT_TYPES_DIALOG_text);
     }
 
 

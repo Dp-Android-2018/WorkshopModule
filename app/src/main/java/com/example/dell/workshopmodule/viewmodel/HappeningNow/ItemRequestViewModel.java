@@ -35,6 +35,14 @@ public class ItemRequestViewModel extends BaseObservable {
         return requestData.getDate();
     }
 
+    public int getPrecentage(){
+        return requestData.getPercentage();
+    }
+
+    public String precentageText(){
+        return requestData.getPercentage()+"%";
+    }
+
     public String getCarType(){
         return requestData.getBrand()+"-"+requestData.getModel();
     }

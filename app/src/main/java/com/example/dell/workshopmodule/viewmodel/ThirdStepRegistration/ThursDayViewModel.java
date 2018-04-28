@@ -3,16 +3,19 @@ package com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration;
 import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
 import android.text.Editable;
 import android.view.View;
 
 import com.example.dell.workshopmodule.BR;
+import com.example.dell.workshopmodule.R;
 import com.example.dell.workshopmodule.model.global.WorkdaysItem;
 import com.example.dell.workshopmodule.utils.ConfigurationFile;
 import com.example.dell.workshopmodule.utils.CustomUtils;
 import com.example.dell.workshopmodule.utils.ValidationUtils;
 import com.example.dell.workshopmodule.view.ui.Application.MyApplication;
+import com.example.dell.workshopmodule.view.ui.callback.DisplayDialogNavigator;
 import com.example.dell.workshopmodule.view.ui.callback.UpdateTimeListener;
 
 /**
@@ -21,15 +24,18 @@ import com.example.dell.workshopmodule.view.ui.callback.UpdateTimeListener;
 
 public class ThursDayViewModel extends BaseObservable implements UpdateTimeListener{
 
-    private ObservableField<String> fromThu;
-    private ObservableField<String> toThu;
+    public ObservableField<String> fromThu;
+    public ObservableField<String> toThu;
     private Context context;
-    private boolean checker;
+    public ObservableBoolean checker;
     private WorkdaysItem workdaysItem;
-    public ThursDayViewModel(Context context) {
+    private DisplayDialogNavigator callback;
+    public ThursDayViewModel(Context context,DisplayDialogNavigator callback) {
         fromThu =new ObservableField<>();
         toThu =new ObservableField<>();
+        checker=new ObservableBoolean();
         this.context=context;
+        this.callback=callback;
 
     }
 
@@ -37,87 +43,59 @@ public class ThursDayViewModel extends BaseObservable implements UpdateTimeListe
     public void updateTime(String selectedTime,int code) {
         System.out.println("Code code :"+code);
         if(code== ConfigurationFile.Constants.FROM)
-            setFromThu(selectedTime);
+            fromThu.set(selectedTime);
         else
-            setToThu(selectedTime);
+            toThu.set(selectedTime);
     }
 
-    public void showTimePickerFrom(View view){
+    public void showTimePicker(View view){
         System.out.println("Clicked From:");
-        CustomUtils.getInstance().showTimePickerDialog(context,this, ConfigurationFile.Constants.FROM);
-    }
-
-    public void showTimePickerTo(View view){
-        System.out.println("Clicked To:");
-        CustomUtils.getInstance().showTimePickerDialog(context,this, ConfigurationFile.Constants.To);
-    }
-
-
-
-    @Bindable
-    public String getFromThu() {
-        return fromThu.get();
-    }
-
-    public void setToThu(String toThu) {
-        this.toThu.set(toThu);
-        notifyPropertyChanged(BR.toThu);
-    }
-
-    public void setFromThu(String fromThu) {
-        this.fromThu.set(fromThu);
-        notifyPropertyChanged(BR.fromThu);
-    }
-
-    @Bindable
-    public String getToThu() {
-        return toThu.get();
+        CustomUtils.getInstance().showTimePickerDialog(context,this,view.getId()== R.id.et_thu_from ?  ConfigurationFile.Constants.FROM :  ConfigurationFile.Constants.To);
     }
 
     public void  onFromValueChanged(Editable e){
         if (((e.toString()).length()>0)&&(!ValidationUtils.isEmpty(toThu.get()))){
-            setChecker(true);
+            checker.set(true);
             removeFromCalendar();
             addToCalendar();
         }else {
-            setChecker(false);
+            checker.set(false);
         }
     }
     public void  onToValueChanged(Editable e){
         if (((e.toString()).length()>0)&&(!ValidationUtils.isEmpty(fromThu.get()))){
-            setChecker(true);
+            checker.set(true);
             removeFromCalendar();
             addToCalendar();
         }else {
-            setChecker(false);
+            checker.set(false);
         }
     }
-
-    @Bindable
-    public boolean isChecker() {
-        return checker;
-    }
-
-    public void setChecker(boolean checker) {
-        this.checker = checker;
-        notifyPropertyChanged(BR.checker);
-    }
-
+    
     public void resetDay(View view){
-        if(checker) {
-            setChecker(false);
-            setFromThu("");
-            setToThu("");
+        if(checker.get()) {
+           resetUi();
             removeFromCalendar();
         }
     }
 
+    public void resetUi(){
+        checker.set(false);
+        fromThu.set("");
+        toThu.set("");
+    }
+
     public void addToCalendar(){
-        workdaysItem=new WorkdaysItem();
-        workdaysItem.setDay("thursday");
-        workdaysItem.setFrom(fromThu.get());
-        workdaysItem.setTo(toThu.get());
-        ((MyApplication)MyApplication.getAppContext()).addDay(workdaysItem);
+        if(CustomUtils.getInstance().checktimings(fromThu.get(),toThu.get())) {
+            workdaysItem = new WorkdaysItem();
+            workdaysItem.setDay("thursday");
+            workdaysItem.setFrom(fromThu.get());
+            workdaysItem.setTo(toThu.get());
+            ((MyApplication) MyApplication.getAppContext()).addDay(workdaysItem);
+        }else {
+            callback.updateUi(ConfigurationFile.Constants.TIME_ERROR);
+            resetUi();
+        }
     }
 
     public void removeFromCalendar(){

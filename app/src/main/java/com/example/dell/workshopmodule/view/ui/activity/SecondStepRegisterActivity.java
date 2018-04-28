@@ -1,5 +1,6 @@
 package com.example.dell.workshopmodule.view.ui.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ObservableField;
@@ -50,48 +51,35 @@ public class SecondStepRegisterActivity extends AppCompatActivity implements Dis
         secondStepRegisterViewModel.onResume();
     }
 
-    @Override
-    public void displayDialog(int code) {
-        CustomDialog customDialog = new CustomDialog(SecondStepRegisterActivity.this, code, this);
-        customDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        customDialog.show();
-    }
-    public void displayFieldsDialog(){
-        FieldsDialog dialog=new FieldsDialog(SecondStepRegisterActivity.this);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.show();
-    }
 
-    @Override
-    public void updateWorkshopData(int code) {
-        if (code == ConfigurationFile.Constants.DISPLAY_SPECIALIZATION_DIALOG)
-            secondStepRegisterViewModel.setSpecializationText();
-        else if (code == ConfigurationFile.Constants.DISPLAY_URGENT_TYPES_DIALOG)
-            secondStepRegisterViewModel.setUrgentText();
-        else
-            secondStepRegisterViewModel.setBrandsText();
-    }
-
-    @Override
-    public void displayBrandsDialog() {
-        CustomBrandsDialog customBrandsDialog=new CustomBrandsDialog(SecondStepRegisterActivity.this,this);
-        customBrandsDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        customBrandsDialog.show();
-    }
 
     @Override
     public void updateUi(int code) {
+
             if(code==ConfigurationFile.Constants.EMPTY_PROVIDER_TYPE){
-                Snackbar.make(binding.rlParent, R.string.empty_service_type,Snackbar.LENGTH_LONG).show();
+                showSnackbar(R.string.empty_service_type);
             }else if(code== ConfigurationFile.Constants.EMPTY_WORKSHOP_SPECIALIZATION){
-                Snackbar.make(binding.rlParent, R.string.empty_workshop_specialization,Snackbar.LENGTH_LONG).show();
+                showSnackbar( R.string.empty_workshop_specialization);
             }else if(code== ConfigurationFile.Constants.EMPTY_WORKSHOP_BRANDS){
-                Snackbar.make(binding.rlParent, R.string.empty_woekshop_brands,Snackbar.LENGTH_LONG).show();
+                showSnackbar(R.string.empty_woekshop_brands);
             }else if(code== ConfigurationFile.Constants.EMPTY_WORKSHOP_URGENT_TYPES){
-                Snackbar.make(binding.rlParent, R.string.empty_urgent_types    ,Snackbar.LENGTH_LONG).show();
+                showSnackbar(R.string.empty_urgent_types);
             }else if(code== ConfigurationFile.Constants.SHOW_CITIES_DIALOG_CODE){
-                displayFieldsDialog();
-            }
+                FieldsDialog dialog=new FieldsDialog(SecondStepRegisterActivity.this);
+                displayDialog(dialog);
+            }else if(code== ConfigurationFile.Constants.SHOW_BRANDS_DIALOG_CODE){
+                CustomBrandsDialog customBrandsDialog=new CustomBrandsDialog(SecondStepRegisterActivity.this,this);
+                displayDialog(customBrandsDialog);
+            }else if(code== ConfigurationFile.Constants.DISPLAY_URGENT_TYPES_DIALOG || code== ConfigurationFile.Constants.DISPLAY_SPECIALIZATION_DIALOG ){
+                CustomDialog customDialog = new CustomDialog(SecondStepRegisterActivity.this, code, this);
+                displayDialog(customDialog);
+            }else if(code==ConfigurationFile.Constants.UPDATE_BRANDS_DIALOG)
+                    secondStepRegisterViewModel.setBrandsText();
+             else if (code == ConfigurationFile.Constants.DISPLAY_SPECIALIZATION_DIALOG_TEXT)
+                      secondStepRegisterViewModel.setSpecializationText();
+            else if (code == ConfigurationFile.Constants.DISPLAY_URGENT_TYPES_DIALOG_text)
+                    secondStepRegisterViewModel.setUrgentText();
+
     }
 
     @Override
@@ -128,8 +116,20 @@ public class SecondStepRegisterActivity extends AppCompatActivity implements Dis
         binding = DataBindingUtil.setContentView(this, R.layout.activity_second_step_register_layout);
         binding.setViewmodel(secondStepRegisterViewModel);
         binding.setValidateViewModel(validateViewModel);
-
     }
 
+    public void displayDialog(Dialog dialog){
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
+    }
 
+    public void showSnackbar(int message){
+        Snackbar.make(binding.rlParent,message,Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        secondStepRegisterViewModel.handleBackButton(binding.rlParent);
+    }
 }

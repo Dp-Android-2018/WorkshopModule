@@ -43,44 +43,13 @@ public class ThirdStepRegisterActivity extends AppCompatActivity implements Disp
         initBinding();
     }
 
-    public void initBinding(){
-        saturdayViewModel=new SaturdayViewModel(ThirdStepRegisterActivity.this);
-        sunDayViewModel=new SunDayViewModel(ThirdStepRegisterActivity.this);
-        monDayViewModel=new MonDayViewModel(ThirdStepRegisterActivity.this);
-        tuesdayViewModel=new TuesdayViewModel(ThirdStepRegisterActivity.this);
-        wednesDayViewModel=new WednesDayViewModel(ThirdStepRegisterActivity.this);
-        thursDayViewModel=new ThursDayViewModel(ThirdStepRegisterActivity.this);
-        friDayViewModel=new FriDayViewModel(ThirdStepRegisterActivity.this);
-        viewModel=new ThirdStepRegisterViewModel(ThirdStepRegisterActivity.this,this,registerRequest);
-        binding=DataBindingUtil.setContentView(this,R.layout.activity_third_step_layout);
-        binding.setViewModel(viewModel);
-        binding.setSatviewModel(saturdayViewModel);
-        binding.setSunviewModel(sunDayViewModel);
-        binding.setMonviewModel(monDayViewModel);
-        binding.setTueviewModel(tuesdayViewModel);
-        binding.setWedviewModel(wednesDayViewModel);
-        binding.setThuviewModel(thursDayViewModel);
-        binding.setFriviewModel(friDayViewModel);
-    }
-
-    @Override
-    public void displayDialog(int code) {
-
-    }
-
-    @Override
-    public void updateWorkshopData(int code) {
-
-    }
-
-    @Override
-    public void displayBrandsDialog() {
-
-    }
 
     @Override
     public void updateUi(int code) {
-        Snackbar.make(binding.rlParent, R.string.choose_working_day,Snackbar.LENGTH_LONG).show();
+        if(code==ConfigurationFile.Constants.TIME_ERROR)
+            showSnackbar(getString(R.string.smaller_time));
+        else
+            showSnackbar(getResources().getString(R.string.choose_working_day));
     }
 
     @Override
@@ -94,7 +63,38 @@ public class ThirdStepRegisterActivity extends AppCompatActivity implements Disp
         }
     }
 
+
+    public void initBinding(){
+        saturdayViewModel=new SaturdayViewModel(ThirdStepRegisterActivity.this,this);
+        sunDayViewModel=new SunDayViewModel(ThirdStepRegisterActivity.this,this);
+        monDayViewModel=new MonDayViewModel(ThirdStepRegisterActivity.this,this);
+        tuesdayViewModel=new TuesdayViewModel(ThirdStepRegisterActivity.this,this);
+        wednesDayViewModel=new WednesDayViewModel(ThirdStepRegisterActivity.this,this);
+        thursDayViewModel=new ThursDayViewModel(ThirdStepRegisterActivity.this,this);
+        friDayViewModel=new FriDayViewModel(ThirdStepRegisterActivity.this,this);
+        viewModel=new ThirdStepRegisterViewModel(ThirdStepRegisterActivity.this,this,registerRequest);
+        binding=DataBindingUtil.setContentView(this,R.layout.activity_third_step_layout);
+        binding.setViewModel(viewModel);
+        binding.setSatviewModel(saturdayViewModel);
+        binding.setSunviewModel(sunDayViewModel);
+        binding.setMonviewModel(monDayViewModel);
+        binding.setTueviewModel(tuesdayViewModel);
+        binding.setWedviewModel(wednesDayViewModel);
+        binding.setThuviewModel(thursDayViewModel);
+        binding.setFriviewModel(friDayViewModel);
+    }
+
     public void getObject(){
         registerRequest=(RegisterRequest) getIntent().getSerializableExtra(ConfigurationFile.SharedPrefConstants.PREF_REGISTER_OBJECT);
+    }
+
+    public void showSnackbar(String message){
+        Snackbar.make(binding.rlParent,message,Snackbar.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        viewModel.backToPreviousAct(binding.rlParent);
     }
 }

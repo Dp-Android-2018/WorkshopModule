@@ -14,8 +14,6 @@ import android.widget.TextView;
 
 import com.example.dell.workshopmodule.R;
 
-import butterknife.ButterKnife;
-
 /**
  * Created by DELL on 13/03/2018.
  */

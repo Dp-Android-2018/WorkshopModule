@@ -133,4 +133,13 @@
     <string name="city">City</string>
     <string name="invalid_phone_number">This Phone Number Already Taken</string>
     <string name="choose_country_first">Please Choose Country First</string>
+    <string name="journey">Find &amp; Fix is a journey Just Start Engine</string>
+    <string name="unauthenticated">This is account is logged in from another device</string>
+    <string name="profile_update_successfully">Profile Updated Successfully</string>
+    <string name="thank_you_for_registeration">Thank you for Registeration</string>
+    <string name="wait_the_activiation_process">Wait the activiation Process</string>
+    <string name="from_our_support_team">From our support team</string>
+    <string name="for_more_details_visit">For more details visit</string>
+    <string name="cant_complete_your_request">Can\'t Complete Your Request</string>
+    <string name="smaller_time">From Time Must be Smaller Than To Time</string>
 </resources>

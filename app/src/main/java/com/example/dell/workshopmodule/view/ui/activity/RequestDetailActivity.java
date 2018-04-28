@@ -66,7 +66,7 @@ public class RequestDetailActivity extends AppCompatActivity implements BaseInte
 
     public void setUpToolBar(){
 
-        setSupportActionBar((Toolbar) binding.toolbar);
+        setSupportActionBar( binding.toolbar.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         if(Build.VERSION.SDK_INT>=21){

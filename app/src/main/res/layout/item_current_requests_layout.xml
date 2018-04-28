@@ -55,7 +55,7 @@
             android:lineSpacingExtra="-3.8sp"
             android:text="@{requestitemviewmodel.requestTitle}"
             android:textColor="@color/colorwhite"
-            android:textSize="12.8sp"
+            android:textSize="@dimen/sp11_5"
             android:textStyle="bold"
             app:height_weight="0.8"
             app:width_weight="0.9"
@@ -96,7 +96,7 @@
             android:lineSpacingExtra="-3.8sp"
 
             android:textColor="@color/colorwhite"
-            android:textSize="11.2sp"
+            android:textSize="@dimen/sp10"
             android:textStyle="bold" />
 
 
@@ -126,7 +126,7 @@
             android:lineSpacingExtra="11.2sp"
 
             android:textColor="@color/colorwhite"
-            android:textSize="8sp"
+            android:textSize="@dimen/sp7"
             android:textStyle="normal"
             app:height_weight="0.8"
             app:width_weight="0.9"
@@ -156,7 +156,7 @@
             android:text="@{requestitemviewmodel.date}"
             android:lineSpacingExtra="11.2sp"
             android:textColor="@color/colorwhite"
-            android:textSize="8sp"
+            android:textSize="@dimen/sp7"
             android:textStyle="normal"
             app:height_weight="0.8"
             app:width_weight="0.9"

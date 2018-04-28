@@ -1,5 +1,6 @@
 package com.example.dell.workshopmodule.view.ui.activity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
@@ -41,21 +42,16 @@ public class FirstStepRegisterActivity extends AppCompatActivity implements Call
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
          initBinding();
-
     }
 
-
-    @Override
-    protected void onResume() {
+    @Override protected void onResume() {
         super.onResume();
         firstStepRegisterViewModel.onResume();
     }
 
-
     @Override
     public void callActivity() {
         try {
-
             PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();
             startActivityForResult(builder.build(this), PLACE_PICKER_REQUEST);
         } catch (GooglePlayServicesRepairableException e) {
@@ -68,25 +64,27 @@ public class FirstStepRegisterActivity extends AppCompatActivity implements Call
     @Override
     public void updateUi(int code) {
         if(code== ConfigurationFile.Constants.INVALID_LOCATION_CODE){
-            Snackbar.make(activityFirstStepLayoutBinding.scrollViewParent, R.string.choose_location,Snackbar.LENGTH_LONG).show();
+            showSnackBar(R.string.choose_location);
         }else if(code== ConfigurationFile.Constants.INVALID_COUNTRY_CODE){
-            Snackbar.make(activityFirstStepLayoutBinding.scrollViewParent, R.string.select_country,Snackbar.LENGTH_LONG).show();
+            showSnackBar(R.string.select_country);
         }else if(code== ConfigurationFile.Constants.INVALID_CITY_CODE){
-            Snackbar.make(activityFirstStepLayoutBinding.scrollViewParent, R.string.select_city,Snackbar.LENGTH_LONG).show();
+            showSnackBar(R.string.select_city);
         }else if(code== ConfigurationFile.Constants.SHOW_DIALOG_CODE){
             CountriesDialog dialog=new CountriesDialog(FirstStepRegisterActivity.this);
-            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            dialog.show();
+            showDialog(dialog);
         }else if(code== ConfigurationFile.Constants.SHOW_CITIES_DIALOG_CODE){
             CitiesDialog dialog=new CitiesDialog(FirstStepRegisterActivity.this,firstStepRegisterViewModel.getCountryId());
-            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            dialog.show();
+            showDialog(dialog);
         }else if(code==ConfigurationFile.Constants.NO_INTERNET_CONNECTION_CODE){
-            Snackbar.make(activityFirstStepLayoutBinding.scrollViewParent, R.string.internet_connection,Snackbar.LENGTH_LONG).show();
+            showSnackBar(R.string.internet_connection);
         }else if(code==ConfigurationFile.Constants.SELECT_COUNTRY_CODE){
-            Snackbar.make(activityFirstStepLayoutBinding.scrollViewParent, R.string.choose_country_first,Snackbar.LENGTH_LONG).show();
+            showSnackBar( R.string.choose_country_first);
         }
+    }
 
+    public void showDialog(Dialog dialog){
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
     }
 
 
@@ -123,13 +121,21 @@ public class FirstStepRegisterActivity extends AppCompatActivity implements Call
 
 
     public void initBinding(){
-        validations=new FirstStepRegisterValidations(getApplicationContext(),this);
+        validations=new FirstStepRegisterValidations(FirstStepRegisterActivity.this,this);
         firstStepRegisterViewModel=new FirstStepRegisterViewModel(FirstStepRegisterActivity.this,this,validations);
         activityFirstStepLayoutBinding= DataBindingUtil.setContentView(this, R.layout.activity_first_step_layout);
         activityFirstStepLayoutBinding.setFirstStepValidation(validations);
         activityFirstStepLayoutBinding.setFirstStepRegisterViewModel(firstStepRegisterViewModel);
 
     }
+    public void showSnackBar(int message){
+        Snackbar.make(activityFirstStepLayoutBinding.scrollViewParent, message,Snackbar.LENGTH_LONG).show();
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        firstStepRegisterViewModel.onBackPressed();
 
+    }
 }

@@ -19,6 +19,11 @@ import com.example.dell.workshopmodule.utils.ConfigurationFile;
 import com.example.dell.workshopmodule.utils.CustomUtils;
 import com.example.dell.workshopmodule.utils.ValidationUtils;
 import com.example.dell.workshopmodule.view.ui.callback.BaseInterface;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -44,6 +49,9 @@ public class FinalStepRegisterViewModel extends BaseObservable {
     private Bitmap selectedImageBitmap;
     private RegisterRequest registerRequest;
     private HandleRegisterRequestViewModel registerRequestViewModel;
+    StorageReference storageReference;
+    private String picUrl=null;
+    Uri selectedImageUri=null;
     public FinalStepRegisterViewModel(Context context, BaseInterface callback, RegisterRequest registerRequest,HandleRegisterRequestViewModel registerRequestViewModel) {
         this.context = context;
         this.callback = callback;
@@ -52,6 +60,7 @@ public class FinalStepRegisterViewModel extends BaseObservable {
         setPicBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_find_fix_logo));
         papers = new ArrayList<>();
         bitmaps = new ArrayList<>();
+        storageReference= FirebaseStorage.getInstance().getReference().child("app_photos");
     }
 
     //////////////////////Dialog To Choose Image From Camera Or Gallery /////////////////////////////
@@ -65,6 +74,16 @@ public class FinalStepRegisterViewModel extends BaseObservable {
 
         if (resultCode == RESULT_OK) {
             convertImageToBase64(data.getData());
+            selectedImageUri=data.getData();
+           /* final StorageReference photoRef=storageReference.child(selectedImageUri.getLastPathSegment());
+            photoRef.putFile(selectedImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Uri photourl=taskSnapshot.getDownloadUrl();
+                    System.out.println("Firebase Url :"+photourl.toString());
+                    picUrl=photourl.toString();
+                }
+            });*/
         }
     }
 
@@ -141,17 +160,35 @@ public class FinalStepRegisterViewModel extends BaseObservable {
 
     /////////////////////////////Move To next Step //////////////////////////////////////////////////////////////////
     public void validate(View view) {
-        if (!ValidationUtils.isEmpty(encodedImage)) {
-            if (step == 1) {
-                reset();
-            } else if (step == 2) {
-                papers.add(encodedImage);
-                registerRequestViewModel.handleRegister(registerRequest,papers,callback);
-            }
+        if (selectedImageUri!=null && picUrl ==null) {
+            uploadFireBasePic();
 
-        } else {
+        }else if (selectedImageUri ==null && picUrl !=null){
+            picUrl=null;
+            setPicBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_find_fix_logo));
+            setStep(2);
+        }else {
             callback.updateUi(ConfigurationFile.Constants.CHOOSE_IMAGE_FROM_GALLERY);
         }
+    }
+
+
+    public void uploadFireBasePic(){
+        final StorageReference photoRef=storageReference.child(selectedImageUri.getLastPathSegment());
+        photoRef.putFile(selectedImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Uri photourl=taskSnapshot.getDownloadUrl();
+                System.out.println("Firebase Url :"+photourl.toString());
+                picUrl=photourl.toString();
+                if (step == 1) {
+                    reset();
+                } else if (step == 2) {
+                    papers.add(picUrl);
+                    registerRequestViewModel.handleRegister(registerRequest,papers,callback);
+                }
+            }
+        });
     }
 
     ///////////////////////////////Reset Data Of First View ////////////////////////////////////////////////////////////
@@ -159,8 +196,10 @@ public class FinalStepRegisterViewModel extends BaseObservable {
         bitmaps.clear();
         papers.clear();
         bitmaps.add(selectedImageBitmap);
-        papers.add(encodedImage);
+        papers.add(picUrl);
         encodedImage = "";
+        selectedImageUri=null;
+        picUrl=null;
         setPicBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_find_fix_logo));
         setStep(2);
     }
@@ -178,11 +217,14 @@ public class FinalStepRegisterViewModel extends BaseObservable {
     //////////////////////////////////////////Handle Back Action ////////////////////////////////////////////////////////////////////
     public void handleBackAction(View view) {
         if (step == 1) {
+            if(!papers.isEmpty()) papers.remove(0);
             callback.updateUi(ConfigurationFile.Constants.MOVE_TO_PREVIOUS_ACTIVITY);
         } else if (step == 2) {
+            if(papers.size()==2) papers.remove(1);
             selectedImageBitmap = bitmaps.get(0);
             encodedImage = papers.get(0);
             setPicBitmap(bitmaps.get(0));
+            picUrl=papers.get(0);
             setStep(1);
         }
     }

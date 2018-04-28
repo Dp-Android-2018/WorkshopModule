@@ -91,7 +91,7 @@ public class InProgressRequestDetail extends AppCompatActivity implements BaseIn
     }
 
     public void setUpActionBar(){
-        setSupportActionBar((Toolbar) binding.toolbar);
+        setSupportActionBar( binding.toolbar.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         if(Build.VERSION.SDK_INT>=21){

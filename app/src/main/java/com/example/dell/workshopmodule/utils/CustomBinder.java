@@ -1,5 +1,6 @@
 package com.example.dell.workshopmodule.utils;
 
+import android.animation.Animator;
 import android.content.Context;
 import android.databinding.BindingAdapter;
 import android.databinding.ObservableList;
@@ -18,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.dell.workshopmodule.model.global.BrandItem;
 import com.example.dell.workshopmodule.model.global.BaseModel;
 import com.example.dell.workshopmodule.model.global.CountryItem;
@@ -152,6 +154,16 @@ public class CustomBinder {
     @BindingAdapter("bind:onChanged")
     public static void onFocusChange(EditText text, final TextView.OnEditorActionListener listener) {
         text.setOnEditorActionListener(listener);
+    }
+
+    @BindingAdapter("bind:animation")
+    public static void onAnimationEnd(LottieAnimationView animationView, Animator.AnimatorListener animatorListener) {
+       animationView.addAnimatorListener(animatorListener);
+    }
+
+    @BindingAdapter(" bind:ontouch")
+    public static void onTouch(LottieAnimationView animationView, View.OnTouchListener touchListener) {
+        animationView.setOnTouchListener(touchListener);
     }
 
 

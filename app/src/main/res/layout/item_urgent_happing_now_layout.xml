@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/dp244h"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginEnd="@dimen/dp40h"
     android:layout_marginStart="@dimen/dp40h"
-    android:layout_marginTop="@dimen/dp12h"
-    android:background="@color/colorwhite">
+    android:layout_marginTop="@dimen/dp12h">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="6">
 
     <RelativeLayout
-        android:layout_width="@dimen/dp238h"
+        android:layout_width="0dp"
+        android:layout_weight="5.75"
         android:layout_height="match_parent"
         android:background="@color/redColor"
         android:layout_alignParentStart="true">
@@ -29,7 +35,7 @@
             android:id="@+id/tv_urgent_request_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18.8sp"
+            android:textSize="@dimen/sp16_5"
             android:fontFamily="sans-serif"
             android:textStyle="bold"
             android:textColor="@color/darkcolor"
@@ -60,7 +66,7 @@
             android:id="@+id/tv_urgent_car_type"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16.5sp"
+            android:textSize="@dimen/sp15"
             android:fontFamily="sans-serif-black"
             android:textStyle="normal"
             android:textColor="@color/colorwhite"
@@ -90,7 +96,7 @@
             android:id="@+id/tv_urgent_request_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="11.7sp"
+            android:textSize="@dimen/sp10_5"
             android:fontFamily="sans-serif-medium"
             android:textStyle="normal"
             android:textColor="@color/colorwhite"
@@ -120,7 +126,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="11.7sp"
+            android:textSize="@dimen/sp10_5"
             android:fontFamily="sans-serif-medium"
             android:textStyle="normal"
             android:textColor="@color/colorwhite"
@@ -136,4 +142,9 @@
             />
 
     </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"/>
+    </LinearLayout>
 </android.support.v7.widget.CardView>

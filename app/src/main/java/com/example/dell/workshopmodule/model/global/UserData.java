@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 public class UserData {
 
 	@SerializedName("country")
-	private String country;
+	private CountryItem country;
 
 	@SerializedName("website")
 	private String website;
@@ -20,7 +20,7 @@ public class UserData {
 	private List<BaseModel> specializations;
 
 	@SerializedName("city")
-	private String city;
+	private BaseModel city;
 
 	@SerializedName("latitude")
 	private String latitude;
@@ -52,11 +52,11 @@ public class UserData {
 	@SerializedName("longitude")
 	private String longitude;
 
-	public void setCountry(String country){
+	public void setCountry(CountryItem country){
 		this.country = country;
 	}
 
-	public String getCountry(){
+	public CountryItem getCountry(){
 		return country;
 	}
 
@@ -84,11 +84,11 @@ public class UserData {
 		return specializations;
 	}
 
-	public void setCity(String city){
+	public void setCity(BaseModel city){
 		this.city = city;
 	}
 
-	public String getCity(){
+	public BaseModel getCity(){
 		return city;
 	}
 

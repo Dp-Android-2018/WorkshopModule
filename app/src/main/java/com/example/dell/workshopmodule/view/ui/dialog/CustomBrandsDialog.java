@@ -24,8 +24,8 @@ public class CustomBrandsDialog extends Dialog implements BaseInterface {
     private DialogCustomBrandsLayoutBinding binding;
     private CustomBrandsDialogViewModel viewModel;
     private Context context;
-    private DisplayDialogNavigator updateModel;
-    public CustomBrandsDialog(@NonNull Context context,DisplayDialogNavigator updatemodel) {
+    private BaseInterface updateModel;
+    public CustomBrandsDialog(@NonNull Context context,BaseInterface updatemodel) {
         super(context);
         this.context=context;
         this.updateModel=updatemodel;

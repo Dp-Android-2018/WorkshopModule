@@ -10,8 +10,5 @@ import retrofit2.http.PUT;
 
 public interface DisplayDialogNavigator extends BaseInterface{
 
-    public void displayDialog(int code);
-    public void updateWorkshopData(int code);
-    public void displayBrandsDialog();
     public void NavigateBetweenActivities(RegisterRequest registerRequest,int code);
 }

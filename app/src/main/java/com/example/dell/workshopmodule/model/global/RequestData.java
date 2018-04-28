@@ -50,6 +50,14 @@ public class RequestData implements Serializable{
     @SerializedName("date")
     private String date;
 
+    @SerializedName("percentage")
+    private int percentage;
+
+
+    public int getPercentage() {
+        return percentage;
+    }
+
     public int getId() {
         return id;
     }

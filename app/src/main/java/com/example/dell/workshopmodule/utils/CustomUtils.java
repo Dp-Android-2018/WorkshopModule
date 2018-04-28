@@ -15,14 +15,23 @@ import android.support.v4.app.ActivityCompat;
 import android.util.Base64;
 import android.widget.TimePicker;
 
+import com.example.dell.workshopmodule.BR;
 import com.example.dell.workshopmodule.R;
+import com.example.dell.workshopmodule.model.global.BaseModel;
+import com.example.dell.workshopmodule.model.global.BrandItem;
 import com.example.dell.workshopmodule.model.global.UserData;
+import com.example.dell.workshopmodule.view.ui.Application.MyApplication;
 import com.example.dell.workshopmodule.view.ui.activity.LoginActivity;
 import com.example.dell.workshopmodule.view.ui.callback.UpdateTimeListener;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -167,5 +176,92 @@ public class CustomUtils {
     public void clearSharedPref(Context context){
         SharedPrefrenceUtils prefrenceUtils=new SharedPrefrenceUtils(context);
         prefrenceUtils.clearToken();
+    }
+
+    public String setSpecializationText(){
+        String specializationText="";
+
+        List<BaseModel> baseModels=((MyApplication)MyApplication.getAppContext()).getBasicspecializations();
+        for(BaseModel model:baseModels)
+            specializationText=specializationText+model.getName()+" - ";
+        return specializationText;
+    }
+
+
+    public String setBrandsText(){
+        String brandsText="";
+
+        List<BrandItem> baseModels=((MyApplication)MyApplication.getAppContext()).getBasicBrands();
+        for(BrandItem brandItem:baseModels)
+            brandsText=brandsText+brandItem.getName()+" - ";
+        return brandsText;
+    }
+
+    public String setUrgentText(){
+        String urgentText="";
+        List<BaseModel> baseModels=((MyApplication)MyApplication.getAppContext()).getBasicUrgentTypes();
+        for(BaseModel model:baseModels)
+            urgentText=urgentText+model.getName()+" - ";
+        return urgentText;
+    }
+
+
+    public List<Integer> getSpecializationIds(){
+
+        List<Integer>ids=new ArrayList();
+        List<BaseModel> baseModels=((MyApplication)MyApplication.getAppContext()).getBasicspecializations();
+        for(BaseModel model:baseModels)
+            ids.add(model.getId());
+
+        return ids;
+    }
+
+
+    public List<Integer> getBrandsIds(){
+
+        List<Integer>ids=new ArrayList();
+        List<BrandItem> baseModels=((MyApplication)MyApplication.getAppContext()).getBasicBrands();
+        for(BrandItem brandItem:baseModels)
+            ids.add(brandItem.getId());
+        return ids;
+    }
+
+    public List<Integer> getUrgentIds(){
+
+        List<Integer>ids=new ArrayList();
+        List<BaseModel> baseModels=((MyApplication)MyApplication.getAppContext()).getBasicUrgentTypes();
+        for(BaseModel model:baseModels)
+            ids.add(model.getId());
+        return ids;
+    }
+
+    public void endSession(Activity activity){
+            SharedPrefrenceUtils utils=new SharedPrefrenceUtils(activity);
+            utils.clearToken();
+            Intent i=new Intent(activity,LoginActivity.class);
+            activity.startActivity(i);
+            activity.finish();
+    }
+
+
+    public boolean checktimings(String time, String endtime) {
+
+        String pattern = "HH:mm";
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+
+        try {
+            Date date1 = sdf.parse(time);
+            Date date2 = sdf.parse(endtime);
+
+            if(date1.before(date2)) {
+                return true;
+            } else {
+
+                return false;
+            }
+        } catch (ParseException e){
+            e.printStackTrace();
+        }
+        return false;
     }
 }

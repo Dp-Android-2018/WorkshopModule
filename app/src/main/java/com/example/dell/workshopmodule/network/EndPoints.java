@@ -8,6 +8,7 @@ import com.example.dell.workshopmodule.model.request.EmailRequest;
 import com.example.dell.workshopmodule.model.request.LoginRequest;
 import com.example.dell.workshopmodule.model.request.MobileRequest;
 import com.example.dell.workshopmodule.model.request.RegisterRequest;
+import com.example.dell.workshopmodule.model.request.UpdateProfileRequest;
 import com.example.dell.workshopmodule.model.response.BrandsResponse;
 import com.example.dell.workshopmodule.model.response.CityResponse;
 import com.example.dell.workshopmodule.model.response.CountryResponse;
@@ -92,6 +93,15 @@ public interface EndPoints {
 
     @DELETE(ConfigurationFile.UrlConstants.UPDATE_DELETE_WORKSHOP_OFFER_URL)
     Observable<Response<DefaultResponse>> deleteWorkshopOffer(@Header("x-api-key") String key, @Header("Accept-Language") String lang, @Header("Content-Type") String contentType, @Header("Accept") String accept, @Header("Authorization") String auth, @Path("offerID") int oid);
+
+
+    @PUT(ConfigurationFile.UrlConstants.UPDATE_WORKSHOP_PROFILE_URL)
+    Observable<Response<DefaultResponse>> updateWorkshopProfile(@Header("x-api-key") String key, @Header("Accept-Language") String lang, @Header("Content-Type") String contentType, @Header("Accept") String accept, @Header("Authorization") String auth,@Body UpdateProfileRequest updateProfileRequest);
+
+
+    @GET(ConfigurationFile.UrlConstants.SUBSCRIBED_URL)
+    Observable<Response<DefaultResponse>> isWorkshopSubScribed(@Header("x-api-key") String key, @Header("Accept-Language") String lang, @Header("Content-Type") String contentType, @Header("Accept") String accept, @Header("Authorization") String autht);
+
 
 
 

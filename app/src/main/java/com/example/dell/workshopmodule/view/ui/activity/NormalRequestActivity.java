@@ -2,7 +2,7 @@ package com.example.dell.workshopmodule.view.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,8 +18,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.dell.workshopmodule.R;
+import com.example.dell.workshopmodule.databinding.ActivityEditProfileLayoutBinding;
+import com.example.dell.workshopmodule.databinding.ActivityNormalRequestsLayoutBinding;
+import com.example.dell.workshopmodule.databinding.TabEditProfileLayoutBinding;
+import com.example.dell.workshopmodule.databinding.TabNormalRequestsLayoutBinding;
 import com.example.dell.workshopmodule.view.ui.adapter.ViewPagerAdapter;
 import com.example.dell.workshopmodule.view.ui.fragment.CompletedRequestsFragment;
+import com.example.dell.workshopmodule.view.ui.fragment.EditProfileInfoFragment;
+import com.example.dell.workshopmodule.view.ui.fragment.EditProfileSpecializationFragment;
 import com.example.dell.workshopmodule.view.ui.fragment.HappeningNowFragment;
 import com.example.dell.workshopmodule.view.ui.fragment.InProgressFragment;
 
@@ -32,65 +38,62 @@ import butterknife.ButterKnife;
 
 public class NormalRequestActivity extends AppCompatActivity {
 
-       @BindView(R.id.tab_normal_request)
-       TabLayout tabLayout;
-
-       @BindView(R.id.viewpager_normal_requests)
-       ViewPager viewPager;
-       private LinearLayout linearLayoutOne,linearLayout2,linearLayout3;
-       private TextView tv1,tv2,tv3;
-       private ViewPagerAdapter viewPagerAdapter;
+    private ActivityNormalRequestsLayoutBinding binding;
+    private TabNormalRequestsLayoutBinding bindingTab1;
+    private TabNormalRequestsLayoutBinding bindingTab2;
+    private TabNormalRequestsLayoutBinding bindingTab3;
+    private  ViewPagerAdapter viewPagerAdapter;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_normal_requests_layout);
-        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        initBinding();
+        setUpActionBar();
+        initializeTabs();
+    }
+
+
+    public void initBinding(){
+        binding= DataBindingUtil.setContentView(NormalRequestActivity.this,R.layout.activity_normal_requests_layout);
+        bindingTab1=DataBindingUtil.inflate(getLayoutInflater(),R.layout.tab_normal_requests_layout,null,false);
+        bindingTab2=DataBindingUtil.inflate(getLayoutInflater(),R.layout.tab_normal_requests_layout,null,false);
+        bindingTab3=DataBindingUtil.inflate(getLayoutInflater(),R.layout.tab_normal_requests_layout,null,false);
+    }
+
+    public void setUpActionBar(){
+
+        setSupportActionBar( binding.toolbar.toolbar);
+        binding.toolbar.tvToolbarTitle.setText(R.string.normal_request);
+        binding.toolbar.toolbar.setBackgroundColor(getResources().getColor(R.color.bluecolor));
         if(Build.VERSION.SDK_INT>=21){
             Window window=this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(getApplicationContext().getResources().getColor(R.color.bluecolor));
         }
+    }
 
-        ///////////////////////////////////Declaring Tabs //////////////////////////////////////////////////////
-        ButterKnife.bind(this);
+    public void initializeTabs(){
         viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager(),true);
-        viewPagerAdapter.addFragment(new CompletedRequestsFragment(),"ONE");
-        viewPagerAdapter.addFragment(new InProgressFragment(), "TWO");
-        viewPagerAdapter.addFragment(new HappeningNowFragment(), "THREE");
-        viewPager.setAdapter(viewPagerAdapter);
-        tabLayout.setupWithViewPager(viewPager);
+        setUpFragments();
+        binding.viewpagerNormalRequests.setAdapter(viewPagerAdapter);
+        binding.tabNormalRequest.setupWithViewPager(binding.viewpagerNormalRequests);
 
-        View headerView = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE))
-                .inflate(R.layout.tab_normal_requests_layout, null, false);
+        bindingTab1.tvTab1.setText(R.string.happening_now);
+        bindingTab2.tvTab1.setText(R.string.in_progress);
+        bindingTab3.tvTab1.setText(R.string.done);
 
-        View headerView2 = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE))
-                .inflate(R.layout.tab_normal_requests_layout, null, false);
-
-        View headerView3 = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE))
-                .inflate(R.layout.tab_normal_requests_layout, null, false);
-
-        linearLayoutOne = (LinearLayout) headerView.findViewById(R.id.ll1);
-        tv1=(TextView)headerView.findViewById(R.id.tvTab1) ;
-        linearLayout2 = (LinearLayout) headerView2.findViewById(R.id.ll1);
-        tv2=(TextView)headerView2.findViewById(R.id.tvTab1) ;
-        linearLayout3 = (LinearLayout) headerView3.findViewById(R.id.ll1);
-        tv3=(TextView)headerView3.findViewById(R.id.tvTab1) ;
-
-        tv1.setText(R.string.happening_now);
-        tv2.setText(R.string.in_progress);
-        tv3.setText(R.string.done);
+        binding.tabNormalRequest.getTabAt(0).setCustomView(bindingTab1.ll1);
+        binding.tabNormalRequest.getTabAt(1).setCustomView(bindingTab2.ll1);
+        binding.tabNormalRequest.getTabAt(2).setCustomView(bindingTab3.ll1);
+    }
 
 
-        tabLayout.getTabAt(0).setCustomView(linearLayoutOne);
-        tabLayout.getTabAt(1).setCustomView(linearLayout2);
-        tabLayout.getTabAt(2).setCustomView(linearLayout3);
-
-
-
-
+    public void setUpFragments( ){
+        viewPagerAdapter.addFragment(new CompletedRequestsFragment(),"");
+        viewPagerAdapter.addFragment(new InProgressFragment(),"");
+        viewPagerAdapter.addFragment(new HappeningNowFragment(),"");
     }
 
 }

@@ -40,10 +40,10 @@ public class CustomBrandsDialogViewModel extends BaseObservable {
     private Context context;
     private BaseInterface navigator;
     private List<BrandItem>brandItems;
-    private  DisplayDialogNavigator updateViewModel;
+    private  BaseInterface updateViewModel;
     private SharedPrefrenceUtils prefrenceUtils;
     public ObservableInt progressBar;
-    public CustomBrandsDialogViewModel(Context context, BaseInterface navigator, DisplayDialogNavigator updateViewModel) {
+    public CustomBrandsDialogViewModel(Context context, BaseInterface navigator, BaseInterface updateViewModel) {
         this.context=context;
         this.navigator=navigator;
         brandItems=new ArrayList<>();
@@ -112,6 +112,6 @@ public class CustomBrandsDialogViewModel extends BaseObservable {
     public void submitDialog(View view) {
             ((MyApplication) (MyApplication.getAppContext())).setBasicBrands( ((MyApplication) (MyApplication.getAppContext())).getTempBrands());
                 navigator.updateUi(ConfigurationFile.Constants.SUBMIT_DIALOG_DATA);
-                  updateViewModel.updateWorkshopData(ConfigurationFile.Constants.UPDATE_BRANDS_DIALOG);
+                  updateViewModel.updateUi(ConfigurationFile.Constants.UPDATE_BRANDS_DIALOG);
     }
 }

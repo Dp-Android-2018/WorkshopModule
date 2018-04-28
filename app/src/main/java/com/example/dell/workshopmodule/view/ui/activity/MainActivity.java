@@ -2,132 +2,73 @@ package com.example.dell.workshopmodule.view.ui.activity;
 
 import android.animation.Animator;
 import android.content.Intent;
-import android.graphics.drawable.ShapeDrawable;
+import android.databinding.DataBindingUtil;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.airbnb.lottie.LottieAnimationView;
 import com.example.dell.workshopmodule.R;
+import com.example.dell.workshopmodule.databinding.ActivityMainBinding;
+import com.example.dell.workshopmodule.model.response.UrgentRequestTypeResponse;
+import com.example.dell.workshopmodule.utils.ConfigurationFile;
+import com.example.dell.workshopmodule.view.ui.callback.BaseInterface;
+import com.example.dell.workshopmodule.viewmodel.MainViewModel;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements BaseInterface {
 
-    LottieAnimationView animationView;
-    private TextView tvStartEngine,tvStartJourney;
-    private ImageView iv;
+    ActivityMainBinding binding;
+    ////////////////////////////////////////////////////////////////////////////////////////
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //////////////////////////////////////////////////////////////////////
+            initBinding();
+            setUpToolBar();
+            handlAnimation();
+        ///////////////////////////////////////////////////////////////////
+    }
 
-        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        TextView tv=(TextView)toolbar.findViewById(R.id.tv_toolbar_title);
-        tv.setText(R.string.find_fix);
-        toolbar.setBackgroundColor(getResources().getColor(R.color.colorBlueLight));
+    public void initBinding(){
+        binding= DataBindingUtil.setContentView(this,R.layout.activity_main);
+        MainViewModel mainViewModel=new MainViewModel(MainActivity.this,this);
+        binding.setViewModel(mainViewModel);
+    }
 
-
-
-
-        tvStartEngine=(TextView)findViewById(R.id.tv_start_engine);
-        iv=(ImageView)findViewById(R.id.iv_logo);
-        tvStartJourney=(TextView)findViewById(R.id.tv_start_journey);
-       tvStartEngine.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                animationView.playAnimation();
-                animationView.setMinProgress(0.3F);
-                animationView.setMaxProgress(1.0F);
-            }
-        });
-       iv.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               animationView.playAnimation();
-               animationView.setMinProgress(0.3F);
-               animationView.setMaxProgress(1.0F);
-           }
-       });
-        // initializeBackground();
-        animationView = (LottieAnimationView) findViewById(R.id.animation_view);
-        animationView.playAnimation();
-        animationView.setMaxProgress(0.3F);
-
-
-
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        final int height = displayMetrics.heightPixels;
-        final int width = (displayMetrics.widthPixels);
-
-
-        // initializeCustomView();
-        animationView.addAnimatorListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animator) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animator) {
-                if(animationView.getProgress()==0.3f)
-                tvStartEngine.setVisibility(View.VISIBLE);
-
-
-
-
-                if(animationView.getProgress()==1.0f) {
-                    tvStartEngine.setVisibility(View.GONE);
-                    iv.setVisibility(View.VISIBLE);
-                    tvStartJourney.setText(R.string.start_journey);
-                    animationView.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-                            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-
-
-                                if ((int) event.getX() < ((width-24) / 2) && (int) event.getY() < ((height-24) / 4)) {
-                                    startActivity(new Intent(MainActivity.this,UrgentRequestActivity.class));
-                                } else if ((int) event.getX() < ((width-24) / 2) && (int) event.getY() > ((height-24) / 4)) {
-
-                                    startActivity(new Intent(MainActivity.this,AddAdvertisement.class));
-                                } else if ((int) event.getX() > ((width-24) / 2) && (int) event.getY() < ((height-24) / 4)) {
-                                    startActivity(new Intent(MainActivity.this,NormalRequestActivity.class));
-
-                                } else if ((int) event.getX() > ((width-24) / 2) && (int) event.getY() > ((height-24) / 4)) {
-
-                                    startActivity(new Intent(MainActivity.this,EditProfileInfoActivity.class));
-                                }
-                            }
-                            return true;
-                        }
-                    });
-                }
-
-
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animator) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animator) {
-
-            }
-        });
-
+    public void setUpToolBar(){
+            setSupportActionBar(binding.toolbar.toolbar);
+            binding.toolbar.tvToolbarTitle.setText(R.string.find_fix);
+            binding.toolbar.toolbar.setBackgroundColor(getResources().getColor(R.color.colorBlueLight));
+        if(Build.VERSION.SDK_INT>=21){
+            Window window=this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(getApplicationContext().getResources().getColor(R.color.colorBlueLight));
+        }
+    }
+    public void handlAnimation(){
+        binding.animationView.playAnimation();
+        binding.animationView.setMaxProgress(0.3F);
 
     }
 
+    @Override
+    public void updateUi(int code) {
+        if(code== ConfigurationFile.Constants.COMPLETE_ANIMATION_CODE)
+                completeImage();
+        else if(code== ConfigurationFile.Constants.NORMAL_REQUEST_ACTIVITY)
+            startActivity(new Intent(MainActivity.this,NormalRequestActivity.class));
+        else if(code== ConfigurationFile.Constants.URGENT_REQUEST_ACTIVITY)
+            startActivity(new Intent(MainActivity.this,UrgentRequestActivity.class));
+        else if(code== ConfigurationFile.Constants.EDIT_PROFILE_ACTIVITY)
+            startActivity(new Intent(MainActivity.this,EditProfileInfoActivity.class));
+        else if(code== ConfigurationFile.Constants.ADD_ADVERTISEMENT_ACTIVITY)
+            startActivity(new Intent(MainActivity.this,AddAdvertisement.class));
+    }
+
+    public void completeImage(){
+        binding.animationView.playAnimation();
+        binding.animationView.setMinProgress(0.3F);
+        binding.animationView.setMaxProgress(1.0F);
+    }
 }

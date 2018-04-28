@@ -41,12 +41,14 @@
 
 
         <activity android:name=".view.ui.activity.FinalStepRegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode = "singleInstance"/>
 
 
 
         <activity android:name=".view.ui.activity.ThirdStepRegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode = "singleInstance"/>
 
         <activity android:name=".view.ui.activity.UrgentRequestActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
@@ -69,7 +71,8 @@
         <activity android:name=".view.ui.activity.EditProfileInfoActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".view.ui.activity.SecondStepRegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode = "singleInstance"/>
 
         <activity android:name=".view.ui.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -80,8 +83,7 @@
             </intent-filter>
         </activity>
 
-
-
+        <activity android:name=".view.ui.activity.SubScribtionPageActivity"/>
         <service android:name=".notification.FirebaseMessageService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>

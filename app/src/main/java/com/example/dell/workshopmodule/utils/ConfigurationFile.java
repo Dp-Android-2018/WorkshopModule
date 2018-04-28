@@ -42,17 +42,19 @@ public class ConfigurationFile {
         public static final String COMPLETE_WORKSHOP_REQUEST_URL="api/workshop/offers/complete-fixing/{offerID}";
         public static final String ADD_WORKSHOP_OFFER_URL="api/workshop/offers/{requestID}";
         public static final String UPDATE_DELETE_WORKSHOP_OFFER_URL="api/workshop/offers/{offerID}";
+        public static final String UPDATE_WORKSHOP_PROFILE_URL="api/workshop/profile";
+        public static final String SUBSCRIBED_URL="api/workshop/subscribe";
     }
 
 
 
         public static class Constants{
         public static final int SUCCESS_CODE =200;
+        public static final int SUCCESS_REGISTER_CODE =201;
         public static final int OFFER_ADDED_SUCCESSFULLY =201;
         public static final int UNAUTHENTICATED_CODE =401;
         public static final String REQUEST_TYPE ="REQUEST_TYPE";
         public static final int PUBLISH_REQUEST_DETAIL =214;
-
         public static final int OFFERED_REQUEST_DETAIL =215;
         public static final int UNSUBSCRIBED_CODE =401;
         public static final int CUSTOM_ERROR_CODE =-202;
@@ -63,9 +65,11 @@ public class ConfigurationFile {
         public static final int FILL_ALL_DATTA=216;
         public static final int INVALID_CITY_CODE=2;
         public static final int INVALID_COUNTRY_CODE=3;
-        public static final int DISPLAY_SPECIALIZATION_DIALOG=1;
-        public static final int DISPLAY_URGENT_TYPES_DIALOG=2;
-        public static final int UPDATE_BRANDS_DIALOG=3;
+        public static final int DISPLAY_SPECIALIZATION_DIALOG=431;
+        public static final int DISPLAY_URGENT_TYPES_DIALOG=432;
+        public static final int DISPLAY_SPECIALIZATION_DIALOG_TEXT=433;
+        public static final int DISPLAY_URGENT_TYPES_DIALOG_text=434;
+        public static final int UPDATE_BRANDS_DIALOG=435;
         public static final int CANCEL_DIALOG_DATA=4;
         public static final int SUBMIT_DIALOG_DATA=5;
         public static final int EMPTY_PROVIDER_TYPE=1;
@@ -78,6 +82,9 @@ public class ConfigurationFile {
         public static final int FROM=1;
         public static final int To=2;
         public static final int SHOW_DIALOG_CODE=201;
+        public static final int SHOW_BRANDS_DIALOG_CODE=416;
+        public static final int SHOW_SPECIALIZE_DIALOG_CODE=417;
+        public static final int SHOW_URGENTS_DIALOG_CODE=418;
         public static final int SHOW_CITIES_DIALOG_CODE=414;
         public static final int CAMERA_REQUEST=202;
         public static final int GALLERY_REQUEST=203;
@@ -95,12 +102,20 @@ public class ConfigurationFile {
         public static final int MOVE_TO_MAIN_ACT=430;
         public static final int MOVE_TO_LOGIN_ACT=413;
         public static final int SELECT_COUNTRY_CODE=415;
-
-    }
+        public static final int COMPLETE_ANIMATION_CODE=436;
+        public static final int NORMAL_REQUEST_ACTIVITY=437;
+        public static final int URGENT_REQUEST_ACTIVITY=438;
+        public static final int EDIT_PROFILE_ACTIVITY=439;
+        public static final int ADD_ADVERTISEMENT_ACTIVITY=440;
+        public static final int MOVET_TO_NEXT_TAB=441;
+        public static final int INVALID_EMAIL_FORMAT=442;
+        public static final int MOVE_TO_SUBSCRIBTION_ACTIVITY=443;
+        public static final int TIME_ERROR=444;
+        public static final int CLOSE_CURRENT_ACTIVITY=445;
+        }
 
     public static class PermissionsClass {
-
-                 public static final String WRITE_EXTERNAL_STORAGE =android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-                  public static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE =101;
+        public static final String WRITE_EXTERNAL_STORAGE =android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+        public static final int REQUEST_CODE_WRITE_EXTERNAL_STORAGE =101;
     }
 }

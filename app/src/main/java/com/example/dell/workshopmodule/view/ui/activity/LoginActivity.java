@@ -21,6 +21,7 @@ import com.example.dell.workshopmodule.utils.ConfigurationFile;
 import com.example.dell.workshopmodule.utils.SharedPrefrenceUtils;
 import com.example.dell.workshopmodule.view.ui.callback.BaseInterface;
 import com.example.dell.workshopmodule.viewmodel.LoginViewModel;
+import com.google.firebase.FirebaseApp;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -41,7 +42,6 @@ public class LoginActivity extends AppCompatActivity implements Observer,BaseInt
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
         initBinding();
         subscribe();
-
     }
 
 
@@ -65,6 +65,8 @@ public class LoginActivity extends AppCompatActivity implements Observer,BaseInt
         else if(code==ConfigurationFile.Constants.MOVE_TO_REGISTER_ACTIVITY)
             moveToNextActivity(1);
 
+        else if(code==ConfigurationFile.Constants.MOVE_TO_SUBSCRIBTION_ACTIVITY)
+            moveToNextActivity(2);
         else if(code==ConfigurationFile.Constants.NO_INTERNET_CONNECTION_CODE)
             Snackbar.make(activityLoginBinding.rlParent, R.string.internet_connection,Snackbar.LENGTH_LONG).show();
     }
@@ -89,8 +91,10 @@ public class LoginActivity extends AppCompatActivity implements Observer,BaseInt
         Intent i=null;
         if(checker==0)
               i=new Intent(this,MainActivity.class);
-        else
+        else if(checker==1)
             i=new Intent(this,FirstStepRegisterActivity.class);
+        else
+            i=new Intent(this,SubScribtionPageActivity.class);
 
         startActivity(i);
         finish();

@@ -37,11 +37,6 @@ public class FinalStepRegisterActivity extends AppCompatActivity implements Base
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        viewModel.onActivityResult(requestCode,resultCode,data);
-    }
-
-    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         viewModel.onRequestPermissionsResult(requestCode,permissions,grantResults);
     }
@@ -51,27 +46,33 @@ public class FinalStepRegisterActivity extends AppCompatActivity implements Base
         if(code== ConfigurationFile.Constants.SHOW_DIALOG_CODE)
                 showDialog();
         else if(code==ConfigurationFile.Constants.PERMISSION_DENIED)
-            Snackbar.make(binding.rlParent,getString(R.string.permission_denied),Snackbar.LENGTH_LONG).show();
+                    showSnackBar(R.string.permission_denied);
         else if(code==ConfigurationFile.Constants.PERMISSION_GRANTED_CAMERA)
             openCamera();
         else if(code==ConfigurationFile.Constants.PERMISSION_GRANTED_GALLERY)
             openGallery();
         else if(code==ConfigurationFile.Constants.CHOOSE_IMAGE_FROM_GALLERY)
-            Snackbar.make(binding.rlParent, R.string.choose_image,Snackbar.LENGTH_LONG).show();
-
+                        showSnackBar(R.string.choose_image);
         else if(code== ConfigurationFile.Constants.MOVE_TO_PREVIOUS_ACTIVITY)
                     moveToPreviousActivity();
 
         else if(code== ConfigurationFile.Constants.INVALID_DATA)
-            Snackbar.make(binding.rlParent,R.string.invalid_data,Snackbar.LENGTH_LONG).show();
-
+                        showSnackBar(R.string.invalid_data);
         else if(code== ConfigurationFile.Constants.MOVE_TO_NEXT_ACTIVITY)
-            MoveToNextActivity();
+            MoveToNextActivity(new Intent(this,MainActivity.class));
+
+
+        else if(code== ConfigurationFile.Constants.MOVE_TO_SUBSCRIBTION_ACTIVITY)
+            MoveToNextActivity(new Intent(this,SubScribtionPageActivity.class));
 
         else if(code==ConfigurationFile.Constants.NO_INTERNET_CONNECTION_CODE)
-            Snackbar.make(binding.rlParent, R.string.internet_connection,Snackbar.LENGTH_LONG).show();
+                    showSnackBar(R.string.internet_connection);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        viewModel.onActivityResult(requestCode,resultCode,data);
+    }
 
     public void initBinding(){
 
@@ -106,17 +107,23 @@ public class FinalStepRegisterActivity extends AppCompatActivity implements Base
         startActivityForResult(pickPhoto , ConfigurationFile.Constants.GALLERY_REQUEST);
     }
 
-    public void MoveToNextActivity(){
-        Intent i=new Intent(getApplicationContext(),MainActivity.class);
-        startActivity(i);
+    public void MoveToNextActivity(Intent I){
+        startActivity(I);
         finish();
     }
 
-
-
+    public void showSnackBar(int message){
+        Snackbar.make(binding.rlParent,message,Snackbar.LENGTH_LONG).show();
+    }
     public void moveToPreviousActivity(){finish();}
 
     public void getObject(){
         registerRequest=(RegisterRequest) getIntent().getSerializableExtra(ConfigurationFile.SharedPrefConstants.PREF_REGISTER_OBJECT);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        viewModel.handleBackAction(binding.rlParent);
     }
 }

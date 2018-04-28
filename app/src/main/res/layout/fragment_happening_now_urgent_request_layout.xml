@@ -49,6 +49,7 @@
         android:layout_below="@+id/rl_num_of_urgent_requests"
         android:layout_marginTop="@dimen/dp12h"
         tools:listitem="@layout/item_urgent_happing_now_layout"
+
         android:layout_marginBottom="@dimen/dp116h"
         />
 

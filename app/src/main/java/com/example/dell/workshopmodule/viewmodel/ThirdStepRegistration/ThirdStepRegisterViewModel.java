@@ -35,6 +35,7 @@ public class ThirdStepRegisterViewModel extends BaseObservable {
     }
 
     public void backToPreviousAct(View view){
+        ((MyApplication)MyApplication.getAppContext()).clearCalendar();
         navigator.NavigateBetweenActivities(null,ConfigurationFile.Constants.MOVE_TO_PREVIOUS_ACTIVITY);
     }
 

@@ -248,7 +248,7 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="16.7sp"
                 android:textStyle="bold"
-
+                android:onClick="@{viewmodel::handleBackButton}"
                 />
 
 

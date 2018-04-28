@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.dell.workshopmodule.viewmodel.MainViewModel"/>
+    </data>
+<LinearLayout 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.dell.workshopmodule.view.ui.activity.MainActivity"
@@ -10,7 +18,8 @@
     android:orientation="vertical">
 
     <include android:id="@+id/toolbar"
-        layout="@layout/toolbar_layout"/>
+        layout="@layout/toolbar_layout"
+        app:foo="@{1}"/>
     <TextView
         android:id="@+id/tv_start_journey"
         android:layout_width="wrap_content"
@@ -22,7 +31,7 @@
         android:letterSpacing="0.01"
         android:lineSpacingExtra="8.3sp"
         android:gravity="center_horizontal"
-        android:text="Find &amp; Fix is a journey Just Start Engine"
+        android:text="@{viewModel.isImageVisible ? @string/journey : @string/start_journey}"
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="@dimen/dp81h"
         android:layout_marginEnd="@dimen/dp81h"
@@ -45,7 +54,8 @@
         app:lottie_loop="false"
         app:lottie_autoPlay="true"
         android:layout_centerInParent="true"
-
+        bind:animation="@{viewModel.onAnimationEnd}"
+        bind:ontouch="@{viewModel.onTouchEvent}"
         />
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -57,7 +67,8 @@
             android:layout_marginTop="@dimen/dp22w"
             android:src="@drawable/ic_find_fix_logo"
             android:layout_centerInParent="true"
-            android:visibility="gone"
+            android:visibility="@{viewModel.isImageVisible ? View.VISIBLE : View.GONE}"
+            android:onClick="@{viewModel::startEngine}"
             />
         <TextView
             android:id="@+id/tv_start_engine"
@@ -67,14 +78,16 @@
             android:text="@string/start_engine"
             android:textColor="@color/colorwhite"
             android:gravity="center"
-            android:visibility="gone"
+            android:visibility="@{viewModel.isTextVisible ? View.VISIBLE : View.GONE}"
+            android:onClick="@{viewModel::startEngine}"
             android:layout_centerInParent="true"
+
             />
         <TextView
             android:id="@+id/tv_urgent_request"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16.7sp"
+            android:textSize="@dimen/sp15"
             android:fontFamily="sans-serif-black"
             android:textStyle="normal"
             android:textColor="@color/colorwhite"
@@ -130,7 +143,7 @@
             android:id="@+id/tv_normal_request"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16.7sp"
+            android:textSize="@dimen/sp15"
             android:fontFamily="sans-serif-black"
             android:textStyle="normal"
             android:textColor="@color/colorwhite"
@@ -187,7 +200,7 @@
             android:id="@+id/tv_add_adv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16.7sp"
+            android:textSize="@dimen/sp15"
             android:fontFamily="sans-serif-black"
             android:textStyle="normal"
             android:textColor="@color/colorwhite"
@@ -243,7 +256,7 @@
             android:id="@+id/tv_edit_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16.7sp"
+            android:textSize="@dimen/sp15"
             android:fontFamily="sans-serif-black"
             android:textStyle="normal"
             android:textColor="@color/colorwhite"
@@ -263,3 +276,4 @@
 
 
 </LinearLayout>
+</layout>

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.dell.workshopmodule.R;
@@ -38,6 +39,11 @@ public class SplashActivity extends AppCompatActivity implements BaseInterface{
             else if(code== ConfigurationFile.Constants.MOVE_TO_LOGIN_ACT)
                     moveToNextAct(1);
 
+            else if(code== ConfigurationFile.Constants.MOVE_TO_SUBSCRIBTION_ACTIVITY)
+                moveToNextAct(2);
+
+            else if(code== ConfigurationFile.Constants.CANT_COMPLETE_REQUEST_CODE)
+                Snackbar.make(binding.rlLayout, R.string.cant_complete_your_request,Snackbar.LENGTH_LONG).show();
     }
 
     public void moveToNextAct(int code){
@@ -46,6 +52,10 @@ public class SplashActivity extends AppCompatActivity implements BaseInterface{
             i=new Intent(getApplicationContext(),MainActivity.class);
         else if(code==1)
             i=new Intent(getApplicationContext(),LoginActivity.class);
+
+        else if(code==2)
+            i=new Intent(getApplicationContext(),SubScribtionPageActivity.class);
+
             startActivity(i);
             finish();
     }

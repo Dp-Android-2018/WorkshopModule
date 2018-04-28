@@ -1,5 +1,6 @@
 package com.example.dell.workshopmodule.viewmodel.FirstStepRegistration;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.BaseObservable;
@@ -22,6 +23,8 @@ import com.example.dell.workshopmodule.network.EndPoints;
 import com.example.dell.workshopmodule.utils.ConfigurationFile;
 import com.example.dell.workshopmodule.utils.NetWorkConnection;
 import com.example.dell.workshopmodule.utils.ValidationUtils;
+import com.example.dell.workshopmodule.view.ui.activity.FirstStepRegisterActivity;
+import com.example.dell.workshopmodule.view.ui.activity.LoginActivity;
 import com.example.dell.workshopmodule.view.ui.activity.SecondStepRegisterActivity;
 import com.example.dell.workshopmodule.view.ui.callback.CallAnotherActivityNavigator;
 import com.google.android.gms.location.places.Place;
@@ -324,6 +327,14 @@ public class FirstStepRegisterViewModel extends BaseObservable {
     public int getCountryId(){
         return countryId;
     }
+
+    public void onBackPressed(){
+        Intent i=new Intent(context,LoginActivity.class);
+        context.startActivity(i);
+        ((Activity)context).finish();
+    }
+
+
 
 
 }

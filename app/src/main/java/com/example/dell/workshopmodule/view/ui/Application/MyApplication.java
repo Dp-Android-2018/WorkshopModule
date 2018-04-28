@@ -137,6 +137,11 @@ public class MyApplication extends Application {
         System.out.println("Working Day Size :"+workingday.size());
     }
 
+    public void clearCalendar(){
+        workingday.clear();
+        System.out.println("Working Day Size :"+workingday.size());
+    }
+
     public ArrayList<WorkdaysItem>getWorkingday(){
         return workingday;
     }

@@ -14,11 +14,15 @@ import com.example.dell.workshopmodule.model.request.RegisterRequest;
 import com.example.dell.workshopmodule.model.global.BaseModel;
 import com.example.dell.workshopmodule.model.global.BrandItem;
 import com.example.dell.workshopmodule.utils.ConfigurationFile;
+import com.example.dell.workshopmodule.utils.CustomUtils;
 import com.example.dell.workshopmodule.view.ui.Application.MyApplication;
 import com.example.dell.workshopmodule.view.ui.callback.DisplayDialogNavigator;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,12 +35,11 @@ public class SecondStepRegisterViewModel extends BaseObservable {
 
     public ObservableInt selectedValue;
     private DisplayDialogNavigator navigator;
-    private boolean visibility;
     private Activity activity;
     public ObservableField<String>fields;
-    private String specializationText;
-    private String urgentText;
-    private String brandsText;
+    public ObservableField<String> specializationText;
+    public ObservableField<String> urgentText;
+    public ObservableField<String> brandsText;
     private SecondStepValidateViewModel validateViewModel;
     private RegisterRequest registerRequest;
     public SecondStepRegisterViewModel(Activity activity, DisplayDialogNavigator navigator, SecondStepValidateViewModel validateViewModel, RegisterRequest registerRequest) {
@@ -47,7 +50,10 @@ public class SecondStepRegisterViewModel extends BaseObservable {
         selectedValue=new ObservableInt();
         selectedValue.set(-1);
         fields=new ObservableField<>();
-        }
+        specializationText=new ObservableField<>();
+        urgentText=new ObservableField<>();
+        brandsText=new ObservableField<>();
+    }
 
     public void onResume() {
         EventBus.getDefault().register(activity);
@@ -58,85 +64,45 @@ public class SecondStepRegisterViewModel extends BaseObservable {
     }
 
     public void setSpecializationText(){
-        specializationText="";
-
-        List<BaseModel>baseModels=((MyApplication)activity.getApplicationContext()).getBasicspecializations();
-        for(BaseModel model:baseModels)
-            specializationText=specializationText+model.getName()+" ";
-            notifyPropertyChanged(BR.specializationText);
-    }
-
-    @Bindable
-    public String getSpecializationText() {
-        return specializationText;
-    }
+        specializationText.set(" ");
+        specializationText.set(CustomUtils.getInstance().setSpecializationText());}
 
     public void setUrgentText(){
-        urgentText="";
-        List<BaseModel>baseModels=((MyApplication)activity.getApplicationContext()).getBasicUrgentTypes();
-        for(BaseModel model:baseModels)
-            urgentText=urgentText+model.getName()+" ";
-        notifyPropertyChanged(BR.urgentText);
-
+        urgentText.set("");
+        urgentText.set(CustomUtils.getInstance().setUrgentText());
     }
-    @Bindable
-    public String getUrgentText() {
-        return urgentText;
-    }
-
-
-
 
     public void setBrandsText() {
-        brandsText="";
-        List<BrandItem>brandItems=((MyApplication)activity.getApplicationContext()).getBasicBrands();
-        for(BrandItem items:brandItems)
-            brandsText=brandsText+items.getName()+" ";
-        notifyPropertyChanged(BR.brandsText);
-    }
-
-    @Bindable
-    public String getBrandsText() {
-        return brandsText;
-    }
-
-
-
-
-
-
-    @Bindable
-    public boolean isVisibility() {
-        return visibility;
-    }
-
-    public void setVisibility(boolean visibility) {
-        this.visibility = visibility;
-            notifyPropertyChanged(BR.visibility);
+        brandsText.set("");
+        brandsText.set(CustomUtils.getInstance().setBrandsText());
     }
 
     public void displaySpecializationDialog(View view){
-        navigator.displayDialog(ConfigurationFile.Constants.DISPLAY_SPECIALIZATION_DIALOG);
+        navigator.updateUi(ConfigurationFile.Constants.DISPLAY_SPECIALIZATION_DIALOG);
     }
     public void displayUrgentTypesDialog(View view){
-        navigator.displayDialog(ConfigurationFile.Constants.DISPLAY_URGENT_TYPES_DIALOG);
+        navigator.updateUi(ConfigurationFile.Constants.DISPLAY_URGENT_TYPES_DIALOG);
     }
 
     public void displayBrandsDialog(View view){
-        navigator.displayBrandsDialog();
+        navigator.updateUi(ConfigurationFile.Constants.SHOW_BRANDS_DIALOG_CODE);
     }
 
     public void validate(View view){
        int code=validateViewModel.validator(selectedValue.get());
        if(code==1){
-
-            registerRequest.setBrands(getBrandsIds());
-            registerRequest.setSpecializations(getSpecializationIds());
-            registerRequest.setUrgentTypes(getUrgentTypes());
+            if(selectedValue.get()==3) {
+                registerRequest.setBrands(getBrandsIds());
+                registerRequest.setSpecializations(getSpecializationIds());
+                registerRequest.setUrgentTypes(getUrgentTypes());
+            }else if(selectedValue.get()==2){
+                List<Integer>wensh=new ArrayList<>();
+                wensh.add(4);
+                registerRequest.setUrgentTypes(wensh);
+            }
             moveTOThirdStep();
        }
     }
-
 
     public List<Integer> getSpecializationIds(){
         List<Integer>specializeId=new ArrayList<>();
@@ -146,7 +112,6 @@ public class SecondStepRegisterViewModel extends BaseObservable {
         return specializeId;
     }
 
-
     public List<Integer> getBrandsIds(){
         List<Integer>brandsIds=new ArrayList<>();
         for(BrandItem brandItem:(((MyApplication)MyApplication.getAppContext()).getBasicBrands())){
@@ -154,7 +119,6 @@ public class SecondStepRegisterViewModel extends BaseObservable {
         }
         return brandsIds;
     }
-
 
     public List<Integer> getUrgentTypes(){
         List<Integer>urgentTypesId=new ArrayList<>();
@@ -164,12 +128,10 @@ public class SecondStepRegisterViewModel extends BaseObservable {
         return urgentTypesId;
     }
 
-
     public void moveTOThirdStep(){
             navigator.NavigateBetweenActivities(registerRequest,ConfigurationFile.Constants.MOVE_TO_NEXT_ACTIVITY);}
 
-    public void backtoFirstStep(){
-        navigator.NavigateBetweenActivities(null,ConfigurationFile.Constants.MOVE_TO_PREVIOUS_ACTIVITY);}
+
 
 
     public void showDialog(View view) {
@@ -177,10 +139,19 @@ public class SecondStepRegisterViewModel extends BaseObservable {
     }
 
     public void setFieldsData(BaseModel baseModel) {
-        System.out.println("City Event :"+baseModel.getName());
-        System.out.println("Selected Id :");
+        System.out.println("Validator Event :"+baseModel.getName());
+        System.out.println("Selected Id :"+baseModel.getId());
         selectedValue.set(baseModel.getId());
         fields.set(baseModel.getName());
     }
+
+    public void handleBackButton(View view) {
+        (((MyApplication)MyApplication.getAppContext()).getBasicspecializations()).clear();
+        (((MyApplication)MyApplication.getAppContext()).getBasicBrands()).clear();
+        (((MyApplication)MyApplication.getAppContext()).getBasicUrgentTypes()).clear();
+        navigator.NavigateBetweenActivities(null,ConfigurationFile.Constants.MOVE_TO_PREVIOUS_ACTIVITY);
+    }
+
+
 
 }
