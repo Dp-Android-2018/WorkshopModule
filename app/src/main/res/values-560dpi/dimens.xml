@@ -4,7 +4,7 @@
     <!--410 * 659-->
     <!--1.285 sp-->
     <!--1.28125 dp-->
-    
+
     <dimen name="sp1">1.29sp</dimen>
     <dimen name="sp1_5">1.93sp</dimen>
     <dimen name="sp2">2.57sp</dimen>

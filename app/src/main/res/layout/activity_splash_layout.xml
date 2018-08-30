@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:night="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="viewmodel"
-            type="com.example.dell.workshopmodule.viewmodel.SplashViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.SplashViewModel"/>
     </data>
 <RelativeLayout
      android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/rl_layout">
+    android:id="@+id/rl_layout"
+    android:background="@color/whitebasecolor">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:layout_width="@dimen/dp166h"
+        android:layout_height="@dimen/dp69w"
         android:layout_centerInParent="true"
-        android:text="Splash Screen "/>
+        android:src="@mipmap/find_fix_final_logo_color" />
 </RelativeLayout>
 </layout>

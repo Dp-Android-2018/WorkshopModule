@@ -1,28 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-<data>
-    <variable
-        name="viewmodel"
-        type="com.example.dell.workshopmodule.viewmodel.EditProfileSpecializationViewModel"/>
-
-    <variable
-        name="completerequestviewmodel"
-        type="com.example.dell.workshopmodule.viewmodel.HandleEditProfileViewModel"/>
-</data>
-
 <LinearLayout
-    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="@dimen/dp15h"
     android:paddingStart="@dimen/dp16w"
     android:paddingEnd="@dimen/dp16w"
     android:orientation="vertical">
-
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="@{completerequestviewmodel.progressDialog}"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,13 +28,11 @@
         android:paddingStart="@dimen/dp12h"
         android:paddingEnd="@dimen/dp12h">
         <ImageView
-            android:id="@+id/iv_brands"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_group"
-            android:onClick="@{viewmodel::showDialog}"/>
+            android:src="@mipmap/ic_group"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -64,9 +45,8 @@
             android:textColorHint="@color/colorgray"
             android:layout_centerVertical="true"
             android:background="@android:color/transparent"
-            android:editable="false"
-            android:focusable="false"
-            android:text="@={viewmodel.brands}"
+            android:text="Seat - Renault - Peugeot - Dacia
+- Citroen - opel"
             />
     </RelativeLayout>
 
@@ -93,13 +73,11 @@
         android:paddingStart="@dimen/dp12h"
         android:paddingEnd="@dimen/dp12h">
         <ImageView
-            android:id="@+id/iv_specialization"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_group"
-            android:onClick="@{viewmodel::showDialog}"/>
+            android:src="@mipmap/ic_group"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -112,9 +90,8 @@
             android:textColorHint="@color/colorgray"
             android:layout_centerVertical="true"
             android:background="@android:color/transparent"
-            android:editable="false"
-            android:focusable="false"
-            android:text="@={viewmodel.specialization}"
+            android:text="Seat - Renault - Peugeot - Dacia
+- Citroen - opel"
             />
     </RelativeLayout>
 
@@ -140,13 +117,11 @@
         android:paddingStart="@dimen/dp12h"
         android:paddingEnd="@dimen/dp12h">
         <ImageView
-            android:id="@+id/iv_urgents"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_group"
-            android:onClick="@{viewmodel::showDialog}"/>
+            android:src="@mipmap/ic_group"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -159,9 +134,8 @@
             android:textColorHint="@color/colorgray"
             android:layout_centerVertical="true"
             android:background="@android:color/transparent"
-            android:editable="false"
-            android:focusable="false"
-            android:text="@={viewmodel.urgentRequest}"
+            android:text="Seat - Renault - Peugeot - Dacia
+- Citroen - opel"
             />
     </RelativeLayout>
 
@@ -182,8 +156,6 @@
         android:fontFamily="sans-serif-black"
         android:textStyle="normal"
         android:textAllCaps="false"
-        android:onClick="@{viewmodel::updateProfile}"
         />
 
 </LinearLayout>
-</layout>

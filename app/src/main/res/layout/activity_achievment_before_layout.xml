@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewmodel"
+            type="com.dp.dell.workshopmodule.viewmodel.AddAchievmentImageViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/rl_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_layout"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16h"
+            android:layout_marginEnd="@dimen/dp16h"
+            android:layout_below="@+id/toolbar">
+
+            <TextView
+                android:id="@+id/tv_step_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorPrimary"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="-26sp"
+                android:layout_below="@+id/view1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp18h"
+                android:text="3"
+                />
+
+            <TextView
+                android:id="@+id/tv_write_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_below="@+id/tv_step_num"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorBlueLight"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="10sp"
+                android:text="@string/upload_your_picture_before_fixing"
+                android:layout_marginTop="@dimen/dp18h"
+                android:layout_centerHorizontal="true"
+                />
+
+            <RelativeLayout
+                android:layout_width="@dimen/dp180w"
+                android:layout_height="@dimen/dp180w"
+                android:layout_below="@+id/tv_write_title"
+                android:background="@drawable/circle_profile_background"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/dp18h">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sp14_5"
+                    android:textColor="@color/gray_color"
+                    android:lineSpacingExtra="-5.5sp"
+                    android:text=
+
+                        "@string/upload"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp30h"
+                    />
+
+                <ImageView
+                    android:layout_width="@dimen/dp50h"
+                    android:layout_height="@dimen/dp50h"
+                    android:src="@mipmap/ic_layer"
+                    android:layout_centerInParent="true"
+                    android:visibility="@{viewmodel.loading ==true ? View.INVISIBLE : View.VISIBLE}"
+                    />
+                <de.hdodenhof.circleimageview.CircleImageView
+
+                    android:id="@+id/iv_car_owner_image"
+                    android:layout_width="@dimen/dp171h"
+                    android:layout_height="@dimen/dp171h"
+                    android:layout_centerInParent="true"
+                    bind:imageBitmap="@{viewmodel.picBitmap}"
+                    android:onClick="@{viewmodel::displayDialog}"
+                    />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/animation_view"
+                    android:layout_width="@dimen/dp50h"
+                    android:layout_height="@dimen/dp50h"
+                    app:lottie_fileName="loadingLine.json"
+                    app:lottie_loop="false"
+                    app:lottie_autoPlay="false"
+                    bind:setprogress="@{viewmodel.progress}"
+                    bind:animation="@{viewmodel.onAnimationEnd}"
+                    android:layout_centerInParent="true"
+                    android:visibility="@{viewmodel.loading ==true ? View.VISIBLE : View.INVISIBLE}"
+                    />
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="@dimen/dp132w"
+            android:layout_height="@dimen/dp34w"
+            android:layout_marginTop="@dimen/dp14h"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dp36h"
+            android:background="@drawable/button_achievment_background"
+            android:layout_centerHorizontal="true"
+            android:text="@string/next"
+            android:textColor="@color/colorwhite"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:onClick="@{viewmodel::validate}"
+
+
+            />
+    </RelativeLayout>
+</layout>

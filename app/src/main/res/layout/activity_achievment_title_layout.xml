@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+    </data>
+    <RelativeLayout
+        android:id="@+id/rl_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_layout"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16h"
+            android:layout_marginEnd="@dimen/dp16h"
+            android:layout_marginTop="@dimen/dp18h"
+            android:layout_below="@+id/toolbar">
+            <TextView
+                android:id="@+id/tv_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="23.3sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlueLight"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="0.7sp"
+                android:layout_alignParentStart="true"
+                android:text="@string/welcome"
+                />
+
+            <TextView
+                android:id="@+id/tv_workshop_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="23.3sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlueLight"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="0.7sp"
+                android:text="XYZ"
+                android:layout_below="@+id/tv_welcome"
+                />
+
+            <TextView
+                android:id="@+id/tv_step1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16.7sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlueLight"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="0.7sp"
+                android:text="@string/let_s_create_your_achievments_and_show_it"
+                android:layout_below="@+id/tv_workshop_name"
+                />
+
+            <TextView
+                android:id="@+id/tv_step_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16.7sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:layout_below="@+id/tv_step1"
+                android:textColor="@color/colorBlueLight"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="0.7sp"
+                android:text="@string/where_ever_you_want_to_all_your_customer"
+                />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1h"
+                android:background="@color/advertisment_border_color"
+                android:layout_marginTop="@dimen/dp20h"
+                android:layout_below="@+id/tv_step_2"
+                />
+
+            <TextView
+                android:id="@+id/tv_step_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorPrimary"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="-26sp"
+                android:layout_below="@+id/view1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp18h"
+                android:text="1"
+                />
+
+            <TextView
+                android:id="@+id/tv_write_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_below="@+id/tv_step_num"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorBlueLight"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="10sp"
+                android:text="@string/write_a_title_for_your_achievment"
+                android:layout_marginTop="@dimen/dp18h"
+                android:layout_centerHorizontal="true"
+                />
+
+
+            <EditText
+                android:id="@+id/et_adv_title"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp30h"
+                android:layout_below="@+id/tv_write_title"
+                android:layout_marginTop="@dimen/dp36h"
+                android:background="@drawable/et_achievments_background"
+                android:hint="@string/title"
+                android:textDirection="locale"
+                android:paddingStart="@dimen/dp15h"
+                android:paddingEnd="@dimen/dp15h"
+                android:textColorHint="@color/colorBlueLight"
+                android:textColor="@color/colorBlueLight"
+                android:textSize="11.7sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"/>
+
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="@dimen/dp132w"
+            android:layout_height="@dimen/dp34w"
+            android:layout_marginTop="@dimen/dp14h"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dp36h"
+            android:background="@drawable/button_achievment_background"
+            android:layout_centerHorizontal="true"
+            android:text="@string/next"
+            android:textColor="@color/colorwhite"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            />
+    </RelativeLayout>
+</layout>

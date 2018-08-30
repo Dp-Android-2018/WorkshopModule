@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <import type="android.view.View" />
         <variable
             name="viewmodel"
-            type="com.example.dell.workshopmodule.viewmodel.FinalStep.FinalStepRegisterViewModel"/>
-        <variable
-            name="registerviewmodel"
-            type="com.example.dell.workshopmodule.viewmodel.FinalStep.HandleRegisterRequestViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.FinalStep.FinalStepRegisterViewModel"/>
+
     </data>
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/rl_parent">
+    android:id="@+id/rl_parent"
+    android:background="@color/colorwhite">
 
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:visibility="@{registerviewmodel.progressDialog==true ? View.VISIBLE : View.INVISIBLE}"
-        android:layout_above="@+id/iv_car_owner_image"
-        />
+
+
 
 
     <TextView
+        android:id="@+id/tv_title_upload"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
@@ -34,11 +29,35 @@
         android:textColor="@color/colorPrimary"
         android:layout_marginTop="@dimen/dp50h"
         android:layout_centerHorizontal="true"
-        android:text="@string/please_upload_id"
+        android:text="@={viewmodel.messageText}"
         />
     
 
+<RelativeLayout
+    android:layout_width="@dimen/dp180w"
+    android:layout_height="@dimen/dp180w"
+    android:background="@drawable/circle_profile_background"
+    android:layout_centerInParent="true">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/sp14_5"
+        android:textColor="@color/gray_color"
+        android:lineSpacingExtra="-5.5sp"
+        android:text="@string/upload"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp30h"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_layer"
+        android:layout_centerInParent="true"
+        android:visibility="@{viewmodel.picBitmap==null ? View.VISIBLE : View.INVISIBLE}"
+        android:onClick="@{viewmodel::displayDialog}"
+       />
     <de.hdodenhof.circleimageview.CircleImageView
 
         android:id="@+id/iv_car_owner_image"
@@ -47,8 +66,32 @@
         android:layout_centerInParent="true"
         bind:imageBitmap="@{viewmodel.picBitmap}"
         android:onClick="@{viewmodel::displayDialog}"
+        android:visibility="@{viewmodel.picBitmap!=null ? View.VISIBLE : View.INVISIBLE}"
+       />
+</RelativeLayout>
 
-        />
+    <RelativeLayout
+        android:layout_width="@dimen/dp171h"
+        android:layout_height="@dimen/dp171h"
+        android:layout_centerInParent="true"
+        android:background="@color/whiteopacitycolor">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="@dimen/dp50h"
+            android:layout_height="@dimen/dp50h"
+            app:lottie_fileName="loadingLine.json"
+            app:lottie_loop="false"
+            app:lottie_autoPlay="false"
+            bind:setprogress="@{viewmodel.progress}"
+            bind:animation="@{viewmodel.onAnimationEnd}"
+            android:layout_centerInParent="true"
+            android:visibility="@{viewmodel.loading ==true ? View.VISIBLE : View.INVISIBLE}"
+            />
+
+    </RelativeLayout>
+
+
 
     <RelativeLayout
 
@@ -105,7 +148,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_specialization_num_of_steps"
             android:layout_marginTop="@dimen/dp5h"
-            android:weightSum="5">
+            android:weightSum="6">
 
             <View
 
@@ -145,6 +188,15 @@
                 android:layout_weight="1"
                 android:layout_height="@dimen/dp9h"
                 android:background="@{viewmodel.step==1?@drawable/view_rectangle_step_disactive_background:@drawable/view_rectangle_step_background}"
+                android:layout_marginEnd="@dimen/dp1h"/>
+
+
+            <View
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp9h"
+                android:background="@drawable/view_rectangle_step_disactive_background"
                 android:layout_marginEnd="@dimen/dp1h"/>
         </LinearLayout>
     </RelativeLayout>

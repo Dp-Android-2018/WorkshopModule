@@ -1,80 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+            <variable
+                name="viewmodel"
+                type="com.dp.dell.workshopmodule.viewmodel.ItemChatDetailViewModel"/>
+    </data>
+
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/rv_parent">
 
     <RelativeLayout
         android:id="@+id/rl_sender_message"
-        android:layout_width="@dimen/dp217w"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp40h"
-        android:layout_marginEnd="@dimen/dp64h"
-        android:background="@drawable/rl_chat_sender_background"
-        android:layout_marginTop="@dimen/dp15h">
+        android:layout_marginStart="@dimen/dp10h"
+        android:visibility="@{viewmodel.sender ?  View.GONE : View.VISIBLE }"
+        android:layout_marginTop="@dimen/dp15h"
+        android:layout_alignParentStart="true">
 
-        <TextView
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/rl_sender_layout">
+        <TextView
+            android:layout_width="@dimen/dp217w"
+            android:layout_height="wrap_content"
             android:textSize="10sp"
+            android:layout_alignParentStart="true"
             android:fontFamily="sans-serif"
             android:textStyle="bold"
             android:textColor="@color/colorwhite"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing
-elit, sed do eiusmod tempor incididunt ut labore et
-dolore magna aliqua."
+            android:text="@{viewmodel.content}"
             android:layout_marginTop="@dimen/dp9h"
             android:layout_marginBottom="@dimen/dp6w"
             android:layout_marginStart="@dimen/dp6w"
             android:layout_marginEnd="@dimen/dp6w"
+            android:paddingTop="@dimen/dp9w"
+            android:paddingEnd="@dimen/dp7w"
+            android:paddingBottom="@dimen/dp7w"
+            android:paddingStart="@dimen/dp7w"
+            android:background="@drawable/rl_chat_sender_background"
+            android:visibility="@{viewmodel.text ? View.VISIBLE : View.GONE}"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="@dimen/dp150h"
+            android:layout_height="@dimen/dp150h"
+            android:elevation="12dp"
+            app:cardCornerRadius="25dp"
+            android:innerRadius="0dp"
+            android:visibility="@{viewmodel.image ? View.VISIBLE : View.GONE}"
+            android:background="@drawable/rl_chat_sender_background"
+            android:layout_margin="@dimen/dp5w"
+            android:id="@+id/cv_image">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
+                bind:imageConv="@{viewmodel.content}"
+                android:onClick="@{viewmodel::showZoomAbleImage}"/>
+            />
+        </android.support.v7.widget.CardView>
+
+            <ImageView
+                android:layout_width="@dimen/dp90h"
+                android:layout_height="@dimen/dp90h"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_pin_drop_black_24dp"
+                android:layout_below="@+id/cv_image"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/dp30h"
+                android:visibility="@{viewmodel.loc ? View.VISIBLE : View.GONE}"
+                android:onClick="@{viewmodel::navigate}"
+                />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_sender"
+            android:layout_width="@dimen/dp35w"
+            android:layout_height="@dimen/dp35w"
+            android:textSize="@dimen/sp12"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/whitebasecolor"
+            android:letterSpacing="0.01"
+            android:lineSpacingExtra="-9.7sp"
+            android:layout_below="@+id/rl_sender_layout"
+            android:layout_alignParentStart="true"
+            android:text="@{viewmodel.secondUserName()}"
+            android:gravity="center"
+            android:background="@drawable/circle_nav_background"
+            />
+
+        <TextView
+            android:id="@+id/tv_sender_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp8"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/graybordercolor"
+            android:letterSpacing="0.01"
+            android:layout_marginTop="@dimen/dp5h"
+            android:lineSpacingExtra="-9.7sp"
+            android:layout_below="@+id/rl_sender_layout"
+            android:layout_toEndOf="@+id/tv_sender"
+            android:layout_marginStart="@dimen/dp10h"
+            android:text="@{viewmodel.time}"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+
             />
     </RelativeLayout>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-
-        android:id="@+id/iv_sender"
-        android:layout_width="@dimen/dp25w"
-        android:layout_height="@dimen/dp25w"
-        android:layout_marginStart="@dimen/dp16h"
-        android:src="@drawable/ic_launcher_background"
-        android:layout_below="@+id/rl_sender_message"
-        />
 
 
     <RelativeLayout
+        android:layout_below="@+id/rl_sender_message"
         android:id="@+id/rl_reciever_message"
-        android:layout_width="@dimen/dp217w"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dp40h"
-        android:layout_marginStart="@dimen/dp64h"
-        android:background="@drawable/rl_chat_reciever_background"
-        android:layout_marginTop="@dimen/dp19w"
-        android:layout_below="@+id/iv_sender">
+        android:layout_marginEnd="@dimen/dp10h"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/dp15h"
+        android:visibility="@{viewmodel.sender ?  View.VISIBLE :  View.GONE}">
 
-        <TextView
+        <RelativeLayout
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rl_reciever_layout">
+        <TextView
+            android:layout_width="@dimen/dp217w"
             android:layout_height="wrap_content"
             android:textSize="10sp"
             android:fontFamily="sans-serif"
             android:textStyle="bold"
             android:textColor="@color/colorwhite"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing
-elit, sed do eiusmod tempor incididunt ut labore et
-dolore magna aliqua."
+            android:text="@{viewmodel.content}"
             android:layout_marginTop="@dimen/dp9h"
             android:layout_marginBottom="@dimen/dp6w"
             android:layout_marginStart="@dimen/dp6w"
             android:layout_marginEnd="@dimen/dp6w"
+            android:paddingTop="@dimen/dp9w"
+            android:paddingEnd="@dimen/dp7w"
+            android:paddingBottom="@dimen/dp7w"
+            android:paddingStart="@dimen/dp7w"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/rl_chat_reciever_background"
+            android:visibility="@{viewmodel.text ? View.VISIBLE : View.GONE}"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="@dimen/dp150h"
+            android:layout_height="@dimen/dp150h"
+            android:elevation="12dp"
+            app:cardCornerRadius="25dp"
+            android:innerRadius="0dp"
+            android:layout_alignParentEnd="true"
+            android:visibility="@{viewmodel.image ?  View.VISIBLE : View.GONE }"
+            android:layout_margin="@dimen/dp5w"
+            android:id="@+id/cv_reciver_image">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
+                bind:imageConv="@{viewmodel.content}"
+                android:onClick="@{viewmodel::showZoomAbleImage}"
+                android:background="@drawable/rl_chat_reciever_background"/>
+            />
+        </android.support.v7.widget.CardView>
+
+            <ImageView
+                android:layout_width="@dimen/dp90h"
+                android:layout_height="@dimen/dp90h"
+                android:layout_centerHorizontal="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_pin_drop_black_24dp"
+                android:layout_below="@+id/cv_reciver_image"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp30h"
+                android:onClick="@{viewmodel::navigate}"
+                android:visibility="@{viewmodel.loc ?  View.VISIBLE : View.GONE }"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_workshop_title"
+            android:layout_width="@dimen/dp35w"
+            android:layout_height="@dimen/dp35w"
+            android:textSize="@dimen/sp12"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/whitebasecolor"
+            android:letterSpacing="0.01"
+            android:lineSpacingExtra="-9.7sp"
+            android:layout_below="@+id/rl_reciever_layout"
+            android:layout_alignParentEnd="true"
+            android:text="@{viewmodel.firstUserName()}"
+            android:gravity="center"
+            android:background="@drawable/circle_nav_background"
+            />
+
+        <TextView
+            android:id="@+id/tv_reciever_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp8"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/graybordercolor"
+            android:letterSpacing="0.01"
+            android:lineSpacingExtra="-9.7sp"
+            android:layout_below="@+id/rl_reciever_layout"
+            android:layout_toStartOf="@+id/tv_workshop_title"
+            android:layout_marginEnd="@dimen/dp10h"
+            android:text="@{viewmodel.time}"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dp5h"
+            android:layout_centerInParent="true"
+
             />
     </RelativeLayout>
 
-    <de.hdodenhof.circleimageview.CircleImageView
 
-        android:id="@+id/iv_reciever"
-        android:layout_width="@dimen/dp25w"
-        android:layout_height="@dimen/dp25w"
-        android:layout_marginEnd="@dimen/dp16h"
-        android:src="@drawable/ic_launcher_background"
-        android:layout_below="@+id/rl_reciever_message"
-        android:layout_alignParentEnd="true"
-        />
+
+
+
+
 </RelativeLayout>
+
+</layout>

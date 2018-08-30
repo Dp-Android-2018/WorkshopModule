@@ -4,35 +4,35 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.ThirdStepRegisterViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.ThirdStepRegisterViewModel"/>
 
         <variable
             name="satviewModel"
-            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.SaturdayViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.SaturdayViewModel"/>
 
         <variable
             name="sunviewModel"
-            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.SunDayViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.SunDayViewModel"/>
 
         <variable
             name="monviewModel"
-            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.MonDayViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.MonDayViewModel"/>
 
         <variable
             name="tueviewModel"
-            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.TuesdayViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.TuesdayViewModel"/>
 
         <variable
             name="wedviewModel"
-            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.WednesDayViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.WednesDayViewModel"/>
 
         <variable
             name="thuviewModel"
-            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.ThursDayViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.ThursDayViewModel"/>
 
         <variable
             name="friviewModel"
-            type="com.example.dell.workshopmodule.viewmodel.ThirdStepRegistration.FriDayViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.FriDayViewModel"/>
     </data>
 <RelativeLayout
     android:layout_width="match_parent"
@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_working_time_text"
-        android:layout_marginTop="@dimen/dp36h">
+        android:layout_marginTop="@dimen/dp20h">
 
 
     <EditText
@@ -107,7 +107,7 @@
             android:fontFamily="sans-serif-medium"
             android:textStyle="normal"
             android:textColor="@color/colorwhite"
-            android:text="Sa"
+            android:text="@string/sa"
             android:layout_centerHorizontal="true"
             android:background="@{satviewModel.checker? @drawable/circle_active_background:@drawable/circle_background}"
             android:onClick="@{satviewModel::resetDay}"
@@ -118,7 +118,7 @@
     <View
         android:id="@+id/view1"
         android:layout_width="@dimen/dp1w"
-        android:layout_height="335dp"
+        android:layout_height="@dimen/dp355h"
         android:background="@color/colorPrimary"
         android:layout_below="@+id/rl_working_time_saturday"
         android:layout_centerHorizontal="true"/>
@@ -177,7 +177,7 @@
             android:fontFamily="sans-serif-medium"
             android:textStyle="normal"
             android:textColor="@color/colorwhite"
-            android:text="Sa"
+            android:text="@string/sع"
             android:layout_centerHorizontal="true"
             android:background="@{sunviewModel.checker? @drawable/circle_active_background:@drawable/circle_background}"
             android:onClick="@{sunviewModel::resetDay}"
@@ -239,7 +239,7 @@
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
         android:textColor="@color/colorwhite"
-        android:text="Sa"
+        android:text="@string/Mo"
         android:layout_centerHorizontal="true"
         android:background="@{monviewModel.checker? @drawable/circle_active_background:@drawable/circle_background}"
         android:onClick="@{monviewModel::resetDay}"
@@ -303,7 +303,7 @@
             android:fontFamily="sans-serif-medium"
             android:textStyle="normal"
             android:textColor="@color/colorwhite"
-            android:text="Sa"
+            android:text="@string/Tue"
             android:layout_centerHorizontal="true"
             android:background="@{tueviewModel.checker? @drawable/circle_active_background:@drawable/circle_background}"
             android:onClick="@{tueviewModel::resetDay}"
@@ -366,7 +366,7 @@
             android:fontFamily="sans-serif-medium"
             android:textStyle="normal"
             android:textColor="@color/colorwhite"
-            android:text="Sa"
+            android:text="@string/Wed"
             android:layout_centerHorizontal="true"
             android:background="@{wedviewModel.checker? @drawable/circle_active_background:@drawable/circle_background}"
             android:onClick="@{wedviewModel::resetDay}"
@@ -428,7 +428,7 @@
             android:fontFamily="sans-serif-medium"
             android:textStyle="normal"
             android:textColor="@color/colorwhite"
-            android:text="Sa"
+            android:text="@string/Thu"
             android:layout_centerHorizontal="true"
             android:background="@{thuviewModel.checker? @drawable/circle_active_background:@drawable/circle_background}"
             android:onClick="@{thuviewModel::resetDay}"
@@ -492,7 +492,7 @@
             android:fontFamily="sans-serif-medium"
             android:textStyle="normal"
             android:textColor="@color/colorwhite"
-            android:text="Sa"
+            android:text="@string/fri"
             android:layout_centerHorizontal="true"
             android:background="@{friviewModel.checker? @drawable/circle_active_background:@drawable/circle_background}"
             android:onClick="@{friviewModel::resetDay}"
@@ -555,7 +555,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tv_specialization_num_of_steps"
             android:layout_marginTop="@dimen/dp5h"
-            android:weightSum="5">
+            android:weightSum="6">
 
             <View
 
@@ -588,6 +588,15 @@
                 android:layout_height="@dimen/dp9h"
                 android:background="@drawable/view_rectangle_step_disactive_background"
                 android:layout_marginEnd="@dimen/dp1h"/>
+
+            <View
+
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/dp9h"
+                android:background="@drawable/view_rectangle_step_disactive_background"
+                android:layout_marginEnd="@dimen/dp1h"/>
+
 
             <View
 

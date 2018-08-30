@@ -8,9 +8,14 @@
     <color name="colorgray">#4d4d4d</color>
     <color name="colorBlue">#de216eb7</color>
     <color name="grayColor">#989898</color>
+    <color name="gray_relative_color">#d5d5d5</color>
     <color name="dimgray">#6d6d6d</color>
     <color name="bluecolor">#3498db</color>
+    <color name="facebookcololr">#3a559f</color>
+    <color name="twittercolor">#50abf1</color>
     <color name="colorwhitenormal">#defafafa</color>
+    <color name="colorLightBlue">#3498db</color>
+    <color name="colorDarkGray2">#a3a3a3</color>
     <color name="colorblue">#9ac1db</color>
     <color name="graycolor">#adadad</color>
     <color name="greencolor">#27ae60</color>
@@ -21,6 +26,7 @@
     <color name="darkcolor">#144054</color>
     <color name="cyancolor">#BFfbf6f6</color>
     <color name="blacklightcolor">#515151</color>
+    <color name="colorYellow">#efce4a</color>
     <color name="bordercolor">#d2d2d2</color>
     <color name="advertisment_toolbar_color">#212121</color>
     <color name="advertisement_title_color">#28252e</color>
@@ -30,8 +36,23 @@
     <color name="cardcolor">#dedede</color>
     <color name="thirdblack">#cc4d4d4d</color>
     <color name="chat_sender_color">#546e7a</color>
+    <color name="no_items_found">#a6a6a6</color>
     <color name="chat_reciever_color">#233b46</color>
     <color name="graysecondary">#cacaca</color>
     <color name="darkbluecolor">#216eb7</color>
+    <color name="colorgraydark">#6c6c6c</color>
     <color name="gray_subscribed_color">#999999</color>
+    <color name="gray_color">#c1c0c0</color>
+    <color name="whitebasecolor">#ffffff</color>
+    <color name="whiteopacitycolor">#80fafafa</color>
+    <color name="menu_dark_color">#13355f</color>
+    <color name="edit_profile_edit_text_color">#66000000</color>
+    <color name="colorDarkGray">#a3a3a3</color>
+    <color name="darkColorPrimary">#1e2756</color>
+    <color name="darkColorPrimaryDark">#141831</color>
+    <color name="darkColorAccent">#2aac4b</color>
+    <color name="setting_background_color">#d3d3d3</color>
+    <color name="font_setting_color">#989898</color>
+    <color name="colorBlackTransparent">#a1000000</color>
+    <color name="instagramcolor">#b439a5</color>
 </resources>

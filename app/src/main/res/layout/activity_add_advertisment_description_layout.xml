@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+<data>
+
+</data>
+
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -48,16 +53,18 @@
 
 
         <EditText
+            android:id="@+id/et_adv_desc"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp195h"
             android:layout_below="@+id/tv_write_title"
             android:layout_marginTop="@dimen/dp36h"
+            android:textDirection="locale"
             android:background="@drawable/et_advertisment_background"
             android:hint="@string/title"
             android:gravity="start"
             android:paddingStart="@dimen/dp17w"
             android:paddingTop="@dimen/dp10h"
-            android:paddingEnd="@dimen/dp4h"
+            android:paddingEnd="@dimen/dp17w"
             android:textColorHint="@color/advertisement_title_color"
             android:textColor="@color/advertisement_title_color"
             android:textSize="11.7sp"
@@ -88,3 +95,4 @@
 
         />
 </RelativeLayout>
+</layout>

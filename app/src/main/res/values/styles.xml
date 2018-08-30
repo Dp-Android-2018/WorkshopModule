@@ -11,6 +11,8 @@
 
     </style>
     <style name="AppTheme.NoActionBar">
+        <item name="mainActBackground">@color/colorwhite</item>
+        <item name="mainActtextcolor">@color/colorBlueLight</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -21,10 +23,36 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+
+    <style name="NavigationTheme" parent="AppTheme">
+        <item name="android:textSize">@dimen/sp14</item>
+        <item name="android:listPreferredItemHeightSmall">@dimen/dp36w</item>
+
+    </style>
+
     <style name="SpinnerTheme" parent="android:Widget.Spinner">
         <item name="android:background">@drawable/bg_spinner</item>
         <item name="android:layout_marginLeft">5dp</item>
         <item name="android:layout_marginRight">5dp</item>
         <item name="android:layout_marginBottom">5dp</item>
+    </style>
+
+    <style name="AppTheme.Dark" parent="Theme.AppCompat">
+        <!-- Dark theme base colours -->
+        <item name="colorPrimary">@color/darkColorPrimary</item>
+        <item name="colorPrimaryDark">@color/darkColorPrimaryDark</item>
+        <item name="colorAccent">@color/darkColorAccent</item>
+    </style>
+
+    <style name="AppTheme.Dark.NoActionBar">
+        <item name="mainActBackground">@color/darkColorPrimaryDark</item>
+        <item name="mainActtextcolor">@color/whitebasecolor</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="NavDrawerTextStyle" parent="Base.TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/sp12</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

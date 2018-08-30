@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <stroke android:width="@dimen/dp2h" android:color="@color/advertisement_title_color"/>
+    <padding android:bottom="@dimen/dp2h" android:left="@dimen/dp2h" android:right="@dimen/dp2h" android:top="@dimen/dp2h"/>
+</shape>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data></data>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/cardcolor"
+    android:id="@+id/rl_parent">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_achievments"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp10h"
+        android:layout_marginStart="@dimen/dp10h"
+        android:layout_marginEnd="@dimen/dp10h"
+        android:layout_marginBottom="@dimen/dp8h"
+        tools:listitem="@layout/item_achievment_layout"
+        />
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:tint="@color/colorwhite"
+        app:backgroundTint="@color/colorPrimary"
+        android:layout_gravity="end|bottom"
+        android:src="@android:drawable/ic_input_add"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        app:pressedTranslationZ="12dp"
+        android:layout_margin="@dimen/dp15h" />
+    
+    <RelativeLayout
+        android:id="@+id/rl_no_items"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       android:layout_marginTop="@dimen/dp80h"
+        android:visibility="gone">
+        <ImageView
+            android:layout_width="@dimen/dp120h"
+            android:layout_height="@dimen/dp120h"
+            android:src="@mipmap/achievement"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp18"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/no_items_found"
+            android:layout_centerInParent="true"
+            android:letterSpacing="0.01"
+            android:lineSpacingExtra="-3.3sp"
+            android:gravity="center_horizontal"
+            android:text="@string/no_achievements_yet"
+            />
+        <TextView
+            android:layout_below="@+id/tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp9"
+            android:fontFamily="sans-serif"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp2h"
+            android:textStyle="normal"
+            android:textColor="@color/no_items_found"
+            android:letterSpacing="0.01"
+            android:lineSpacingExtra="6.7sp"
+            android:gravity="center_horizontal"
+            android:text="@string/no_achievements_for_this_workshop_right_now"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>
+</layout>

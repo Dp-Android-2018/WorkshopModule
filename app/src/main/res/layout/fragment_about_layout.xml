@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.dp.dell.workshopmodule.viewmodel.AboutViewModel"/>
+    </data>
+    <ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<LinearLayout
+  android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp143w"
+        android:background="@color/colorBlueLight">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_logo"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/dp15h"
+        android:layout_marginEnd="@dimen/dp15h">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13.3sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlueLight"
+            android:lineSpacingExtra="6.7sp"
+            android:layout_marginTop="@dimen/dp18h"
+
+            android:layout_marginBottom="@dimen/dp10h"
+            android:text="@string/about_content"/>
+    </RelativeLayout>
+</LinearLayout>
+</ScrollView>
+</layout>

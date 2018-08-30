@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">WorkshopModule</string>
     <string name="login_text">سجل الدخول فى find &amp; fix</string>
     <string name="username">أسم المستخدم</string>
@@ -10,10 +11,11 @@
     <string name="workshop_name">اسم الورشة</string>
     <string name="email">البريد الالكترونى</string>
     <string name="workshop_phone">رقم الورشة</string>
-    <string name="website">الموقع</string>
+    <string name="about_find_fix">ماذا عنا</string>
+    <string name="website">الموقع الالكترونى</string>
     <string name="select_location">حدد الموقع</string>
     <string name="next_step">الخطوة القادمة</string>
-    <string name="step_1_of_5">الخطوة 1 من 5</string>
+    <string name="step_1_of_5">الخطوة 1 من 6</string>
     <string name="tempspecializations">التخصصات</string>
     <string name="workshop_specializations">اختصاصات مقدم الخدمة</string>
     <string name="back">العودة</string>
@@ -22,14 +24,15 @@
     <string name="to">الى</string>
     <string name="please_upload_id">من فضلك اختر بطاقة الرقم القومى</string>
     <string name="normal_request">طلبات عادية</string>
-    <string name="done">Done</string>
-    <string name="in_progress">In Progress</string>
-    <string name="happening_now">Happing now</string>
+    <string name="done">تم</string>
+    <string name="in_progress"> قيد التنفيذ</string>
+    <string name="happening_now">الحالى</string>
     <string name="current_request">الطلبات الحالية</string>
     <string name="sent_offers">العروض المرسلة</string>
     <string name="requests_in_progress">طلبات يتم العمل فيها حاليا</string>
     <string name="you_have_complete">لقد اتممت</string>
     <string name="requests">طلب</string>
+    <string name="requests_2">استعراض الطلبات العادية</string>
     <string name="you_added_an_offer_to_this_car">لقد قمت بأضافة عرض على هذة السيارة</string>
     <string name="wait_the_client_accepts_you">من فضلك انتظر العميل حتى يوافق على عرضك</string>
     <string name="show_location">اظهر الموقع</string>
@@ -48,93 +51,274 @@
     <string name="info">بيانات</string>
     <string name="location">الموقع</string>
     <string name="accept">قبول</string>
-    <string name="cancel">رفض</string>
-    <string name="uregnt_request">الطلبات الطارئه</string>
-    <string name="add_advertisment">اضاغة اعلان</string>
+    <string name="cancel">الغاء</string>
+    <string name="uregnt_request">الطلبات السريعة</string>
+    <string name="uregnt_request_2">استعراض الطلبات الطارئة</string>
+    <string name="add_advertisment">اضافة اعلان</string>
     <string name="welcome">مرحبا</string>
-    <string name="let_s_create_your_advertising_and_show_it">Let’s create your advertising and show it</string>
+    <string name="let_s_create_your_advertising_and_show_it">هيا بنا نبدأ انشاء الاعلان الخاص بك</string>
     <string name="where_ever_you_want_to_all_your_customer">where ever you want to all your customer</string>
-    <string name="write_a_title_for_your_advertising">Write a title for your advertising</string>
-    <string name="title">Title</string>
-    <string name="next">Next</string>
-    <string name="write_a_description_for_your_advertising">Write a description for your advertising</string>
-    <string name="choose_country">Choose The Country and city that you target from it</string>
-    <string name="let_your_advertising_reach_to_many_people">let your advertising reach to many people</string>
-    <string name="choose_how_many_people_you_want_to">choose how many people you want to?</string>
-    <string name="select_countries">Select Countries</string>
-    <string name="ok">Ok</string>
-    <string name="add_another_ads">Add another ads</string>
-    <string name="information">Information</string>
-    <string name="specialization">Specializations</string>
-    <string name="submit">Submit</string>
-    <string name="profile_editing">Profile Editing</string>
-    <string name="you_edit_your_info_waiting_for_accepting_from_customer_service">You edit your info waiting for accepting from customer service</string>
-    <string name="brands">Brands</string>
-    <string name="start_engine">Start Engine</string>
-    <string name="start_journey">We hope you to have a satisfied journey</string>
-    <string name="add_advertising">Add Advertising</string>
-    <string name="advertising">Advertising</string>
-    <string name="edit_profile">Edit Profile</string>
-    <string name="find_fix"><![CDATA[Find & Fix]]></string>
-    <string name="my_advertisement">My Advertisement</string>
+    <string name="write_a_title_for_your_advertising">دعنا ننشئ أعلانك ونعرضه للجميع</string>
+    <string name="title">العنوان</string>
+    <string name="next">التالى</string>
+    <string name="workshop_sub_specializations">التخصصات الفرعية</string>
+    <string name="write_a_description_for_your_advertising">اكتب وصف الاعلان</string>
+    <string name="choose_country">من فضلك اختر الدولة والمدينة</string>
+    <string name="let_your_advertising_reach_to_many_people">زود مشاهده الاعلان</string>
+    <string name="choose_how_many_people_you_want_to">من فضلك اختر عدد الاشخاص</string>
+    <string name="select_countries">اختر الدول</string>
+    <string name="ok">حسنا</string>
+    <string name="add_another_ads">اضف اعلان اخر</string>
+    <string name="information">معلومات</string>
+    <string name="specialization">تخصصات</string>
+    <string name="submit">عرض</string>
+    <string name="profile_editing">تعديل الملف الشخصى</string>
+    <string name="you_edit_your_info_waiting_for_accepting_from_customer_service">تم تعديل البينات.انتظار موافقه خدمه العملاء</string>
+    <string name="brands">ماركات</string>
+    <string name="start_engine">ابدأ</string>
+    <string name="start_journey">نتمني لك رحله امنه</string>
+    <string name="journey">البحث و الاصلاح رحلة طويلة فقط اضغط المحرك لتبدئها </string>
+    <string name="add_advertising">اضف اعلان</string>
+    <string name="advertising">اعلان</string>
+    <string name="edit_profile">تعديل الحساب</string>
+    <string name="find_fix">البحث و الاصلاح</string>
+    <string name="my_advertisement">اعلانتى</string>
     <string name="type_your_message_here">اكتب رسالتك هنا...</string>
-    <string name="write_your_description_to_add_your_offer">Write your description to add your offer</string>
-    <string name="add_average_price">Add average price</string>
+    <string name="write_your_description_to_add_your_offer">اكتب الوصف لتضيف عرض</string>
+    <string name="add_average_price">متوسط الثمن</string>
     <string name="sar">SAR</string>
-    <string name="avg_date">Add Average Date</string>
-    <string name="days">Days</string>
-    <string name="step_5_of_5">Step 5 of 5</string>
-    <string name="send_offer">Send Offer</string>
-    <string name="fill_data">Please Fill All Data</string>
-    <string name="invalid_email_password">Invalid Email or Password</string>
-    <string name="invalid_data">Invalid Data</string>
-    <string name="confirm_password">Confirm Password</string>
-    <string name="reqired_field">*This Field is Reuired</string>
-    <string name="invalid_email_format">*Invalid Email Format</string>
-    <string name="password_length">Required 6 Character at least</string>
-    <string name="invalid_phone_format">Invalid Phone Format</string>
-    <string name="invalid_site_url">Invalid Website Url</string>
-    <string name="select_city">Please Select Your City</string>
-    <string name="select_country">Please Choose Your Country</string>
-    <string name="choose_location">Please Select Your Location Correctly</string>
-    <string name="matches_password">Password and It\'s Confirmation must be matches</string>
-    <string name="email_alredy_taken">This Email is Already Taken</string>
-    <string name="choose_service">Choose Your Service</string>
-    <string name="wensh">Wensh</string>
-    <string name="service_provider">Service Provider</string>
-    <string name="workshop_specializations_text">WorkShop Specializations</string>
-    <string name="choose_brands">Choose Brands</string>
-    <string name="empty_service_type">Please Choose Your Service Type</string>
-    <string name="empty_workshop_specialization">Please Choose Your Specialization</string>
-    <string name="empty_woekshop_brands">Please Choose Your Workshop Brands</string>
-    <string name="empty_urgent_types">Please Choose Your Urgent Request Types</string>
-    <string name="select_time">Select Time</string>
-    <string name="choose_working_day">Please Choose Your Working Day</string>
-    <string name="choose_pic_form_camera">Choose Pic Form Camera</string>
-    <string name="choose_pic_form_gallery">Choose Pic Form Gallery</string>
-    <string name="permission_denied">Permission is Denied</string>
-    <string name="choose_image">Please Choose an Image</string>
-    <string name="request_completed">Your Request Completed Successfully</string>
-    <string name="need_winch">Need Winch</string>
-    <string name="dont_need_winch">Doesn\'t need Winch</string>
-    <string name="internet_connection">Please Check Your Internet Connection</string>
-    <string name="cant_add_offer">Can\'t add Offer to this request now</string>
-    <string name="add_offer_desc">Please Add Description to your Offer</string>
-    <string name="add_offer_price">Please Add Price To Your Offer</string>
-    <string name="add_offer_date">Pleae Add Date To Your Offer</string>
-    <string name="offer_add_successfully">Offer Added Successfully</string>
+    <string name="avg_date">اضف متوسط التاريخ</string>
+    <string name="days">الايام</string>
+    <string name="step_5_of_5">خطوه 5 من 6</string>
+    <string name="send_offer">ارسل عرض</string>
+    <string name="fill_data">املأ جميع البيانات</string>
+    <string name="sign_out">تسجيل الخروج</string>
+    <string name="invalid_email_password">البريد الالكترونى او كلمه المرور غير صحيح</string>
+    <string name="invalid_data">بيانات خاطئه</string>
+    <string name="confirm_password">تأكيد كلمه المرور</string>
+    <string name="reqired_field">*هذه البيانات مطلوبه</string>
+    <string name="invalid_email_format">*بريد الكترونى خاطئ</string>
+    <string name="password_length">6حروف على الاقل</string>
+    <string name="invalid_phone_format">رقم هاتف خاطئ</string>
+    <string name="invalid_site_url">عنوان الموقع خاطئ</string>
+    <string name="select_city">اختر المدينه</string>
+    <string name="select_country">اختر الدوله</string>
+    <string name="choose_location">اختر مكانك بدقه</string>
+    <string name="matches_passwo">كيد كلمه المرور غير متطابقان</string>
+    <string name="email_alredy_taken">هذا البريد الالكترونى مُسجل</string>
+    <string name="choose_service">اختر خدمتك</string>
+    <string name="wensh">سطحة</string>
+    <string name="service_provider">مزود الخدمه</string>
+    <string name="workshop_specializations_text">تخصصات الورش</string>
+    <string name="choose_brands">اختر الماركات</string>
+    <string name="empty_service_type">اختر نوع خدمتك</string>
+    <string name="empty_workshop_specialization">اختر التخصص</string>
+    <string name="empty_woekshop_brands">اختر ماركات ورشتك</string>
+    <string name="empty_urgent_types">اختر انواع الطلبات العاجله الخاصه بك</string>
+    <string name="select_time">اختر الوقت</string>
+    <string name="choose_working_day">اختر ايام عملك</string>
+    <string name="choose_pic_form_camera">افتح الكاميرا</string>
+    <string name="choose_pic_form_gallery">اختار صوره من الاستديو</string>
+    <string name="permission_denied">غير مسموح</string>
+    <string name="choose_image">اختر صوره</string>
+    <string name="request_completed">تم انهاء الطلب بنجاح</string>
+    <string name="need_winch">اريد سطحة</string>
+    <string name="dont_need_winch">لا اريد سطحة</string>
+    <string name="internet_connection">خطأ فى الاتصال بالانترنت</string>
+    <string name="cant_add_offer">لايمكن اضافه عروض لهذا الطلب حاليا</string>
+    <string name="add_offer_desc">اضف وصف لعرضك</string>
+    <string name="add_offer_price">اضف ثمن عرضك</string>
+    <string name="add_offer_date">اضف تاريخ لعرضك</string>
+    <string name="offer_add_successfully">تم اضافه العرض بنجاح</string>
     <string name="update_offer">تحديث بيانات العرض</string>
-    <string name="country">country</string>
-    <string name="city">City</string>
-    <string name="invalid_phone_number">This Phone Number Already Taken</string>
-    <string name="choose_country_first">Please Choose Country First</string>
-    <string name="cant_complete_offer">Can\'t Complete this request now</string>
-    <string name="unauthenticated">This is account is logged in from another device</string>
-    <string name="profile_update_successfully">Profile Updated Successfully</string>
-    <string name="thank_you_for_registeration">Thank you for Registeration</string>
-    <string name="wait_the_activiation_process">Wait the activiation Process</string>
-    <string name="from_our_support_team">From our support team</string>
-    <string name="for_more_details_visit">For more details visit</string>
-    <string name="cant_complete_your_request">Can\'t Complete Your Request</string>
-    <string name="smaller_time">From Time Must be Smaller Than To Time</string>
+    <string name="country">الدوله</string>
+    <string name="city">المدينه</string>
+    <string name="invalid_phone_number">رقم الهاتف مٌسجل</string>
+    <string name="choose_country_first">اختر الدوله اولا</string>
+    <string name="cant_complete_offer">لا يمكن اتمام هذا الطلب الان</string>
+    <string name="unauthenticated">هذا الحساب مُسجل من جهاز اخر</string>
+    <string name="profile_update_successfully">تم تحديث الملف الشخصى بنجاح</string>
+    <string name="thank_you_for_registeration">شكراً لاشتراكك</string>
+    <string name="wait_the_activiation_process">انتظار عمليه تنشيط الحساب</string>
+    <string name="from_our_support_team">من فريق الدعم</string>
+    <string name="for_more_details_visit">لمعلومات اكثر قم بزياره</string>
+    <string name="cant_complete_your_request">لا يمكن اتمام طلبك</string>
+    <string name="smaller_time">تاريخ البدء يجب ان يكون قبل تاريخ الانتهاء</string>
+    <string name="upload">ارفع الصورة</string>
+    <string name="settings">الإعدادات</string>
+    <string name="share">شارك التطبيق</string>
+    <string name="complete_urgent_request">هل حقا تريد اكمال هذا الطلب</string>
+    <string name="rate_us">قم بالتقييم</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="all_rights_recieved_findandfix_2018">جميع الاحقوق محفوظه FindandFix 2018</string>
+    <string name="upload_your_advertising_picture">اضف صوره اعلانك</string>
+    <string name="workshop_information">بيانات الورشه</string>
+    <string name="change_password">تغيير كلمه المرور</string>
+    <string name="save">حفظ</string>
+    <string name="please_write_your_current_password">كلمه المرور الحاليه</string>
+    <string name="send_to">ارسل الى</string>
+    <string name="Home"> الرئيسية</string>
+    <string name="password_updated">تم تحديث كلمه المرور بنجاح</string>
+    <string name="invalid_current_password">كلمه المرور الحاليه غير صالحه</string>
+    <string name="delete_offer">امسح العرض</string>
+    <string name="about">عن البحث والإصلاح </string>
+<string name="general">عام</string>
+<string name="language">اللغة</string>
+<string name="dark_mode">Dark mode</string>
+<string name="account">الحساب</string>
+<string name="deactivate">اغلاق الحساب</string>
+<string name="terms_and_conditions">القوانين والشروط</string>
+<string name="all_right_recevied_find_and_fix_2018">جميع الحقوق محفوظه البحث والاصلاح ©  2018</string>
+<string name="add_adv_title">اضف عنوان لاعلانك</string>
+<string name="choose_city">اختر المدينه</string>
+<string name="select_country_city"><![CDATA[Please Select Country & City]]></string>
+<string name="choose_country_for_city">اختر الدوله اولا</string>
+<string name="select_range">اختر المتوسط</string>
+<string name="ranges">متوسط العدد</string>
+<string name="updates_submitted_successfully">تعديلاتك تمت بنجاح في انتظار القبول.</string>
+<string name="delete_offer_for_request">هل انت متأكد من مسح عرضك لهذا الطلب؟</string>
+<string name="call_client">التواصل مع العميل</string>
+<string name="new_offer_notification">عرض جديد</string>
+<string name="fixing_completed_notification">تم الانتهاء من التصليح</string>
+<string name="write_a_title_for_your_achievment">اكتب عنوان لإنجازاتك</string>
+<string name="let_s_create_your_achievments_and_show_it">دعنا ننشئ إنجاز ونعرضه للجميع</string>
+<string name="write_description_for_your_acheivment">ضع وصف لانجازاتك</string>
+<string name="upload_your_picture_before_fixing">ارفع صوره قبل التصليح</string>
+<string name="upload_your_picture_after_fixing">ارفع صور بعد التصليح</string>
+<string name="add_achievment">اضف انجاز</string>
+<string name="add_achievment_description">اضف وصف لاعلانك</string>
+<string name="add_image">اضف صوره</string>
+<string name="achievment_added">تم اضافه انجاز بنجاح</string>
+<string name="before">قبل</string>
+<string name="after">بعد</string>
+<string name="achievments"> الإنجازات الخاصة بى</string>
+<string name="no_achievements_yet">لايوجد انجازات بعد.</string>
+<string name="no_achievements_for_this_workshop_right_now">لا يوجد انجازات لهذه الورشه بعد</string>
+<string name="unsubscribed">هذا الحساب غير مشترك</string>
+<string name="urgent_request">طلبات عاجله</string>
+<string name="this_customer_has_some_problems_in_his_car_are_you_sure_you_want_to_accept_this_request">هذا العميل لديه بعض الاعطال فى سيارته هل انت متأكد من قبول هذا الطلب</string>
+<string name="your_record">تسجيلك الصوتى</string>
+<string name="there_is_no_desc">لايوجد وصف</string>
+<string name="no_voice_notes">لايوجد ملاحظات صوتيه</string>
+<string name="urgent_request_completed">تم انهاء الطلب بنجاح</string>
+<string name="urgent_request_complete_noti">تم انهاء الطلب العاجل</string>
+
+
+
+
+
+
+
+
+
+    <string name="deactivate_account">اغلاق الحساب</string>
+    <string name="are_you_sure_you_want_to_deactivate_your_account">هل حقا تريد اغلاق حسابك ؟</string>
+    <string name="account_deactivated_successfully">لقد تم اغلاق الحساب بنجاح</string>
+    <string name="account_activated">تم تنشيط الحساب بنجاح</string>
+    <string name="account_activated_successfully">تم تنشيط الحساب بنجاح</string>
+    <string name="no_requests_yet">لا توجد طلبات حتى الان</string>
+    <string name="change_language">تغير اللغة</string>
+    <string name="are_you_sure_you_want_to_change_app_language">هل حقا تريد تغير اللغة ؟</string>
+    <string name="no_message_yet">لا توجد رسائل حتى الان</string>
+    <string name="no_message_in_your_inbox">لا توجد رسائل خاصة</string>
+    <string name="enter_your_mobile">من فضلك اختر رقم الهاتف</string>
+    <string name="please_enter_data">من فضلك ادخل البيانات</string>
+    <string name="please_enter_code">من فضلك ادخل الكود</string>
+    <string name="invalid_code">رمز خاطىء</string>
+    <string name="reset_your_password">اعادة تعيين كلمة السر</string>
+    <string name="password_reset">تم تغير كلمة السر بنجاح</string>
+    <string name="something_wrong">هناك خطأ فى الاتصال بالشبكة </string>
+
+
+    <string name="about_content">
+من نحن؟
+
+تأسست شركة البحث والإصلاح Find &amp; Fix ش.ذ.م.م. في عام ٢٠١٧م، وذلك للحاجة الملحة في تقنين سير أعمال ورش اصلاح المركبات ولإيجاد قطع الغيار الاستهلاكية والاساسية، وتعتبر أول شركة من نوعها في تقديم خدمات اصلاح المركبات والبحث عن قطع الغيار الملائمة لكل شركة وكل فئة، وأيضاً قطع الغيار المستخدمة كما هو موجود في تشليح قطع الغيار.
+
+وتتيح شركة البحث والإصلاح إمكانية إيصال المركبات المتعطلة ميكانيكياً أو المتعرضة للحوادث لورش الإصلاح، بعد المفاهمة مع أصحاب الورش وأماكن الصيانة من خلال تطبيق البحث والإصلاح Find &amp; Fix، كما يتيح تطبيق البحث والإصلاح إمكانية التسجيل كصاحب مركبة أو كصاحب ورشة صيانة.
+
+الرؤية
+
+نتطلع أن تكون شركة البحث والإصلاح من أفضل الشركات العربية والعالمية وتحقيق الريادة في مجال صيانة المركبات على المستوى المحلي والعربي والعالمي، وتوفير أعلى معايير الجودة في تقديم الخدمات للعملاء للتيسير لهم وتحقيق مبتغاهم، وتوفير أفضل الحلول في مجال صيانة المركبات وإيجاد قطع الغيار المناسبة في أسهل الطرق وأسرعها.
+
+الرسالة
+
+تقديم خدمات اصلاح المركبات وإيجاد قطع الغيار للعملاء والرقي في خدمات صيانة المركبات وتقنين سير أعمال الإصلاح.
+
+القيم
+
+تقديم أفضل الطرق لخدمة العملاء.
+الجودة في المعايير.
+القيادة والمسؤولية.
+التنمية والابتكار.
+الشغف والطموح.
+
+الأهداف
+
+وضع شركة البحث والإصلاح في مكانة متقدمة في مجال صيانة المركبات وبيع قطع الغيار محلياً وعالمياً.
+تقديم الخدمات لكافة العملاء بالشكل الملائم في جميع المدن.
+توسيع رقعة أعمال الصيانة لتصل لكل مدينة ودولة في العالم.
+صناعة حلقة تجارية عالمية في مجال بيع قطع الغيار.
+توفير أفضل حلول الصيانة، وللإلمام بطرق تعديل المركبات والتزويد بالطرق الرسمية.
+تمكين العملاء من متابعة سير أعمال صيانة مركباتهم من خلال تطبيق البحث والإصلاح.
+أن نحقق جميع احتياجات العملاء من شتى نواحي مجال الصيانة وخدمات بيع قطع الغيار.
+تحقيق الرضى التام للعملاء عن الخدمات المقدمة إليهم والتأكد من رفع سقف مستوى الخدمة.
+توفير كافة سبل الصيانة للمركبات، من إيصال للمركبات المتعطلة حتى خروجها من ورشة الصيانة.
+</string>
+    <string name="workshop_data">بيانات الورشة</string>
+    <string name="sa">السبت</string>
+    <string name="sع">الاحد</string>
+    <string name="Tue">الثلاثاء</string>
+    <string name="Wed">الاربعاء</string>
+    <string name="fri">الجمعه</string>
+    <string name="Thu">الخميس</string>
+    <string name="Mo">الاتنين</string>
+    <string name="you_can_deactivate_your_account_without_lose_your_personal_data_car_information_and_your_previous_fixes">تستطيع اغلاق حسابك بدون خسارة اى من بيانات او الاصلاحات السابقة</string>
+    <string name="press_again_to_exit">اضغط مرة اخرى للخروج</string>
+    <string name="please_write_new_password">من فضلك اكتب كلمة السر الجديدة</string>
+    <string name="confirm_new_password">تأكيد كلمة السر</string>
+    <string name="new_message">رسالة جديدة</string>
+    <string name="upload_commercial_register">من فضلك قم بأضافة الاوراق التجارية</string>
+    <string name="photo">صورة</string>
+    <string name="winch_specializations">تخصصات السطحة</string>
+    <string name="normal_winch">سطحة عادية</string>
+    <string name="winch">سطحة</string>
+    <string name="hydraulic_winch">سطحة هيدروليكية</string>
+    <string name="please_upload">من فضلك</string>
+    <string name="your_social_network">ادخل روابط التواصل الاجتماعى</string>
+    <string name="facebook_type_here">Facebook/ Type here</string>
+    <string name="twitter_type_here">Twitter / Type here</string>
+    <string name="instagram_type_here">Instagram/Type here</string>
+    <string name="youtube_type_here">Youtube/Type here</string>
+    <string name="wensh_types">انواع السطحات</string>
+    <string name="choose_wensh_types">من فضلك ادخل انواع السطحات</string>
+    <string name="adD_valid_link">من فضلك ادخل رابط صحيح</string>
+    <string name="km">كم</string>
+    <string name="specializations">تخصصات الورشة</string>
+    <string name="choose_specializations">اختر التخصصات</string>
+    <string name="sub_specialization">التخصصات الفرعية</string>
+    <string name="developed_by">تمت البرمجة بواسطة</string>
+    <string name="no_offers_yet">لا توجد عروض حتى الان</string>
+    <string name="my_adv">الإعلانات الخاصة بى</string>
+    <string name="no_desc">لا يوجد وصف</string>
+    <string name="suspended_account">الحساب معلق</string>
+    <string name="account_suspended_please_contact_with_service_provider_to_activate_it">الحساب معلق من فضلك تواصل مع الدعم الفنى لتفعيله</string>
+    <string name="days_ago">منذ ايام</string>
+    <string name="day">يوم</string>
+    <string name="ago">منذ</string>
+    <string name="more">المزيد</string>
+    <string name="completed_request">الطلبات المكتملة</string>
+    <string name="pending_requests">الطلبات المرسلة</string>
+    <string name="find_and_fix_app_version_1_0_0">  1.0.1إصدار تطبيق البحث و الاصلاح</string>
+    <string name="normal_requests_title">الطلبات العادية</string>
+    <string name="more_requests"> المزيد من الطلبات</string>
+    <string name="morning_shift">الفترة الصباحية</string>
+    <string name="night_shift">الفترة المسائية</string>
+    <string name="choose_one_day">من فضلك اختر يوم واحد على الاقل</string>
+    <string name="version_update_available">تحدبث جديد متاح</string>
+    <string name="update_txt">تحدبث</string>
+    <string name="update_current_version_text">هناك نسخة جديدة من تطبيق البحث و الاصلاح من فضلك قم بتحديث التطبيق الحالى</string>
 </resources>
+
+
+

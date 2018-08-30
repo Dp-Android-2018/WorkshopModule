@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/g0"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:checked="true"
+            android:title="@string/Home"
+            android:icon="@mipmap/ic_home_nav"
+            />
+    </group>
+    <group android:id="@+id/g1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/setting"
+            android:title="@string/settings"
+            android:icon="@mipmap/ic_setting_nav"
+            />
+    </group>
+    <group android:id="@+id/g2"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/share"
+            android:icon="@mipmap/ic_share_nav"
+            android:title="@string/share"
+            />
+    </group>
+
+    <group android:id="@+id/g3"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/rate"
+            android:title="@string/rate_us"
+            android:icon="@mipmap/ic_rate_nav"
+            />
+    </group>
+    <group android:id="@+id/g4"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/about"
+            android:title="@string/about_find_fix"
+            android:icon="@mipmap/ic_about_nav"
+            />
+    </group>
+
+    <group android:id="@+id/g5"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/achievment"
+            android:title="@string/achievments"
+            android:icon="@mipmap/ic_about_nav"
+            />
+    </group>
+
+    <group android:id="@+id/g6"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/adv"
+            android:title="@string/my_adv"
+            android:icon="@mipmap/ic_order"
+            />
+    </group>
+
+
+
+
+
+
+</menu>

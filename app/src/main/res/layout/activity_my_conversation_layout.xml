@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="conversationviewmodel"
+            type="com.dp.dell.workshopmodule.viewmodel.ConversationViewModel"/>
+    </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_my_conversation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp15h"
+        android:visibility="@{conversationviewmodel.hasData}"
+        bind:conversationhistory="@{conversationviewmodel.histories}"
+        tools:listitem="@layout/item_my_conversation_layout"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="@{conversationviewmodel.noData}">
+        <ImageView
+            android:layout_width="@dimen/dp123h"
+            android:layout_height="@dimen/dp123h"
+            android:src="@mipmap/chat_copy"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp78w" />
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_message_yet"
+            android:textSize="@dimen/sp18"
+            android:textStyle="bold"
+            android:textColor="@color/no_items_found"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dp15h"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_message_in_your_inbox"
+            android:textSize="@dimen/sp9"
+            android:layout_below="@+id/tv1"
+            android:textStyle="bold"
+            android:textColor="@color/no_items_found"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dp5h"/>
+    </RelativeLayout>
+</LinearLayout>
+</layout>

@@ -6,11 +6,11 @@
         <import type="android.view.View"/>
         <variable
             name="FirstStepRegisterViewModel"
-            type="com.example.dell.workshopmodule.viewmodel.FirstStepRegistration.FirstStepRegisterViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.FirstStepRegistration.FirstStepRegisterViewModel"/>
 
         <variable
             name="FirstStepValidation"
-            type="com.example.dell.workshopmodule.viewmodel.FirstStepRegistration.FirstStepRegisterValidations"/>
+            type="com.dp.dell.workshopmodule.viewmodel.FirstStepRegistration.FirstStepRegisterValidations"/>
     </data>
 
 
@@ -42,7 +42,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dp50h"
                 android:fontFamily="sans-serif"
-                android:text="Workshop Data"
+                android:text="@string/workshop_data"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -56,6 +56,7 @@
                 android:layout_marginEnd="@dimen/dp20h"
                 android:layout_marginStart="@dimen/dp20h"
                 android:layout_marginTop="@dimen/dp30h"
+                android:textDirection="locale"
                 android:textColorHint="@color/colorPrimary"
                 bind:errorText="@{FirstStepValidation.workshopNameError}"
                >
@@ -64,13 +65,13 @@
                     android:id="@+id/et_sign_up_workshop_name"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp35h"
-
+                    android:textDirection="locale"
                     android:layout_marginTop="@dimen/dp5h"
                     android:background="@drawable/login_edittext_rounded_background"
                     android:hint="@string/workshop_name"
                     android:inputType="text"
                     android:paddingStart="@dimen/dp15h"
-                    android:paddingEnd="@dimen/dp5w"
+                    android:paddingEnd="@dimen/dp15h"
                     android:text="@={FirstStepRegisterViewModel.workshopName}"
                     android:textColor="@color/colorPrimary"
                     android:textColorHint="@color/colorPrimary" />
@@ -83,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/input_layout_workshop_name"
                 android:layout_marginEnd="@dimen/dp20h"
+                android:textDirection="locale"
                 android:layout_marginStart="@dimen/dp20h"
                 android:layout_marginTop="@dimen/dp13h"
                 android:textColorHint="@color/colorPrimary"
@@ -93,11 +95,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp35h"
                     android:layout_gravity="center"
+                    android:textDirection="locale"
                     android:afterTextChanged="@{FirstStepRegisterViewModel.onEmailChanged}"
                     android:background="@drawable/login_edittext_rounded_background"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress"
                     android:paddingStart="@dimen/dp15h"
+                    android:paddingEnd="@dimen/dp15h"
                     android:text="@={FirstStepRegisterViewModel.email}"
                     android:textColor="@color/colorPrimary"
                     android:textColorHint="@color/colorPrimary"
@@ -114,6 +118,7 @@
                 android:layout_marginEnd="@dimen/dp20h"
                 android:layout_marginStart="@dimen/dp20h"
                 android:layout_marginTop="@dimen/dp13h"
+                android:textDirection="locale"
                 android:textColorHint="@color/colorPrimary"
                 bind:errorText="@{FirstStepValidation.passwordError}">
 
@@ -127,6 +132,7 @@
                     android:inputType="textPassword"
                     android:afterTextChanged="@{FirstStepRegisterViewModel.onPasswordChanged}"
                     android:paddingStart="@dimen/dp15h"
+                    android:paddingEnd="@dimen/dp15h"
                     android:text="@={FirstStepRegisterViewModel.password}"
                     android:textColor="@color/colorPrimary"
                     android:textColorHint="@color/colorPrimary" />
@@ -141,6 +147,7 @@
                 android:layout_marginEnd="@dimen/dp20h"
                 android:layout_marginStart="@dimen/dp20h"
                 android:layout_marginTop="@dimen/dp13h"
+                android:textDirection="locale"
                 android:textColorHint="@color/colorPrimary"
                 bind:errorText="@{FirstStepValidation.passwordConfirmationError}">
 
@@ -149,11 +156,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp35h"
                     android:layout_gravity="center"
-
+                    android:textDirection="locale"
                     android:background="@drawable/login_edittext_rounded_background"
                     android:hint="@string/confirm_password"
                     android:inputType="textPassword"
                     android:paddingStart="@dimen/dp15h"
+                    android:paddingEnd="@dimen/dp15h"
                     android:afterTextChanged="@{FirstStepRegisterViewModel.onConfirmPasswordChanged}"
                     android:text="@={FirstStepRegisterViewModel.confirmpassword}"
                     android:textColor="@color/colorPrimary"
@@ -169,6 +177,7 @@
                 android:layout_marginEnd="@dimen/dp20h"
                 android:layout_marginStart="@dimen/dp20h"
                 android:layout_marginTop="@dimen/dp13h"
+                android:textDirection="locale"
                 android:textColorHint="@color/colorPrimary"
                 bind:errorText="@{FirstStepValidation.workshopPhoneError}">
 
@@ -176,11 +185,13 @@
                     android:id="@+id/et_sign_up_workshop_phone"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp35h"
+                    android:textDirection="locale"
                     android:layout_gravity="center"
                     android:background="@drawable/login_edittext_rounded_background"
                     android:hint="@string/workshop_phone"
                     android:inputType="phone"
                     android:paddingStart="@dimen/dp15h"
+                    android:paddingEnd="@dimen/dp15h"
                     android:afterTextChanged="@{FirstStepRegisterViewModel.onMobileChanged}"
                     android:text="@={FirstStepRegisterViewModel.workshopPhone}"
                     android:textColor="@color/colorPrimary"
@@ -274,6 +285,7 @@
                 android:layout_below="@+id/rl_sign_up_city"
                 android:textColorHint="@color/colorPrimary"
                 android:layout_gravity="center"
+                android:textDirection="locale"
                 bind:errorText="@{FirstStepValidation.workshopWebsite}"
                 >
 
@@ -281,10 +293,12 @@
                     android:id="@+id/et_sign_up_workshop_website"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dp35h"
+                    android:textDirection="locale"
                     android:background="@drawable/login_edittext_rounded_background"
                     android:hint="@string/website"
                     android:inputType="textUri"
                     android:paddingStart="@dimen/dp15h"
+                    android:paddingEnd="@dimen/dp15h"
                     android:text="@={FirstStepRegisterViewModel.workshopWebsite}"
                     android:textColor="@color/colorPrimary"
                     android:textColorHint="@color/colorPrimary" />
@@ -301,7 +315,7 @@
                 android:layout_marginTop="@dimen/dp13h"
                 android:background="@drawable/login_button_rounded_background"
                 android:fontFamily="sans-serif-medium"
-                android:onClick="@{FirstStepRegisterViewModel::startPlacePicker}"
+                android:onClick="@{FirstStepRegisterViewModel::askForLocationPermission}"
                 android:text="@string/select_location"
                 android:textAllCaps="false"
                 android:textColor="@color/colorwhite"
@@ -370,7 +384,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tv_sign_up_num_of_steps"
                     android:layout_marginTop="@dimen/dp5h"
-                    android:weightSum="5">
+                    android:weightSum="6">
 
                     <View
 
@@ -379,6 +393,14 @@
                         android:layout_marginEnd="@dimen/dp1h"
                         android:layout_weight="1"
                         android:background="@drawable/view_rectangle_step_background" />
+
+                    <View
+
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp9h"
+                        android:layout_marginEnd="@dimen/dp1h"
+                        android:layout_weight="1"
+                        android:background="@drawable/view_rectangle_step_disactive_background" />
 
                     <View
 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rl_container">
+
+        <ImageView
+            android:id="@+id/iv_spinner_image"
+            android:layout_width="@dimen/dp25w"
+            android:layout_height="@dimen/dp25w"
+            android:layout_margin="@dimen/dp2w"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/tv_spinner_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/iv_spinner_image"
+            android:gravity="center"
+            android:layout_margin="@dimen/dp2w"
+            android:padding="@dimen/dp5w"
+            android:text="Avg Price"
+            android:textColor="@color/bluecolor" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1w"
+        android:background="@color/colorBlackTransparent" />
+
+</LinearLayout>

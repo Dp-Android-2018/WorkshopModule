@@ -5,7 +5,7 @@
     <data>
         <variable
             name="itemViewModel"
-            type="com.example.dell.workshopmodule.viewmodel.CustomDialogBrandItemViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.CustomDialogBrandItemViewModel"/>
 
     </data>
     <RelativeLayout

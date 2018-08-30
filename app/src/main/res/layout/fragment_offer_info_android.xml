@@ -3,7 +3,7 @@
 <data>
     <variable
         name="offerViewModel"
-        type="com.example.dell.workshopmodule.viewmodel.OfferInfoViewModel"/>
+        type="com.dp.dell.workshopmodule.viewmodel.OfferInfoViewModel"/>
 </data>
 
 <RelativeLayout

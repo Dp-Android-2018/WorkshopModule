@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+    </data>
+
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
 
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar_layout"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,7 +40,7 @@
             android:layout_below="@+id/view1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/dp18h"
-            android:text="4"
+            android:text="5"
             />
 
         <TextView
@@ -64,15 +77,22 @@
             android:layout_centerHorizontal="true"
             />
 
-        <Spinner
+        <EditText
 
-            android:id="@+id/sp_countries"
+            android:id="@+id/et_ranges"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp30h"
             android:layout_gravity="center"
+            android:textDirection="locale"
             android:background="@drawable/et_advertisment_background"
             android:layout_below="@+id/tv_range_2"
             android:layout_marginTop="@dimen/dp18h"
+            android:editable="false"
+            android:focusable="false"
+            android:hint="@string/ranges"
+            android:textColorHint="@color/blackcolor"
+            android:paddingStart="@dimen/dp10h"
+            android:paddingEnd="@dimen/dp10h"
             />
 
 
@@ -88,7 +108,7 @@
         android:layout_marginBottom="@dimen/dp36h"
         android:background="@drawable/button_advertisment_background"
         android:layout_centerHorizontal="true"
-        android:text="@string/next"
+        android:text="@string/submit"
         android:textColor="@color/colorwhite"
         android:textSize="15sp"
         android:fontFamily="sans-serif-black"
@@ -99,3 +119,4 @@
 
         />
 </RelativeLayout>
+</layout>

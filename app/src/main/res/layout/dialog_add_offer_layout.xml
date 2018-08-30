@@ -3,7 +3,7 @@
     <data>
         <variable
             name="addOfferViewModel"
-            type="com.example.dell.workshopmodule.viewmodel.AddOfferViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.AddOfferViewModel"/>
     </data>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/dp270w"
@@ -34,7 +34,7 @@
                 android:textStyle="bold"
                 android:layout_gravity="center"
                 android:textColor="@color/colorwhite"
-                android:text="@string/add_offer"
+                android:text="@{addOfferViewModel.requestTypeObservable==214? @string/add_offer:@string/update_offer }"
 
                 />
         </FrameLayout>
@@ -457,7 +457,7 @@
             android:layout_below="@+id/ll_2"
             android:background="@drawable/button_location_background"
             android:layout_centerHorizontal="true"
-            android:text="@string/send_offer"
+            android:text="@{addOfferViewModel.requestTypeObservable==214? @string/add_offer:@string/update_offer}"
             android:textColor="@color/colorwhite"
             android:textSize="12.7sp"
             android:fontFamily="sans-serif-black"

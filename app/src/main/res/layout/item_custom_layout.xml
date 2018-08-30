@@ -3,7 +3,7 @@
     <data>
         <variable
             name="itemViewModel"
-            type="com.example.dell.workshopmodule.viewmodel.CustomDialogItemViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.CustomDialogItemViewModel"/>
 
     </data>
 <RelativeLayout
@@ -13,6 +13,8 @@
     android:layout_marginStart="@dimen/dp10w"
     android:layout_marginEnd="@dimen/dp10w"
     android:layout_marginTop="@dimen/dp10h">
+
+
 
 
 

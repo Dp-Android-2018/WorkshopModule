@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.dp.dell.workshopmodule.viewmodel.EditProfileInfoViewModel"/>
+
+        <variable
+            name="specializeviewmodel"
+            type="com.dp.dell.workshopmodule.viewmodel.EditProfileSpecializationViewModel"/>
+
+        <variable
+            name="editprofileviewmodel"
+            type="com.dp.dell.workshopmodule.viewmodel.HandleEditProfileViewModel"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <include layout="@layout/toolbar_layout"
+        android:id="@+id/toolbar"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       >
+    <RelativeLayout
+
+        android:id="@+id/ll_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+
+        <TextView
+
+            android:id="@+id/tv_workshop_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp13_5"
+            android:layout_marginTop="@dimen/dp18h"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/orangecolor"
+            android:text="@string/workshop_information"
+            android:layout_marginStart="@dimen/dp15h"
+            android:layout_marginEnd="@dimen/dp15h"
+            />
+        
+       <LinearLayout
+           android:id="@+id/ll_workshop_info"
+           android:layout_below="@+id/tv_workshop_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:background="@drawable/edit_profile_background"
+           android:layout_marginStart="@dimen/dp15h"
+           android:layout_marginEnd="@dimen/dp15h"
+           android:layout_marginTop="@dimen/dp3h"
+           android:padding="@dimen/dp6h"
+           android:orientation="vertical">
+
+
+           <EditText
+               android:id="@+id/et_edit_profile_workshop_name"
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/dp35w"
+               android:background="@drawable/et_edit_profile_workshop_background"
+               android:textSize="@dimen/sp12"
+               android:fontFamily="sans-serif"
+               android:textStyle="normal"
+               android:textDirection="locale"
+               android:textColorHint="@color/whitebasecolor"
+               android:textColor="@color/whitebasecolor"
+               android:hint="@string/workshop_name"
+               android:gravity="center_vertical"
+               android:paddingStart="@dimen/dp12w"
+               android:paddingEnd="@dimen/dp12w"
+               android:inputType="text"
+                android:text="@={viewmodel.workshopName}"
+               />
+
+
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/dp35w"
+               android:background="@drawable/et_edit_profile_workshop_background"
+               android:textSize="@dimen/sp12"
+               android:fontFamily="sans-serif"
+               android:textStyle="normal"
+               android:textColorHint="@color/whitebasecolor"
+               android:textColor="@color/whitebasecolor"
+               android:hint="Workshop Email"
+               android:gravity="center_vertical"
+               android:paddingStart="@dimen/dp12w"
+               android:paddingEnd="@dimen/dp12w"
+               android:textDirection="locale"
+               android:layout_marginTop="@dimen/dp12h"
+               android:inputType="textEmailAddress"
+               android:text="@={viewmodel.workshopEmail}"
+               />
+
+
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/dp35w"
+               android:background="@drawable/et_edit_profile_workshop_background"
+               android:textSize="@dimen/sp12"
+               android:fontFamily="sans-serif"
+               android:textStyle="normal"
+               android:textColorHint="@color/whitebasecolor"
+               android:textColor="@color/whitebasecolor"
+               android:hint="Workshop Phone"
+               android:gravity="center_vertical"
+               android:paddingStart="@dimen/dp12w"
+               android:paddingEnd="@dimen/dp12w"
+               android:textDirection="locale"
+               android:layout_marginTop="@dimen/dp12h"
+               android:inputType="phone"
+               android:text="@={viewmodel.workshopPhone}"
+               />
+
+
+           <RelativeLayout
+               android:id="@+id/rl_countries"
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/dp35w"
+               android:onClick="@{viewmodel::showDialog}"
+               android:background="@drawable/et_edit_profile_workshop_background"
+               android:layout_marginTop="@dimen/dp12h"
+               android:paddingStart="@dimen/dp12h"
+               android:paddingEnd="@dimen/dp12h">
+               <ImageView
+                   android:id="@+id/iv_countries_dialog"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentEnd="true"
+                   android:layout_centerVertical="true"
+                   android:src="@mipmap/ic_group"
+                   android:onClick="@{viewmodel::showDialog}"
+                   android:tint="@color/whitebasecolor"
+
+                  />
+
+               <EditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginEnd="@dimen/dp5h"
+                   android:textSize="@dimen/sp12"
+                   android:fontFamily="sans-serif"
+                   android:textStyle="normal"
+                   android:textColorHint="@color/whitebasecolor"
+                   android:textColor="@color/whitebasecolor"
+                   android:onClick="@{viewmodel::showDialog}"
+                   android:gravity="center_vertical"
+                   android:hint="@string/country"
+                   android:textDirection="locale"
+                   android:paddingEnd="@dimen/dp5h"
+                   android:layout_marginTop="@dimen/dp13h"
+                   android:inputType="text"
+                   android:layout_centerVertical="true"
+                   android:background="@android:color/transparent"
+                   android:editable="false"
+                   android:focusable="false"
+                   android:text="@{viewmodel.workshopCountry}"
+                   />
+           </RelativeLayout>
+
+
+           <RelativeLayout
+               android:id="@+id/rl_city"
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/dp35w"
+               android:background="@drawable/et_edit_profile_workshop_background"
+               android:layout_marginTop="@dimen/dp12h"
+               android:paddingStart="@dimen/dp12h"
+               android:onClick="@{viewmodel::showDialog}"
+               android:paddingEnd="@dimen/dp12h">
+               <ImageView
+                   android:id="@+id/iv_cities_dialog"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentEnd="true"
+                   android:layout_centerVertical="true"
+                   android:tint="@color/whitebasecolor"
+                   android:src="@mipmap/ic_group"
+                   android:onClick="@{viewmodel::showDialog}"
+                 />
+
+               <EditText
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginEnd="@dimen/dp5h"
+                   android:textSize="@dimen/sp12"
+                   android:onClick="@{viewmodel::showDialog}"
+                   android:fontFamily="sans-serif"
+                   android:textStyle="normal"
+                   android:textColorHint="@color/whitebasecolor"
+                   android:textColor="@color/whitebasecolor"
+                   android:gravity="center_vertical"
+                   android:hint="@string/city"
+                   android:layout_marginTop="@dimen/dp13h"
+                   android:inputType="text"
+                   android:textDirection="locale"
+                   android:layout_centerVertical="true"
+                   android:background="@android:color/transparent"
+                   android:editable="false"
+                   android:focusable="false"
+                   android:text="@{viewmodel.workshopCity}"/>
+
+           </RelativeLayout>
+
+
+           <EditText
+               android:layout_width="match_parent"
+               android:layout_height="@dimen/dp35w"
+               android:background="@drawable/et_edit_profile_workshop_background"
+               android:textSize="@dimen/sp12"
+               android:fontFamily="sans-serif"
+               android:textStyle="normal"
+               android:textColorHint="@color/whitebasecolor"
+               android:textColor="@color/whitebasecolor"
+               android:hint="@string/website"
+               android:textDirection="locale"
+               android:gravity="center_vertical"
+               android:paddingStart="@dimen/dp12w"
+               android:layout_marginTop="@dimen/dp12h"
+               android:inputType="textUri"
+               android:text="@={viewmodel.workshopWebsite}"
+               />
+
+       </LinearLayout>
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{editprofileviewmodel.progressDialog}"/>
+
+
+        <TextView
+            android:id="@+id/tv_workshop_specialization"
+            android:layout_below="@+id/ll_workshop_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp13_5"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/orangecolor"
+            android:text="@string/specializations"
+            android:layout_marginStart="@dimen/dp15h"
+            android:layout_marginEnd="@dimen/dp15h"
+            android:layout_marginTop="@dimen/dp12h"
+
+            />
+
+
+        <LinearLayout
+            android:id="@+id/ll_workshop_specialization"
+            android:layout_below="@+id/tv_workshop_specialization"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_profile_background"
+            android:layout_marginStart="@dimen/dp15h"
+            android:layout_marginEnd="@dimen/dp15h"
+            android:layout_marginTop="@dimen/dp3h"
+            android:padding="@dimen/dp6h"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_brands"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp35w"
+                android:background="@drawable/et_edit_profile_workshop_background"
+                android:paddingStart="@dimen/dp12h"
+                android:visibility="@{specializeviewmodel.visibility}"
+                android:onClick="@{specializeviewmodel::showDialog}"
+                android:paddingEnd="@dimen/dp12h">
+                <ImageView
+                    android:id="@+id/iv_brands"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_group"
+                    android:tint="@color/whitebasecolor"
+                    android:onClick="@{specializeviewmodel::showDialog}"
+                   />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp5h"
+                    android:textSize="@dimen/sp12"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="normal"
+                    android:textColorHint="@color/whitebasecolor"
+                    android:textColor="@color/whitebasecolor"
+                    android:gravity="center_vertical"
+                    android:hint="@string/brands"
+                    android:layout_marginTop="@dimen/dp13h"
+                    android:textDirection="locale"
+                    android:onClick="@{specializeviewmodel::showDialog}"
+                    android:inputType="text"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:text="@={specializeviewmodel.brands}"
+                    />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_specialize"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp35w"
+                android:background="@drawable/et_edit_profile_workshop_background"
+                android:layout_marginTop="@dimen/dp12h"
+                android:paddingStart="@dimen/dp12h"
+
+                android:onClick="@{specializeviewmodel::showDialog}"
+                android:paddingEnd="@dimen/dp12h">
+                <ImageView
+                    android:id="@+id/iv_specialization"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_group"
+                    android:tint="@color/whitebasecolor"
+                    android:onClick="@{specializeviewmodel::showDialog}"
+                 />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp5h"
+                    android:textSize="@dimen/sp12"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="normal"
+                    android:textColorHint="@color/whitebasecolor"
+                    android:textColor="@color/whitebasecolor"
+                    android:gravity="center_vertical"
+                    android:hint="@string/specialization"
+                    android:layout_marginTop="@dimen/dp13h"
+                    android:textDirection="locale"
+                    android:inputType="text"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:onClick="@{specializeviewmodel::showDialog}"
+                    android:text="@={specializeviewmodel.specialization}"
+                    />
+            </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:id="@+id/rl_urgents"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp35w"
+                android:background="@drawable/et_edit_profile_workshop_background"
+                android:layout_marginTop="@dimen/dp12h"
+                android:paddingStart="@dimen/dp12h"
+                android:visibility="@{specializeviewmodel.visibility}"
+                android:onClick="@{specializeviewmodel::showDialog}"
+                android:paddingEnd="@dimen/dp12h">
+                <ImageView
+                    android:id="@+id/iv_urgents"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_group"
+                    android:onClick="@{specializeviewmodel::showDialog}"
+                    android:tint="@color/whitebasecolor"
+                   />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp5h"
+                    android:textSize="@dimen/sp12"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="normal"
+                    android:textColorHint="@color/whitebasecolor"
+                    android:textColor="@color/whitebasecolor"
+                    android:gravity="center_vertical"
+                    android:hint="@string/uregnt_request"
+                    android:textDirection="locale"
+                    android:layout_marginTop="@dimen/dp13h"
+                    android:inputType="text"
+                    android:onClick="@{specializeviewmodel::showDialog}"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:editable="false"
+                    android:focusable="false"
+                    android:text="@={specializeviewmodel.urgentRequest}"
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_change_password"
+            android:layout_below="@+id/ll_workshop_specialization"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/sp13_5"
+            android:fontFamily="sans-serif-medium"
+            android:textStyle="normal"
+            android:textColor="@color/orangecolor"
+            android:text="@string/change_password"
+            android:layout_marginStart="@dimen/dp15h"
+            android:layout_marginEnd="@dimen/dp15h"
+            android:layout_marginTop="@dimen/dp12h"
+            />
+
+        <LinearLayout
+            android:id="@+id/ll_change_password"
+            android:layout_below="@+id/tv_change_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_profile_background"
+            android:layout_marginStart="@dimen/dp15h"
+            android:layout_marginEnd="@dimen/dp15h"
+            android:layout_marginTop="@dimen/dp3h"
+            android:padding="@dimen/dp6h"
+
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp35w"
+                android:background="@drawable/et_edit_profile_workshop_background"
+                android:paddingStart="@dimen/dp12h"
+                android:paddingEnd="@dimen/dp12h">
+                <ImageView
+                    android:id="@+id/iv_change_password_page"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_down_arrow"
+                    android:tint="@color/whitebasecolor"
+                    android:onClick="@{specializeviewmodel::changePasswordAct}"
+                   />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp5h"
+                    android:textSize="@dimen/sp12"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="normal"
+                    android:textColorHint="@color/whitebasecolor"
+                    android:textColor="@color/whitebasecolor"
+                    android:gravity="center_vertical"
+                    android:hint="@string/change_password"
+                    android:layout_marginTop="@dimen/dp13h"
+                    android:inputType="text"
+                    android:layout_centerVertical="true"
+                    android:onClick="@{specializeviewmodel::changePasswordAct}"
+                    android:background="@android:color/transparent"
+                    android:editable="false"
+                    android:focusable="false"
+
+                    />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <Button
+            android:layout_below="@+id/ll_change_password"
+            android:id="@+id/btn_submit"
+            android:layout_width="@dimen/dp146h"
+            android:layout_height="@dimen/dp41w"
+            android:layout_marginTop="@dimen/dp16w"
+            android:layout_marginBottom="@dimen/dp10h"
+            android:background="@drawable/button_edit_profile_background"
+            android:layout_gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:text="@string/save"
+            android:textColor="@color/colorwhite"
+            android:onClick="@{editprofileviewmodel::completeEditProfileRequest}"
+            android:textSize="@dimen/sp13_5"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="normal"
+            android:textAllCaps="false"
+
+            />
+    </RelativeLayout>
+    </ScrollView>
+    </LinearLayout>
+</layout>

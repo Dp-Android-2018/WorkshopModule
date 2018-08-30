@@ -6,8 +6,8 @@
             <solid android:color="@color/colorwhite"/>
             <stroke android:width="3dp" android:color="@color/colorPrimary"/>
             <size
-                android:width="40dp"
-                android:height="40dp"/>
+                android:width="@dimen/dp45h"
+                android:height="@dimen/dp45h"/>
         </shape>
     </item>
     <!-- Smaller red circle in front -->
@@ -18,8 +18,8 @@
                 android:width="10dp"/>
             <solid android:color="@color/colorPrimary"/>
             <size
-                android:width="35dp"
-                android:height="35dp"/>
+                android:width="@dimen/dp41h"
+                android:height="@dimen/dp41h"/>
         </shape>
     </item>
 </layer-list>

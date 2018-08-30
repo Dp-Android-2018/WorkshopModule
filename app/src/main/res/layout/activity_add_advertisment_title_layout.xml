@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+    </data>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   >
+    android:id="@+id/rl_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <include
         android:id="@+id/toolbar"
@@ -38,7 +42,7 @@
           android:textColor="@color/advertisement_title_color"
           android:letterSpacing="0.01"
           android:lineSpacingExtra="0.7sp"
-          android:text="XYZ"
+          android:text=""
           android:layout_below="@+id/tv_welcome"
           />
 
@@ -113,13 +117,16 @@
     
     
     <EditText
+        android:id="@+id/et_adv_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp30h"
         android:layout_below="@+id/tv_write_title"
         android:layout_marginTop="@dimen/dp36h"
+        android:textDirection="locale"
         android:background="@drawable/et_advertisment_background"
         android:hint="@string/title"
         android:paddingStart="@dimen/dp15h"
+        android:paddingEnd="@dimen/dp15h"
         android:textColorHint="@color/advertisement_title_color"
         android:textColor="@color/advertisement_title_color"
         android:textSize="11.7sp"
@@ -147,3 +154,4 @@
         android:textAllCaps="false"
         />
 </RelativeLayout>
+</layout>

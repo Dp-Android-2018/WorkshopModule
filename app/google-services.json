@@ -8,9 +8,102 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:470725562493:android:fb04bb9d1c90fe9e",
+        "android_client_info": {
+          "package_name": "com.dp.dell.workshopmodule"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470725562493-49av4sirgaa6h1e4er0ebcpis9i7fpvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9VUDIcAXbf78_YXJsWeZFaE_TMZgU1-0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:470725562493:android:f6510548df69bbf2",
         "android_client_info": {
           "package_name": "com.example.dell.workshopmodule"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470725562493-49av4sirgaa6h1e4er0ebcpis9i7fpvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9VUDIcAXbf78_YXJsWeZFaE_TMZgU1-0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470725562493:android:d19b5c480738989c",
+        "android_client_info": {
+          "package_name": "com.example.dp.findandfix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470725562493-49av4sirgaa6h1e4er0ebcpis9i7fpvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9VUDIcAXbf78_YXJsWeZFaE_TMZgU1-0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470725562493:android:eee95812253e5cdb",
+        "android_client_info": {
+          "package_name": "dp.findandfix"
         }
       },
       "oauth_client": [

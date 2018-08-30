@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myapp="http://schemas.android.com/apk/res-auto">
+    <group
+        android:id="@+id/group1">
+    <item
+        android:id="@+id/btnMyMenu"
+        android:icon="@drawable/menu"
+        android:title="Right Side Menu"
+        myapp:showAsAction="always"/>
+    </group>
+</menu>

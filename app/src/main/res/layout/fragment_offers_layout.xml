@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <!-- <variable
+             name="conversationviewmodel"
+             type="findandfix.viewmodel.ConversationViewModel"/>-->
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/rl_parent"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_offers"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/dp10h"
+            android:layout_marginEnd="@dimen/dp10h"
+            android:layout_marginTop="@dimen/dp15h"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp15h"
+            tools:listitem="@layout/item_advertising"
+            />
+
+        <RelativeLayout
+            android:id="@+id/rl_no_adv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="@dimen/dp123h"
+                android:layout_height="@dimen/dp123h"
+                android:src="@mipmap/megaphone"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp78w" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_offers_yet"
+                android:textSize="@dimen/sp18"
+                android:textStyle="bold"
+                android:textColor="@color/no_items_found"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/dp15h"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

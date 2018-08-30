@@ -5,10 +5,10 @@
     <data>
         <variable
             name="requestviewModel"
-            type="com.example.dell.workshopmodule.viewmodel.HappeningNow.CurrentRequestsViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.HappeningNow.CurrentRequestsViewModel"/>
     </data>
 
-<LinearLayout
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/ll_parent"
@@ -18,9 +18,11 @@
     android:paddingEnd="@dimen/dp16w">
 
     <TextView
+        android:id="@+id/tv_current_request"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="13.3sp"
+        android:layout_alignParentStart="true"
         android:fontFamily="sans-serif-medium"
         android:textStyle="normal"
         android:textColor="@color/graycolor"
@@ -28,16 +30,53 @@
         android:text="@string/current_request"
         />
 
+    <TextView
+        android:id="@+id/tv_more_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="13.3sp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="normal"
+        android:textColor="@color/graycolor"
+        android:gravity="center_horizontal"
+        android:layout_alignParentEnd="true"
+        android:text="@string/more"
+        android:visibility="@{requestviewModel.visibility2}"
+        />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_current_requests"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp190h"
+        android:layout_below="@+id/tv_current_request"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/dp8h"
         bind:request="@{requestviewModel.normalRequest}"
+
         tools:listitem="@layout/item_current_requests_layout"/>
 
     <TextView
+        android:id="@+id/tv_no_requests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_no_Requests"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp18"
+        android:textColor="@color/no_items_found"
+        android:layout_marginTop="@dimen/dp70h"
+        android:text="@string/no_requests_yet"
+        android:visibility="gone"
+        />
+
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_marginBottom="@dimen/dp5h">
+    <TextView
+        android:id="@+id/tv_accepted_requests"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp36h"
@@ -46,11 +85,29 @@
         android:textStyle="normal"
         android:textColor="@color/graycolor"
         android:gravity="center_horizontal"
+        android:layout_alignParentStart="true"
         android:text="@string/sent_offers"
 
         />
 
+    <TextView
+        android:id="@+id/tv_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp36h"
+        android:textSize="13.3sp"
+        android:fontFamily="sans-serif-medium"
+        android:textStyle="normal"
+        android:textColor="@color/graycolor"
+        android:gravity="center_horizontal"
+        android:layout_alignParentEnd="true"
+        android:text="@string/more"
+        android:visibility="@{requestviewModel.visibility}"
+
+        />
+
     <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/tv_accepted_requests"
         android:id="@+id/rv_requsts_with_offers"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp111w"
@@ -59,5 +116,21 @@
         bind:pendingrequest="@{requestviewModel.pendingRequest}"
         tools:listitem="@layout/item_sent_offers_requests_layout"
         />
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_no_pending_requests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_accepted_requests"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp18"
+        android:textColor="@color/no_items_found"
+        android:layout_marginTop="@dimen/dp70h"
+        android:text="@string/no_requests_yet"
+        />
+</RelativeLayout>
+</RelativeLayout>
 </layout>

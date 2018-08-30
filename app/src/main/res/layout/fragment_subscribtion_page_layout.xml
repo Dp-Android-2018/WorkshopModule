@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.dp.dell.workshopmodule.viewmodel.SubscribePageViewModel"/>
+    </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+
+    <TextView
+        android:id="@+id/tv_subscribed_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15.7sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/darkbluecolor"
+        android:lineSpacingExtra="4.3sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp45h"
+        android:text="@string/thank_you_for_registeration"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/tv_subscribed_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15.7sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/darkbluecolor"
+        android:lineSpacingExtra="4.3sp"
+        android:gravity="center_horizontal"
+        android:text="@string/wait_the_activiation_process"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/tv_subscribed_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15.7sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/darkbluecolor"
+        android:lineSpacingExtra="4.3sp"
+        android:gravity="center_horizontal"
+
+        android:text="@string/from_our_support_team"
+        android:layout_marginStart="@dimen/dp73h"
+        android:layout_marginEnd="@dimen/dp73h"
+        />
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp208h"
+        android:layout_marginStart="@dimen/dp40h"
+        android:layout_marginEnd="@dimen/dp40h"
+        android:layout_below="@+id/tv_subscribed"
+        android:src="@mipmap/subscribe"
+        android:layout_marginTop="@dimen/dp36w"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15.7sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/gray_subscribed_color"
+        android:gravity="center_horizontal"
+        android:text="@string/for_more_details_visit"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp32w"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15.7sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textColor="@color/darkbluecolor"
+        android:gravity="center_horizontal"
+        android:text="www.FindandFix.com"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp2w"
+        android:onClick="@{viewmodel::moveTOFindFixWebsite}"
+        />
+
+</LinearLayout>
+</layout>

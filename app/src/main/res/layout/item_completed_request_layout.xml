@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
     <data>
         <variable
             name="completedViewMOdel"
-            type="com.example.dell.workshopmodule.viewmodel.HappeningNow.ItemRequestViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.HappeningNow.ItemRequestViewModel"/>
     </data>
 
 
@@ -13,6 +14,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginStart="@dimen/dp13w"
     android:layout_marginEnd="@dimen/dp14w"
+    android:layout_marginBottom="@dimen/dp10h"
     android:id="@+id/cv_parent"
     app:cardCornerRadius="@dimen/dp6h">
     <RelativeLayout
@@ -25,6 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp95h"
             android:scaleType="fitXY"
+            bind:imageConv="@{completedViewMOdel.image}"
             app:height_weight="0.8"
             app:width_weight="0.4"/>
 
@@ -176,6 +179,7 @@
                 android:textColor="@color/colorwhite"
                 android:gravity="center_horizontal"
                android:text="done in 6 days"
+                android:visibility="gone"
                 />
         </RelativeLayout>
     </RelativeLayout>

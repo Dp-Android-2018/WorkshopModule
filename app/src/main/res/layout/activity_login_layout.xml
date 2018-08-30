@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@mipmap/ic_login_background">
 
     <data>
         <variable
             name="LoginViewModel"
-            type="com.example.dell.workshopmodule.viewmodel.LoginViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.LoginViewModel"/>
     </data>
 <RelativeLayout
     android:layout_width="match_parent"
@@ -52,7 +53,7 @@
         android:id="@+id/et_login_username"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp35h"
-
+        android:textDirection="locale"
         android:layout_gravity="center"
         android:layout_marginEnd="@dimen/dp15h"
         android:layout_marginStart="@dimen/dp15h"
@@ -73,9 +74,11 @@
         android:layout_gravity="center"
         android:layout_marginEnd="@dimen/dp15h"
         android:layout_marginStart="@dimen/dp15h"
+        android:textDirection="locale"
         android:background="@drawable/login_edittext_rounded_background"
         android:hint="@string/password"
         android:paddingStart="@dimen/dp15h"
+        android:paddingEnd="@dimen/dp15h"
         android:layout_marginTop="@dimen/dp25h"
         android:textColor="@color/colorPrimary"
         android:textColorHint="@color/colorPrimary"

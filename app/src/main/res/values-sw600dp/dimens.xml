@@ -4,7 +4,7 @@
     <!--600 * 953-->
     <!--1.85 sp-->
     <!--1.875 dp-->
-    
+    <dimen name="nav_footer_margin">-5dp</dimen>
     <dimen name="sp1">1.85sp</dimen>
     <dimen name="sp1_5">2.78sp</dimen>
     <dimen name="sp2">3.7sp</dimen>

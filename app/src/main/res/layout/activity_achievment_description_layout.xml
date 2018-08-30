@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rl_container">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_layout"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp16h"
+            android:layout_marginEnd="@dimen/dp16h"
+            android:layout_below="@+id/toolbar">
+
+            <TextView
+                android:id="@+id/tv_step_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="50sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorPrimary"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="-26sp"
+                android:layout_below="@+id/view1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp18h"
+                android:text="2"
+                />
+
+            <TextView
+                android:id="@+id/tv_write_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:layout_below="@+id/tv_step_num"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorBlueLight"
+                android:letterSpacing="0.01"
+                android:lineSpacingExtra="10sp"
+                android:text="@string/write_description_for_your_acheivment"
+                android:layout_marginTop="@dimen/dp18h"
+                android:layout_centerHorizontal="true"
+                />
+
+
+            <EditText
+                android:id="@+id/et_adv_desc"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp195h"
+                android:layout_below="@+id/tv_write_title"
+                android:layout_marginTop="@dimen/dp36h"
+                android:background="@drawable/et_achievments_background"
+                android:textDirection="locale"
+                android:hint="@string/description"
+                android:gravity="start"
+                android:paddingStart="@dimen/dp17w"
+                android:paddingEnd="@dimen/dp17w"
+                android:paddingTop="@dimen/dp10h"
+
+                android:textColorHint="@color/colorBlueLight"
+                android:textColor="@color/colorBlueLight"
+                android:textSize="11.7sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"/>
+
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="@dimen/dp132w"
+            android:layout_height="@dimen/dp34w"
+            android:layout_marginTop="@dimen/dp14h"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/dp36h"
+            android:background="@drawable/button_achievment_background"
+            android:layout_centerHorizontal="true"
+            android:text="@string/next"
+            android:textColor="@color/colorwhite"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-black"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+
+
+
+            />
+    </RelativeLayout>
+</layout>

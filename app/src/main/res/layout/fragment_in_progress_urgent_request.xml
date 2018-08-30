@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data> </data>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,7 +23,7 @@
             android:textStyle="normal"
             android:textColor="@color/redColor"
             android:gravity="center_horizontal"
-            android:text="5 "
+            android:text=" "
             android:layout_marginEnd="@dimen/dp3h"
 
             />
@@ -52,6 +54,27 @@
         android:layout_marginBottom="@dimen/dp9h"
         />
 
+    <ImageView
+        android:id="@+id/iv_no_Requests"
+        android:layout_width="@dimen/dp121w"
+        android:layout_height="@dimen/dp121w"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/contract"
+        android:layout_marginTop="@dimen/dp78w"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/tv_no_requests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_no_Requests"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp18"
+        android:textColor="@color/no_items_found"
+        android:layout_marginTop="@dimen/dp70h"
+        android:text="@string/no_requests_yet"
+        android:visibility="gone"/>
 
 
 </RelativeLayout>
+</layout>

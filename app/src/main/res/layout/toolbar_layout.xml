@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout   >
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools">
     <data>
         <variable name="foo" type="int"/>
+        <variable
+            name="viewmodel"
+            type="com.dp.dell.workshopmodule.viewmodel.ToolbarViewModel"/>
     </data>
 <android.support.v7.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/toolbar"
    android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/bluecolor">
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    bind:toolbarBackground="@{viewmodel.toolbarColor}">
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -18,7 +23,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_home"
-        android:layout_centerVertical="true"/>
+        android:layout_centerVertical="true"
+        android:visibility="@{viewmodel.imageVisibility}"
+        android:layout_alignParentStart="true"
+        android:onClick="@{viewmodel::backToMainAct}"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_back"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:rotation="@{viewmodel.rotationValue}"
+        android:visibility="@{viewmodel.backimageVisibility}"
+        android:onClick="@{viewmodel::finishAct}"/>
 
     <TextView
         android:id="@+id/tv_toolbar_title"
@@ -31,7 +49,7 @@
         android:textColor="@color/colorwhitenormal"
         android:letterSpacing="0.01"
         android:lineSpacingExtra="8sp"
-        android:text="@string/normal_request"
+        android:text="@={viewmodel.toolbarTitle}"
         />
 
     <ImageView
@@ -40,7 +58,9 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_chat"
        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"/>
+        android:layout_centerVertical="true"
+        android:visibility="@{viewmodel.convVisibility}"
+        android:onClick="@{viewmodel::openChatAct}"/>
 
     <ImageView
         android:layout_toStartOf="@+id/iv_toolbar_messages"
@@ -48,6 +68,7 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_notification"
         android:layout_centerVertical="true"
+        android:visibility="@{viewmodel.convVisibility}"
         android:layout_marginEnd="@dimen/dp18h"/>
 </RelativeLayout>
 </android.support.v7.widget.Toolbar>

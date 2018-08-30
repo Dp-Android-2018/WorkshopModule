@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data></data>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"/>
+
+    <ImageView
+        android:id="@+id/iv_adv"
+        android:layout_width="@dimen/dp100w"
+        android:layout_height="@dimen/dp100w"
+        android:background="@drawable/iv_border"
+        android:layout_marginStart="@dimen/dp12w"
+        android:layout_marginTop="@dimen/dp6w"
+        android:scaleType="fitXY"
+        />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp10h"
+        android:layout_marginEnd="@dimen/dp10h"
+        android:layout_marginTop="@dimen/dp10h"
+        android:layout_marginBottom="@dimen/dp5h"
+        android:text="Title of advertising"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+        android:textColor="@color/colorDarkGray"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_marginStart="@dimen/dp10h"
+            android:layout_marginEnd="@dimen/dp10h"
+            android:layout_marginTop="@dimen/dp5h"
+            android:layout_marginBottom="@dimen/dp5h"
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text=""
+            android:textColor="@color/colorDarkGray" />
+    </ScrollView>
+
+</LinearLayout>
+</layout>

@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout  xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="viewModel"
+            type="com.dp.dell.workshopmodule.viewmodel.WorkingDaysViewModel"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rl_parent">
+
+        <TextView
+            android:id="@+id/tv_working_time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="#1456a6"
+            android:text="@string/working_time"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp50h"
+            />
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1h"
+            android:background="@color/colorPrimary"
+            android:layout_below="@+id/tv_working_time_text"
+            android:layout_marginTop="@dimen/dp40h"
+            android:layout_marginStart="@dimen/dp7w"
+            android:layout_marginEnd="@dimen/dp7w"
+            />
+        <LinearLayout
+            android:id="@+id/ll_working_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/tv_working_time_text"
+            android:layout_marginTop="@dimen/dp20h"
+            android:layout_marginStart="@dimen/dp7w"
+            android:layout_marginEnd="@dimen/dp7w"
+            android:weightSum="7">
+
+
+
+            <TextView
+                android:id="@+id/tv_sa"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="13.3sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorwhite"
+                android:text="@string/sa"
+                android:background="@drawable/circle_background"
+                android:gravity="center|center_vertical"
+                android:layout_marginEnd="@dimen/dp3h"
+                android:onClick="@{viewModel::validate}"
+                />
+
+            <TextView
+                android:id="@+id/tv_su"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="13.3sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorwhite"
+                android:text="@string/sع"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/circle_background"
+                android:layout_marginEnd="@dimen/dp3h"
+                android:gravity="center|center_vertical"
+                android:onClick="@{viewModel::validate}"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_mo"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="13.3sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorwhite"
+                android:text="@string/Mo"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/circle_background"
+                android:gravity="center|center_vertical"
+                android:layout_marginEnd="@dimen/dp3h"
+                android:onClick="@{viewModel::validate}"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_tue"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="13.3sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorwhite"
+                android:text="@string/Tue"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/circle_background"
+                android:gravity="center|center_vertical"
+                android:layout_marginEnd="@dimen/dp3h"
+                android:onClick="@{viewModel::validate}"
+                />
+
+            <TextView
+                android:id="@+id/tv_wed"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="13.3sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorwhite"
+                android:text="@string/Wed"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/circle_background"
+                android:layout_marginEnd="@dimen/dp3h"
+                android:gravity="center|center_vertical"
+                android:onClick="@{viewModel::validate}"
+                />
+
+            <TextView
+                android:id="@+id/tv_thu"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="13.3sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorwhite"
+                android:text="@string/Thu"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/circle_background"
+                android:layout_marginEnd="@dimen/dp3h"
+                android:gravity="center|center_vertical"
+                android:onClick="@{viewModel::validate}"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_fri"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textSize="13.3sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorwhite"
+                android:text="@string/fri"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/circle_background"
+                android:onClick="@{viewModel::validate}"
+                android:gravity="center|center_vertical"
+                />
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_shifts"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp217w"
+            android:layout_below="@+id/ll_working_time"
+            android:layout_marginTop="@dimen/dp50h"
+            android:layout_marginStart="@dimen/dp10h"
+            android:layout_marginEnd="@dimen/dp10h"
+            android:background="@drawable/rl_workdays_background">
+
+            <TextView
+                android:id="@+id/tv_morning_shift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp13_5"
+                android:fontFamily="sans-serif"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp17w"
+                android:textStyle="bold"
+                android:textColor="@color/colorgray"
+                android:text="@string/morning_shift"
+                />
+
+
+
+            <TextView
+                android:id="@+id/tv_morning_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp9"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorgray"
+                android:text="@string/from"
+                android:layout_below="@+id/tv_morning_shift"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/dp50h"
+                android:layout_marginTop="@dimen/dp10h"
+                />
+            <EditText
+                android:id="@+id/et_morning_from"
+                android:layout_width="@dimen/dp60h"
+                android:layout_height="@dimen/dp20h"
+                android:paddingTop="@dimen/dp5h"
+                android:background="@drawable/et_workdays_background"
+                android:layout_below="@+id/tv_morning_from"
+                android:hint="@string/from"
+                android:gravity="center"
+                android:textColorHint="@color/colorPrimary"
+                android:focusable="false"
+                android:textSize="10sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/dp40h"
+                android:layout_marginTop="@dimen/dp10h"
+                android:textStyle="normal"
+                android:text="@{viewModel.mFrom}"
+                android:onClick="@{viewModel::showTimePicker}"
+
+                />
+
+
+            <TextView
+                android:id="@+id/tv_morning_to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp9"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorgray"
+                android:text="@string/to"
+                android:layout_below="@+id/tv_morning_shift"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp70h"
+                android:layout_marginTop="@dimen/dp10h"
+                />
+
+            <EditText
+                android:id="@+id/et_morning_to"
+                android:layout_width="@dimen/dp60h"
+                android:layout_height="@dimen/dp20h"
+                android:paddingTop="@dimen/dp5h"
+                android:background="@drawable/et_workdays_background"
+                android:layout_below="@+id/tv_morning_to"
+                android:hint="@string/to"
+                android:gravity="center"
+                android:textColorHint="@color/colorPrimary"
+                android:focusable="false"
+                android:textSize="10sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp40h"
+                android:layout_marginTop="@dimen/dp10h"
+                android:textStyle="normal"
+                android:text="@{viewModel.mTo}"
+                android:onClick="@{viewModel::showTimePicker}"
+
+                />
+
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp1h"
+                android:background="@color/colorPrimary"
+                android:layout_below="@+id/et_morning_to"
+                android:layout_marginTop="@dimen/dp20h"
+                android:layout_marginStart="@dimen/dp15w"
+                android:layout_marginEnd="@dimen/dp15w"
+                />
+
+
+
+            <TextView
+                android:id="@+id/tv_evening_shift"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp13_5"
+                android:fontFamily="sans-serif"
+                android:layout_below="@+id/view2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp10w"
+                android:textStyle="bold"
+                android:textColor="@color/colorgray"
+                android:text="@string/night_shift"
+                />
+
+
+
+            <TextView
+                android:id="@+id/tv_night_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp9"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorgray"
+                android:text="@string/from"
+                android:layout_below="@+id/tv_evening_shift"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/dp50h"
+                android:layout_marginTop="@dimen/dp10h"
+                />
+            <EditText
+                android:id="@+id/et_night_from"
+                android:layout_width="@dimen/dp60h"
+                android:layout_height="@dimen/dp20h"
+                android:paddingTop="@dimen/dp5h"
+                android:background="@drawable/et_workdays_background"
+                android:layout_below="@+id/tv_night_from"
+                android:hint="@string/from"
+                android:gravity="center"
+                android:textColorHint="@color/colorPrimary"
+                android:focusable="false"
+                android:textSize="10sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/dp40h"
+                android:layout_marginTop="@dimen/dp10h"
+                android:textStyle="normal"
+                android:text="@{viewModel.eFrom}"
+                android:onClick="@{viewModel::showTimePicker}"
+
+                />
+
+
+            <TextView
+                android:id="@+id/tv_night_to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp9"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/colorgray"
+                android:text="@string/to"
+                android:layout_below="@+id/tv_evening_shift"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp70h"
+                android:layout_marginTop="@dimen/dp10h"
+                />
+
+            <EditText
+                android:id="@+id/et_night_to"
+                android:layout_width="@dimen/dp60h"
+                android:layout_height="@dimen/dp20h"
+                android:paddingTop="@dimen/dp5h"
+                android:background="@drawable/et_workdays_background"
+                android:layout_below="@+id/tv_night_to"
+                android:hint="@string/to"
+                android:gravity="center"
+                android:textColorHint="@color/colorPrimary"
+                android:focusable="false"
+                android:textSize="10sp"
+                android:fontFamily="sans-serif-medium"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp40h"
+                android:layout_marginTop="@dimen/dp10h"
+                android:textStyle="normal"
+                android:text="@{viewModel.eTo}"
+                android:onClick="@{viewModel::showTimePicker}"
+
+                />
+
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="13.3sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/blackcolor"
+                android:text="@{viewModel.dayName}"
+
+                android:background="@drawable/rl_active_day_background"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/ll_working_time"
+                android:gravity="center|center_vertical"
+                android:layout_marginTop="@dimen/dp15h"
+
+                />
+
+
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom">
+            <TextView
+                android:id="@+id/tv_specialization_next_step"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16.7sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/next_step"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp15h"
+                android:onClick="@{viewModel::moveToNextAct}"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_specialization_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16.7sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/back"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/dp15h"
+                android:onClick="@{viewModel::backToPreviousAct}"
+                />
+
+
+
+            <TextView
+                android:id="@+id/tv_specialization_num_of_steps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="@color/colorgray"
+                android:layout_centerHorizontal="true"
+                android:text="@string/step_3_of_5"
+                android:layout_marginEnd="@dimen/dp15h"
+                android:layout_below="@+id/tv_sign_up_next_step"
+                android:layout_marginTop="@dimen/dp13h"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_specialization_num_of_steps"
+                android:layout_marginTop="@dimen/dp5h"
+                android:weightSum="6">
+
+                <View
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dp9h"
+                    android:background="@drawable/view_rectangle_step_background"
+                    android:layout_marginEnd="@dimen/dp1h"/>
+
+                <View
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dp9h"
+                    android:background="@drawable/view_rectangle_step_background"
+                    android:layout_marginEnd="@dimen/dp1h"/>
+
+                <View
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dp9h"
+                    android:background="@drawable/view_rectangle_step_background"
+                    android:layout_marginEnd="@dimen/dp1h"/>
+
+                <View
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dp9h"
+                    android:background="@drawable/view_rectangle_step_disactive_background"
+                    android:layout_marginEnd="@dimen/dp1h"/>
+
+                <View
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dp9h"
+                    android:background="@drawable/view_rectangle_step_disactive_background"
+                    android:layout_marginEnd="@dimen/dp1h"/>
+
+
+                <View
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dp9h"
+                    android:background="@drawable/view_rectangle_step_disactive_background"
+                    android:layout_marginEnd="@dimen/dp1h"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

@@ -4,27 +4,41 @@
         <import type="android.view.View"/>
         <variable
             name="requestDetailViewModel"
-            type="com.example.dell.workshopmodule.viewmodel.PublishedRequestDetail.RequestDetailViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.PublishedRequestDetail.RequestDetailViewModel"/>
     </data>
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/sv_parent"
-        android:background="@color/colorwhite">
+
         <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            xmlns:app="http://schemas.android.com/apk/res-auto">
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:background="@color/colorwhite">
 
             <include layout="@layout/toolbar_layout"
                 android:id="@+id/toolbar"/>
-
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="@{requestDetailViewModel.progressVisibility}"
+                />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/sv_parent"
+                android:layout_below="@+id/toolbar">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp200h"
+    android:id="@+id/rl_banner_slider">
             <ss.com.bannerslider.views.BannerSlider
                 android:id="@+id/banner_slider1"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp182h"
-                android:layout_below="@+id/toolbar"
                 app:interval="5000"
                 app:loopSlides="true"
                 app:defaultIndicators="circle"
@@ -33,9 +47,33 @@
                 app:indicatorSize="8dp"
                 bind:setBanners="@{requestDetailViewModel.remoteBanners}"/>
 
+    <RelativeLayout
+        android:layout_width="@dimen/dp36h"
+        android:layout_height="@dimen/dp36h"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/circle_nanigate_background"
+        android:visibility="@{requestDetailViewModel.requestDetailType==215 ? View.VISIBLE : View.GONE}"
+        android:layout_marginEnd="@dimen/dp17w">
+    <ImageView
+        android:id="@+id/iv_show_location"
+        android:layout_width="@dimen/dp18w"
+        android:layout_height="@dimen/dp18w"
+        android:src="@mipmap/ic_tracker"
+        android:layout_centerInParent="true"
+
+        android:tint="@color/whitebasecolor"
+
+        android:onClick="@{requestDetailViewModel::navigate}"
+        />
+    </RelativeLayout>
+</RelativeLayout>
+
+
+
             <TextView
                 android:id="@+id/tv_offer_added"
-                android:layout_below="@+id/banner_slider1"
+                android:layout_below="@+id/rl_banner_slider"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
@@ -67,20 +105,6 @@
                 />
 
 
-            <ImageView
-
-                android:layout_toEndOf="@+id/tv_offer_added"
-                android:id="@+id/iv_delete_offer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_border_color_black_24dp"
-                android:layout_centerInParent="true"
-
-                android:tint="@color/bluecolor"
-                android:layout_marginStart="@dimen/dp17w"
-
-
-                />
 
             <ImageView
                 android:layout_below="@+id/tv_offer_added_2"
@@ -288,7 +312,8 @@
                 android:background="@color/graybordercolor"
                 android:layout_marginStart="@dimen/dp17w"
                 android:layout_marginEnd="@dimen/dp14w"
-                android:layout_marginTop="@dimen/dp11w"/>
+                android:layout_marginTop="@dimen/dp11w"
+                android:visibility="gone"/>
 
 
 
@@ -298,7 +323,7 @@
                 android:layout_width="@dimen/dp12w"
                 android:layout_height="@dimen/dp13w"
                 android:src="@mipmap/ic_calendar"
-
+                android:visibility="gone"
                 android:tint="@color/bluecolor"
                 android:layout_marginStart="@dimen/dp17w"
                 android:layout_marginTop="@dimen/dp13h"
@@ -306,6 +331,7 @@
                 />
 
             <TextView
+                android:visibility="gone"
                 android:id="@+id/tv_request_need_winch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -357,7 +383,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-
+                    android:visibility="@{requestDetailViewModel.requestDetailType==215 ? View.GONE : View.VISIBLE}"
                     android:background="@android:color/transparent"
                     android:text="@string/show_location"
                     android:textColor="@color/colorwhite"
@@ -366,6 +392,21 @@
                     android:textStyle="normal"
                     android:textAllCaps="false"
                     android:onClick="@{requestDetailViewModel::navigate}"
+                    />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:visibility="@{requestDetailViewModel.requestDetailType==215 ? View.VISIBLE : View.GONE}"
+                    android:background="@android:color/transparent"
+                    android:text="@string/delete_offer"
+                    android:textColor="@color/colorwhite"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-black"
+                    android:textStyle="normal"
+                    android:textAllCaps="false"
+                    android:onClick="@{requestDetailViewModel::DeleteOffer}"
                     />
 
                 <View
@@ -388,6 +429,8 @@
                     android:onClick="@{requestDetailViewModel::displayDialog}"
                     />
             </LinearLayout>
+                </RelativeLayout>
+            </ScrollView>
         </RelativeLayout>
-    </ScrollView>
+
 </layout>

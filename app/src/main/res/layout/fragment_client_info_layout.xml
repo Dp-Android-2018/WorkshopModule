@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data></data>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -61,6 +63,7 @@
         android:layout_marginTop="@dimen/dp18w">
 
         <Button
+            android:id="@+id/btn_call"
             android:layout_width="@dimen/dp123h"
             android:layout_height="@dimen/dp32h"
             android:layout_marginTop="@dimen/dp14h"
@@ -68,7 +71,7 @@
             android:layout_below="@+id/tv_request_need_winch"
             android:background="@drawable/client_info_button_background"
             android:layout_centerHorizontal="true"
-            android:text="@string/show_location"
+            android:text="@string/call_client"
             android:textColor="@color/bluecolor"
             android:textSize="11.7sp"
             android:fontFamily="sans-serif-black"
@@ -78,6 +81,7 @@
            />
 
         <Button
+            android:id="@+id/btn_chat"
             android:layout_width="@dimen/dp123h"
             android:layout_height="@dimen/dp32h"
             android:layout_marginTop="@dimen/dp14h"
@@ -94,3 +98,4 @@
             />
     </LinearLayout>
 </RelativeLayout>
+</layout>

@@ -5,7 +5,7 @@
 <data>
     <variable
         name="inprogressdetailviewmodel"
-        type="com.example.dell.workshopmodule.viewmodel.InProgressDetail.InProgressrequestDetailViewModel"/>
+        type="com.dp.dell.workshopmodule.viewmodel.InProgressDetail.InProgressrequestDetailViewModel"/>
 </data>
 <RelativeLayout
     android:layout_width="match_parent"

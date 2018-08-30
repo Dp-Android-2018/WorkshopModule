@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10w"
+        android:layout_marginBottom="@dimen/dp10w"
+        android:background="@drawable/dialog_border_background">
+
+
+        <TextView
+            android:id="@+id/tv_spinner_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dp7w"
+            android:text="TextView"
+            android:textColor="@color/colorLightBlue"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/view_spinner_splitter"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1w"
+            android:layout_below="@+id/tv_spinner_title"
+            android:background="@color/colorDarkGray2" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_spinner_collections"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view_spinner_splitter" />
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -3,7 +3,7 @@
     <data>
         <variable
             name="pendingviewmodel"
-            type="com.example.dell.workshopmodule.viewmodel.HappeningNow.ItemRequestViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.HappeningNow.ItemRequestViewModel"/>
     </data>
 
 <android.support.v7.widget.CardView

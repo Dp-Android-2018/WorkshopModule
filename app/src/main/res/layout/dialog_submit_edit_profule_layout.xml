@@ -51,6 +51,7 @@
             />
 
         <Button
+            android:id="@+id/btn_done"
             android:layout_width="@dimen/dp123h"
             android:layout_height="@dimen/dp32h"
             android:layout_marginTop="@dimen/dp41w"
@@ -58,7 +59,7 @@
             android:layout_below="@+id/tv_submit_editing"
             android:background="@drawable/button_edit_profile_background"
             android:layout_centerHorizontal="true"
-            android:text="@string/done"
+            android:text="@string/ok"
             android:textColor="@color/colorwhite"
             android:textSize="12.7sp"
             android:fontFamily="sans-serif-black"

@@ -3,12 +3,12 @@
     <data>
         <variable
             name="requestitemviewmodel"
-            type="com.example.dell.workshopmodule.viewmodel.HappeningNow.ItemRequestViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.HappeningNow.ItemRequestViewModel"/>
     </data>
 
 <android.support.v7.widget.CardView 
     android:layout_width="@dimen/dp130h"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginEnd="@dimen/dp11h"
     android:id="@+id/cv_parent"
@@ -17,7 +17,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/bluecolor">
 
 
@@ -41,6 +41,8 @@
             android:src="@mipmap/ic_wrench" />
 
         <com.elyeproj.loaderviewlibrary.LoaderTextView
+
+
             android:id="@+id/tv_request_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -160,6 +162,7 @@
             android:textStyle="normal"
             app:height_weight="0.8"
             app:width_weight="0.9"
+            android:layout_marginBottom="@dimen/dp15h"
             app:corners="8"/>
     </RelativeLayout>
 </android.support.v7.widget.CardView>

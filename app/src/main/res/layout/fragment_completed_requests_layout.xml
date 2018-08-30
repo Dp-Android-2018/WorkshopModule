@@ -4,7 +4,7 @@
     <data>
         <variable
             name="completedViewModel"
-            type="com.example.dell.workshopmodule.viewmodel.CompletedRequest.CompletedRequestsViewModel"/>
+            type="com.dp.dell.workshopmodule.viewmodel.CompletedRequest.CompletedRequestsViewModel"/>
     </data>
 
 <RelativeLayout
@@ -38,7 +38,7 @@
         android:textStyle="normal"
         android:textColor="@color/bluecolor"
         android:gravity="center_horizontal"
-        android:text="15"
+        android:text="@{completedViewModel.total}"
         android:layout_marginTop="@dimen/dp7h"
         android:layout_centerHorizontal="true"
         />
@@ -58,15 +58,55 @@
         android:layout_centerHorizontal="true"
         />
 
-    <android.support.v7.widget.RecyclerView
+
+    <TextView
+        android:id="@+id/tv_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif-black"
+        android:textStyle="normal"
+        android:textColor="@color/bluecolor"
+        android:gravity="center_horizontal"
         android:layout_below="@+id/tv_request_txt"
+        android:layout_marginTop="@dimen/dp7h"
+        android:text="@string/more"
+        android:visibility="@{completedViewModel.visibility}"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/dp10h"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/tv_more"
         android:id="@+id/rv_completed_requests"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/dp28h"
+        android:layout_marginTop="@dimen/dp20h"
         android:layout_marginBottom="@dimen/dp15h"
         bind:completedrequests="@{completedViewModel.completedRequests}"
         tools:listitem="@layout/item_completed_request_layout"/>
+
+    <ImageView
+        android:id="@+id/iv_no_Requests"
+        android:layout_width="@dimen/dp121w"
+        android:layout_height="@dimen/dp121w"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/contract"
+        android:layout_marginTop="@dimen/dp78w"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/tv_no_requests"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_no_Requests"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp18"
+        android:textColor="@color/no_items_found"
+        android:layout_marginTop="@dimen/dp70h"
+        android:text="@string/no_requests_yet"
+        android:visibility="gone"/>
+
 </RelativeLayout>
 </layout>
