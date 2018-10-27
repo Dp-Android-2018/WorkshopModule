@@ -318,6 +318,9 @@
     <string name="version_update_available">تحدبث جديد متاح</string>
     <string name="update_txt">تحدبث</string>
     <string name="update_current_version_text">هناك نسخة جديدة من تطبيق البحث و الاصلاح من فضلك قم بتحديث التطبيق الحالى</string>
+    <string name="please_upload_your_workshop_pictures_10_pictures_max">من فضلك قم برفع صور الورشة اقصى عدد 10 صور</string>
+    <string name="maximum_images_number_text">اقصى عدد من الصور هو 10 صور</string>
+    <string name="profile_pictures">صور الورشة</string>
 </resources>
 
 

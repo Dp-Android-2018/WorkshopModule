@@ -13,6 +13,8 @@ import com.dp.dell.workshopmodule.utils.CustomUtils;
 import com.dp.dell.workshopmodule.view.ui.callback.BaseInterface;
 import com.dp.dell.workshopmodule.viewmodel.AddAchievmentImageViewModel;
 import com.dp.dell.workshopmodule.viewmodel.ToolbarViewModel;
+import com.esafirm.imagepicker.features.ImagePicker;
+import com.esafirm.imagepicker.model.Image;
 
 public class AddAchievmentBeforeFixing extends BaseActivity implements BaseInterface{
     private ActivityAchievmentBeforeLayoutBinding binding;
@@ -61,6 +63,10 @@ public class AddAchievmentBeforeFixing extends BaseActivity implements BaseInter
     /** Handle Data on Activity Result Of View Model */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        viewModel.onActivityResult(requestCode,resultCode,data);
+        if (ImagePicker.shouldHandle(requestCode, resultCode, data)) {
+            Image image = ImagePicker.getFirstImageOrNull(data);
+            viewModel.onActivityResult(requestCode,resultCode,data,image);
+            return;
+        }
     }
 }

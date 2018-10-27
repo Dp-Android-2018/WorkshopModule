@@ -24,6 +24,7 @@ import com.dp.dell.workshopmodule.view.ui.Application.MyApplication;
 import com.dp.dell.workshopmodule.view.ui.callback.BaseInterface;
 import com.google.android.gms.internal.zzahn;
 import com.google.firebase.FirebaseApp;
+import com.google.gson.Gson;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -102,6 +103,7 @@ public class LoginViewModel extends Observable {
                                 userData=loginResponse.getData();
                                 if (loginResponse.getData().isActive()) {
                                     if (loginResponse.getData().getSuspended()==0) {
+                                        System.out.println("Json Data 2 :"+new Gson().toJson(loginResponse.getData()));
                                         saveDataToPrefs(loginResponse.getData());
                                         setChanged();
                                         notifyObservers();
@@ -164,6 +166,7 @@ public class LoginViewModel extends Observable {
                             // dialog.dismiss();
                          //   Snackbar.make(activity.findViewById(R.id.drawer), R.string.account_activated,Snackbar.LENGTH_LONG).show();
                             callback.updateUi(ConfigurationFile.Constants.ACCOUNT_ACTIVATED_SUCCESSFULLY);
+                            System.out.println("Json Data 2:"+new Gson().toJson(userData));
                             saveDataToPrefs(userData);
                             setChanged();
                             notifyObservers();

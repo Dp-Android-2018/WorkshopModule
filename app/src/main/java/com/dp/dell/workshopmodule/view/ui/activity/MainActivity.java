@@ -120,7 +120,6 @@ public class MainActivity extends BaseActivity implements BaseInterface  {
         // Method To Determine Toolbar Color and Visibility Of it's Item //
     public void setUpToolBar(){
             setSupportActionBar(binding.toolbar.toolbar);
-
             toolbarViewModel=new ToolbarViewModel(MainActivity.this,ConfigurationFile.Constants.HANDLE_MAIN_TOOLBAR);
             binding.toolbar.setViewmodel(toolbarViewModel);
         if (CustomUtils.getInstance().getAppLanguage(MainActivity.this).equals("ar")){
@@ -221,6 +220,7 @@ public class MainActivity extends BaseActivity implements BaseInterface  {
 
 
         };
+        actionBarDrawerToggle.getDrawerArrowDrawable().setColor(getResources().getColor(R.color.whitebasecolor));
 
         binding.drawer.setDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data></data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rl_parent"
+        android:background="@color/colorwhite">
+
+        <TextView
+            android:id="@+id/tv_title_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="@dimen/dp50h"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/dp70h"
+            android:layout_marginEnd="@dimen/dp70h"
+            android:text="@string/please_upload_your_workshop_pictures_10_pictures_max"
+            />
+
+
+        <RelativeLayout
+            android:id="@+id/rl_choose_image"
+            android:layout_width="@dimen/dp180w"
+            android:layout_height="@dimen/dp180w"
+            android:background="@drawable/circle_profile_background"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/sp14_5"
+                android:textColor="@color/gray_color"
+                android:lineSpacingExtra="-5.5sp"
+                android:text="@string/upload"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dp30h" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_layer"
+                android:layout_centerInParent="true" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_car_owner_image"
+                android:layout_width="@dimen/dp171h"
+                android:layout_height="@dimen/dp171h"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_workshop_profile_images"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_choose_image"
+            android:orientation="horizontal"
+            bind:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            android:layout_marginTop="@dimen/dp15h"
+            android:layout_marginStart="@dimen/dp40w"
+            android:layout_marginEnd="@dimen/dp40w"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom">
+
+            <TextView
+                android:id="@+id/tv_specialization_next_step"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16.7sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/next_step"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp15h" />
+
+            <TextView
+                android:id="@+id/tv_specialization_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16.7sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/back"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/dp15h" />
+
+
+
+            <TextView
+                android:id="@+id/tv_specialization_num_of_steps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="bold"
+                android:textColor="@color/colorgray"
+                android:layout_centerHorizontal="true"
+                android:layout_marginEnd="@dimen/dp15h"
+                android:layout_below="@+id/tv_sign_up_next_step"
+                android:layout_marginTop="@dimen/dp13h"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_specialization_num_of_steps"
+                android:layout_marginTop="@dimen/dp5h"
+                android:weightSum="6">
+
+                <View
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dp9h"
+                    android:background="@drawable/view_rectangle_step_background"
+                    android:layout_marginEnd="@dimen/dp1h"/>
+
+                <View
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dp9h"
+                    android:background="@drawable/view_rectangle_step_background"
+                    android:layout_marginEnd="@dimen/dp1h"/>
+
+                <View
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dp9h"
+                    android:background="@drawable/view_rectangle_step_background"
+                    android:layout_marginEnd="@dimen/dp1h"/>
+
+                <View
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dp9h"
+                    android:background="@drawable/view_rectangle_step_background"
+                    android:layout_marginEnd="@dimen/dp1h"/>
+
+                <View
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dp9h"
+                    android:layout_marginEnd="@dimen/dp1h"/>
+
+
+                <View
+
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dp9h"
+                    android:background="@drawable/view_rectangle_step_disactive_background"
+                    android:layout_marginEnd="@dimen/dp1h"/>
+            </LinearLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>

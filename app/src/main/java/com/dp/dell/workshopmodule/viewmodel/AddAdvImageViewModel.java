@@ -10,6 +10,7 @@ import android.databinding.ObservableBoolean;
 import android.databinding.ObservableFloat;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.Image;
 import android.net.Uri;
 import android.view.View;
 
@@ -24,6 +25,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -63,12 +65,13 @@ public class AddAdvImageViewModel extends BaseObservable{
         callback.updateUi(ConfigurationFile.Constants.SHOW_DIALOG_CODE);}
 
     ///////////////////////////////////Set Image To Image View and Convert it to Base 54 ////////////////////////////////
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        System.out.println("Image View Modle");
-
+    public void onActivityResult(int requestCode, int resultCode, Intent data, com.esafirm.imagepicker.model.Image image) {
         if (resultCode == RESULT_OK) {
-            convertImageToBase64(data.getData());
-            selectedImageUri=data.getData();}}
+            selectedImageBitmap = BitmapFactory.decodeFile(image.getPath());
+            setPicBitmap(selectedImageBitmap);
+            selectedImageUri = Uri.fromFile(new File(image.getPath()));
+        }
+       }
 
     //////////////////////////////////Update IMage View //////////////////////////////////////////
     public void setPicBitmap(Bitmap picBitmap) {

@@ -19,7 +19,6 @@
 <LinearLayout 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:layoutDirection="ltr"
     android:orientation="vertical">
 
@@ -44,6 +43,7 @@
         app:headerLayout="@layout/header_menu_layout"
         app:itemTextColor="@color/advertisement_title_color"
         bind:navigationItem="@{viewModel.handleNavigation()}"
+        app:itemIconTint="@color/whitebasecolor"
         app:menu="@menu/drawer"
         app:theme="@style/NavigationTheme"
         android:paddingBottom="0dp">
@@ -64,8 +64,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp10h"
             android:gravity="center_horizontal"
-            android:textColor="@color/advertisement_title_color"
-            />
+            android:textColor="@color/advertisement_title_color" />
 
             <ImageView
                 android:layout_width="match_parent"

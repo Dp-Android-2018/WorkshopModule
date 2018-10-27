@@ -54,5 +54,7 @@
     <color name="setting_background_color">#d3d3d3</color>
     <color name="font_setting_color">#989898</color>
     <color name="colorBlackTransparent">#a1000000</color>
+    <color name="gray_light_color">#eeedf3</color>
     <color name="instagramcolor">#b439a5</color>
+    <color name="black_light_color">#6f6e74</color>
 </resources>

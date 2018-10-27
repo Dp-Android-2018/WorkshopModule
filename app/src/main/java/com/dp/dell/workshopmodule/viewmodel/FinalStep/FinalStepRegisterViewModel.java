@@ -12,6 +12,11 @@ import android.databinding.ObservableFloat;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.support.annotation.RequiresApi;
+import android.support.v4.content.FileProvider;
+import android.util.Log;
 import android.view.View;
 
 
@@ -23,14 +28,19 @@ import com.dp.dell.workshopmodule.utils.CustomUtils;
 import com.dp.dell.workshopmodule.view.ui.activity.SocialNetworkActivity;
 import com.dp.dell.workshopmodule.view.ui.callback.BaseInterface;
 import com.dp.dell.workshopmodule.view.ui.callback.TaskMonitor;
+import com.esafirm.imagepicker.features.ImagePicker;
+import com.esafirm.imagepicker.model.Image;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+
+import butterknife.internal.Utils;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -52,43 +62,49 @@ public class FinalStepRegisterViewModel extends BaseObservable {
     private RegisterRequest registerRequest;
     private HandleRegisterRequestViewModel registerRequestViewModel;
     StorageReference storageReference;
-    private String picUrl=null;
+    private String picUrl = null;
     public ObservableBoolean loading;
-    Uri selectedImageUri=null;
-   public ObservableFloat progress;
-   private RxPermissions rxPermissions;
-   public ObservableField<String> messageText=new ObservableField<>();
+    Uri selectedImageUri = null;
+    public ObservableFloat progress;
+    private RxPermissions rxPermissions;
+    public ObservableField<String> messageText = new ObservableField<>();
+
     public FinalStepRegisterViewModel(Context context, BaseInterface callback, RegisterRequest registerRequest) {
         this.context = context;
         this.callback = callback;
-        this.registerRequest=registerRequest;
+        this.registerRequest = registerRequest;
         rxPermissions = new RxPermissions((Activity) context);
-        this.registerRequestViewModel=registerRequestViewModel;
+        this.registerRequestViewModel = registerRequestViewModel;
         papers = new ArrayList<>();
         bitmaps = new ArrayList<>();
-        loading=new ObservableBoolean(false);
-        progress=new ObservableFloat(0.3f);
-        storageReference= FirebaseStorage.getInstance().getReference().child("app_photos");
-        messageText.set(context.getResources().getString(R.string.please_upload_id));
+        loading = new ObservableBoolean(false);
+        progress = new ObservableFloat(0.3f);
+        storageReference = FirebaseStorage.getInstance().getReference().child("app_photos");
+        messageText.set(context.getResources().getString(R.string.upload_commercial_register));
+
     }
 
     //////////////////////Dialog To Choose Image From Camera Or Gallery /////////////////////////////
     public void displayDialog(View view) {
-        callback.updateUi(ConfigurationFile.Constants.SHOW_DIALOG_CODE);}
+        callback.updateUi(ConfigurationFile.Constants.SHOW_DIALOG_CODE);
+    }
 
     ///////////////////////////////////Set Image To Image View and Convert it to Base 54 ////////////////////////////////
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        System.out.println("Image View Modle");
-
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void onActivityResult(int requestCode, int resultCode, Intent data,Image image) {
         if (resultCode == RESULT_OK) {
-            convertImageToBase64(data.getData());
-            selectedImageUri=data.getData();}}
+                selectedImageBitmap = BitmapFactory.decodeFile(image.getPath());
+                setPicBitmap(selectedImageBitmap);
+                selectedImageUri = Uri.fromFile(new File(image.getPath()));
+        }
+    }
 
     //////////////////////////////////Update IMage View //////////////////////////////////////////
     public void setPicBitmap(Bitmap picBitmap) {
         System.out.println("Bitmap Conversion ");
         this.picBitmap = picBitmap;
-        notifyPropertyChanged(BR.picBitmap);}
+        notifyPropertyChanged(BR.picBitmap);
+    }
 
 
     @Bindable
@@ -117,36 +133,34 @@ public class FinalStepRegisterViewModel extends BaseObservable {
 
     ///////////////////Ask For Permission if Sdk > lollipop //////////////////////////////////////////////
     public void askForPermission(int checker) {
-        CustomUtils.getInstance().requirePermission(rxPermissions,checker,callback);
+        CustomUtils.getInstance().requirePermission(rxPermissions, checker, callback);
     }
-
-
-
 
 
     /////////////////////////////Move To next Step //////////////////////////////////////////////////////////////////
     public void validate(View view) {
-        if(selectedImageUri!=null)
-        System.out.println("Image Data 1:"+selectedImageUri.toString());
-        System.out.println("Image Data 2:"+picUrl);
-        if (selectedImageUri!=null) {
+
+
+        if (selectedImageUri != null) {
+            System.out.println("Image Data 1:" + selectedImageUri.toString());
             uploadFireBasePic();
-        }else if (selectedImageUri ==null && picUrl !=null){
-            picUrl=null;
+        } else if (selectedImageUri == null && picUrl != null) {
+            System.out.println("Image Data 1 2 3:" + selectedImageUri.toString());
+            picUrl = null;
             setPicBitmap(null);
             setStep(2);
-            messageText.set(context.getString(R.string.upload_commercial_register));
+            messageText.set(context.getString(R.string.please_upload_id));
 
-        }else {
+        } else {
             callback.updateUi(ConfigurationFile.Constants.CHOOSE_IMAGE_FROM_GALLERY);
         }
     }
 
 
-    public void uploadFireBasePic(){
+    public void uploadFireBasePic() {
         loading.set(true);
         CustomUtils.getInstance().uploadFireBasePic(storageReference, selectedImageUri, photoUrl -> {
-            picUrl=photoUrl;
+            picUrl = photoUrl;
             progress.set(1.0f);
         });
     }
@@ -158,11 +172,11 @@ public class FinalStepRegisterViewModel extends BaseObservable {
         bitmaps.add(selectedImageBitmap);
         papers.add(picUrl);
         encodedImage = "";
-        selectedImageUri=null;
-        picUrl=null;
+        selectedImageUri = null;
+        picUrl = null;
         setPicBitmap(null);
         setStep(2);
-        messageText.set(context.getString(R.string.upload_commercial_register));
+        messageText.set(context.getString(R.string.please_upload_id));
     }
 
     @Bindable
@@ -178,22 +192,22 @@ public class FinalStepRegisterViewModel extends BaseObservable {
     //////////////////////////////////////////Handle Back Action ////////////////////////////////////////////////////////////////////
     public void handleBackAction(View view) {
         if (step == 1) {
-            if(!papers.isEmpty()) papers.remove(0);
+            if (!papers.isEmpty()) papers.remove(0);
             callback.updateUi(ConfigurationFile.Constants.MOVE_TO_PREVIOUS_ACTIVITY);
         } else if (step == 2) {
-            if(papers.size()==2)
+            if (papers.size() == 2)
                 papers.remove(1);
             selectedImageBitmap = bitmaps.get(0);
             encodedImage = papers.get(0);
             setPicBitmap(bitmaps.get(0));
-            picUrl=papers.get(0);
+            picUrl = papers.get(0);
             setStep(1);
-            messageText.set(context.getString(R.string.please_upload_id));
+            messageText.set(context.getString(R.string.upload_commercial_register));
         }
     }
 
 
-    public Animator.AnimatorListener onAnimationEnd(){
+    public Animator.AnimatorListener onAnimationEnd() {
         return new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
@@ -202,19 +216,19 @@ public class FinalStepRegisterViewModel extends BaseObservable {
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                System.out.println("Animation End :"+(progress.get()));
-                    if (progress.get()==1.0f){
-                        progress.set(0.3f);
-                        if (step == 1) {
-                            reset();
-                        } else if (step == 2) {
-                            papers.add(picUrl);
-                            registerRequest.setPapers(papers);
-                            callback.updateUi(ConfigurationFile.Constants.MOVE_TO_NEXT_ACTIVITY);
-                            //registerRequestViewModel.handleRegister(registerRequest,papers,callback);
-                        }
-                        loading.set(false);
+                System.out.println("Animation End :" + (progress.get()));
+                if (progress.get() == 1.0f) {
+                    progress.set(0.3f);
+                    if (step == 1) {
+                        reset();
+                    } else if (step == 2) {
+                        papers.add(picUrl);
+                        registerRequest.setPapers(papers);
+                        callback.updateUi(ConfigurationFile.Constants.MOVE_TO_NEXT_ACTIVITY);
+                        //registerRequestViewModel.handleRegister(registerRequest,papers,callback);
                     }
+                    loading.set(false);
+                }
             }
 
             @Override

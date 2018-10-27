@@ -24,9 +24,10 @@ public class FirstStepRegisterValidations extends BaseObservable {
     private String workshopWebsite;
     private Context context;
     private CallAnotherActivityNavigator navigator;
-    public FirstStepRegisterValidations(Context context,CallAnotherActivityNavigator navigator) {
-        this.context=context;
-        this.navigator=navigator;
+
+    public FirstStepRegisterValidations(Context context, CallAnotherActivityNavigator navigator) {
+        this.context = context;
+        this.navigator = navigator;
     }
 
     @Bindable
@@ -91,47 +92,47 @@ public class FirstStepRegisterValidations extends BaseObservable {
     }
 
 
-    public int validator(String workshopName,String email,int validEmail,String password,String confirmpassword,String workshopPhone,String workshopWebsite,String location,double lat,double lang,int CountryPosition,int cityposition,int validPhone){
-        if(!(ValidationUtils.isEmpty(workshopName))){
+    public int validator(String workshopName, String email, int validEmail, String password, String confirmpassword, String workshopPhone, String workshopWebsite, String location, double lat, double lang, int CountryPosition, int cityposition, int validPhone) {
+        if (!(ValidationUtils.isEmpty(workshopName))) {
 
-           setWorkshopNameError("");
-            if(!ValidationUtils.isEmpty(email)){
-               setEmaildError("");
-                if(ValidationUtils.isMail(email)){
-                   setEmaildError("");
-                    if(validEmail==0) {
-                       setEmaildError("");
+            setWorkshopNameError("");
+            if (!ValidationUtils.isEmpty(email)) {
+                setEmaildError("");
+                if (ValidationUtils.isMail(email)) {
+                    setEmaildError("");
+                    if (validEmail == 0) {
+                        setEmaildError("");
                         if (!ValidationUtils.isEmpty(password)) {
-                           setPasswordError("");
+                            setPasswordError("");
                             if (ValidationUtils.checkPasswordLength(password)) {
-                               setPasswordError("");
+                                setPasswordError("");
                                 if (!ValidationUtils.isEmpty(confirmpassword)) {
-                                   setPasswordConfirmationError("");
+                                    setPasswordConfirmationError("");
                                     if (ValidationUtils.checkPasswordLength(confirmpassword)) {
-                                       setPasswordConfirmationError("");
+                                        setPasswordConfirmationError("");
                                         if (!ValidationUtils.isEmpty(workshopPhone)) {
-                                           setWorkshopPhoneError("");
+                                            setWorkshopPhoneError("");
                                             if (ValidationUtils.isPhone(workshopPhone)) {
-                                               setWorkshopPhoneError("");
+                                                setWorkshopPhoneError("");
                                                 if (!ValidationUtils.isEmpty(workshopWebsite)) {
-                                                   setWorkshopWebsite("");
+                                                    setWorkshopWebsite("");
                                                     //  if (ValidationUtils.isUrl(workshopWebsite)) {
                                                     //   setWorkshopWebsite("");
-                                               if ((!ValidationUtils.isEmpty(location)) && (lat != 0.0) && (lang != 0.0)) {
+                                                    if ((!ValidationUtils.isEmpty(location)) && (lat != 0.0) && (lang != 0.0)) {
 
                                                         if (CountryPosition != -1) {
                                                             if (cityposition != -1) {
                                                                 if (ValidationUtils.isPasswordMatches(password, confirmpassword)) {
-                                                                   setPasswordError("");
-                                                                   
-                                                                   if(validPhone==0) {
+                                                                    setPasswordError("");
 
-                                                                       return 1;
-                                                                   }else {
-                                                                       setWorkshopPhoneError(context.getString(R.string.invalid_phone_number));
-                                                                   }
+                                                                    if (validPhone == 0) {
+
+                                                                        return 1;
+                                                                    } else {
+                                                                        setWorkshopPhoneError(context.getString(R.string.invalid_phone_number));
+                                                                    }
                                                                 } else {
-                                                                   setPasswordConfirmationError(context.getString(R.string.matches_password));
+                                                                    setPasswordConfirmationError(context.getString(R.string.matches_password));
                                                                 }
 
                                                             } else {
@@ -149,45 +150,45 @@ public class FirstStepRegisterValidations extends BaseObservable {
                                                        setWorkshopWebsite(context.getString(R.string.invalid_site_url));
                                                     }*/
                                                 } else {
-                                                   setWorkshopWebsite(context.getString(R.string.reqired_field));
+                                                    setWorkshopWebsite(context.getString(R.string.reqired_field));
                                                 }
 
                                             } else {
-                                               setWorkshopPhoneError(context.getString(R.string.invalid_phone_format));
+                                                setWorkshopPhoneError(context.getString(R.string.invalid_phone_format));
                                             }
 
                                         } else {
-                                           setWorkshopPhoneError(context.getString(R.string.reqired_field));
+                                            setWorkshopPhoneError(context.getString(R.string.reqired_field));
                                         }
 
                                     } else {
-                                       setPasswordConfirmationError(context.getString(R.string.password_length));
+                                        setPasswordConfirmationError(context.getString(R.string.password_length));
                                     }
 
                                 } else {
-                                   setPasswordConfirmationError(context.getString(R.string.reqired_field));
+                                    setPasswordConfirmationError(context.getString(R.string.reqired_field));
                                 }
 
                             } else {
-                               setPasswordError(context.getString(R.string.password_length));
+                                setPasswordError(context.getString(R.string.password_length));
                             }
                         } else {
-                           setPasswordError(context.getString(R.string.reqired_field));
+                            setPasswordError(context.getString(R.string.reqired_field));
                         }
-                    }else {
-                       setEmaildError(context.getString(R.string.email_alredy_taken));
+                    } else {
+                        setEmaildError(context.getString(R.string.email_alredy_taken));
                     }
 
-                }else {
-                   setEmaildError(context.getString(R.string.invalid_email_format));
+                } else {
+                    setEmaildError(context.getString(R.string.invalid_email_format));
                 }
 
-            }else {
-               setEmaildError(context.getString(R.string.reqired_field));
+            } else {
+                setEmaildError(context.getString(R.string.reqired_field));
             }
-        }else {
+        } else {
             System.out.println("Clicked eRROR");
-           setWorkshopNameError(context.getString(R.string.reqired_field));
+            setWorkshopNameError(context.getString(R.string.reqired_field));
 
         }
 
@@ -195,7 +196,7 @@ public class FirstStepRegisterValidations extends BaseObservable {
     }
 
 
-    public void reset(){
-        context=null;
+    public void reset() {
+        context = null;
     }
 }

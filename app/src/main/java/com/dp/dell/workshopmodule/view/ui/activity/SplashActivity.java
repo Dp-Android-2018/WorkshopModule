@@ -51,7 +51,6 @@ public class SplashActivity extends AppCompatActivity implements BaseInterface{
     and Determine Which Layout will be used */
 
     public void changeAppLanguage(){
-        System.out.println("Lang App :"+CustomUtils.getInstance().getAppLanguage(getApplicationContext()));
         String lang=(CustomUtils.getInstance().getAppLanguage(getApplicationContext())!=null ? CustomUtils.getInstance().getAppLanguage(getApplicationContext()) : "en");
         Locale locale = new Locale(lang);
         CustomUtils.getInstance().saveAppLanguage(getApplicationContext(),lang);

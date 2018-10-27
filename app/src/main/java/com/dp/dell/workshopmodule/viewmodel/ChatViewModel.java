@@ -6,6 +6,7 @@ import android.databinding.BaseObservable;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableField;
 import android.databinding.ObservableList;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.view.View;
@@ -26,6 +27,7 @@ import com.dp.dell.workshopmodule.view.ui.Application.MyApplication;
 import com.dp.dell.workshopmodule.view.ui.callback.BaseInterface;
 import com.dp.dell.workshopmodule.view.ui.callback.CallAnotherActivityNavigator;
 import com.dp.dell.workshopmodule.view.ui.callback.TaskMonitor;
+import com.esafirm.imagepicker.model.Image;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.model.LatLng;
@@ -41,6 +43,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.gson.Gson;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
+import java.io.File;
 import java.sql.Timestamp;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -193,10 +196,10 @@ public void shareLocation(View view) {
         CustomUtils.getInstance().requirePermission(rxPermissions,checker,callback);
     }
     ///////////////////////////////////Set Image To Image View and Convert it to Base 54 ////////////////////////////////
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data, Image image) {
         if (requestCode == ConfigurationFile.Constants.CAMERA_REQUEST || requestCode == ConfigurationFile.Constants.GALLERY_REQUEST) {
             if (resultCode == RESULT_OK) {
-                selectedImageUri = data.getData();
+                selectedImageUri = Uri.fromFile(new File(image.getPath()));
                 uploadFireBasePic();
             }
         } else if (requestCode == ConfigurationFile.Constants.PLACE_PICKER_REQUEST) {

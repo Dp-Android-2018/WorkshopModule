@@ -10,7 +10,12 @@
     <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
     </style>
-    <style name="AppTheme.NoActionBar">
+    <style name="ImagePickerTheme" parent="ef_BaseTheme">
+        <item name="colorPrimary">#607D8B</item>
+        <item name="colorPrimaryDark">#455A64</item>
+        <item name="colorAccent">@color/ef_colorAccent</item>
+    </style>
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="mainActBackground">@color/colorwhite</item>
         <item name="mainActtextcolor">@color/colorBlueLight</item>
         <item name="windowActionBar">false</item>
@@ -27,7 +32,8 @@
     <style name="NavigationTheme" parent="AppTheme">
         <item name="android:textSize">@dimen/sp14</item>
         <item name="android:listPreferredItemHeightSmall">@dimen/dp36w</item>
-
+        <item name="android:iconTint">@color/whitebasecolor</item>
+        <item name="android:iconTintMode">@color/whitebasecolor</item>
     </style>
 
     <style name="SpinnerTheme" parent="android:Widget.Spinner">
@@ -54,5 +60,9 @@
     <style name="NavDrawerTextStyle" parent="Base.TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/sp12</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="toolbar_theme" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlNormal">@color/whitebasecolor</item>
     </style>
 </resources>

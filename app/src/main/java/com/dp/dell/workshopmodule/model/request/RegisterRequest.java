@@ -6,6 +6,7 @@ import com.dp.dell.workshopmodule.model.global.WorkdaysItem;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,6 +14,7 @@ import java.util.List;
  */
 
 public class RegisterRequest implements Serializable {
+
     @SerializedName("name")
     private String name;
 
@@ -43,15 +45,11 @@ public class RegisterRequest implements Serializable {
     @SerializedName("website")
     private String website;
 
-
     @SerializedName("winch")
     private int winch;
 
-
-
     @SerializedName("device_token")
     private String deviceToken;
-
 
     @SerializedName("brands")
     private List<Integer> brands;
@@ -78,6 +76,8 @@ public class RegisterRequest implements Serializable {
     @SerializedName("social")
     private Social social;
 
+    @SerializedName("profile_images")
+    private List<String> workshopProfileImages;
 
     public void setDeviceToken(String deviceToken) {
         this.deviceToken = deviceToken;
@@ -161,5 +161,13 @@ public class RegisterRequest implements Serializable {
 
     public void setWebsite(String website) {
         this.website = website;
+    }
+
+    public List<String> getWorkshopProfileImages() {
+        return workshopProfileImages;
+    }
+
+    public void setWorkshopProfileImages(List<String> workshopProfileImages) {
+        this.workshopProfileImages = workshopProfileImages;
     }
 }

@@ -1,6 +1,7 @@
 package com.dp.dell.workshopmodule.viewmodel;
 
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.ObservableField;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.dp.dell.workshopmodule.model.request.UpdateProfileRequest;
 import com.dp.dell.workshopmodule.utils.ConfigurationFile;
 import com.dp.dell.workshopmodule.utils.CustomUtils;
 import com.dp.dell.workshopmodule.utils.ValidationUtils;
+import com.dp.dell.workshopmodule.view.ui.activity.WorkshopProfileImagesActivity;
 import com.dp.dell.workshopmodule.view.ui.callback.BaseInterface;
 
 import org.greenrobot.eventbus.EventBus;
@@ -72,6 +74,11 @@ public class EditProfileInfoViewModel extends BaseObservable {
                   callback.updateUi(ConfigurationFile.Constants.SHOW_DIALOG_CODE);
             else if(view.getId()==R.id.iv_cities_dialog || view.getId()==R.id.rl_city)
                 callback.updateUi(ConfigurationFile.Constants.SHOW_CITIES_DIALOG_CODE);
+    }
+
+    public void moveToWorkshopProfileImagesActivity(View view){
+        Intent profileImagesActivity= new Intent(context, WorkshopProfileImagesActivity.class);
+        context.startActivity(profileImagesActivity);
     }
 
     public void setCountryData(CountryItem countryItem) {

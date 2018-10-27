@@ -24,7 +24,7 @@
         android:gravity="center_horizontal"
         android:layout_marginTop="@dimen/dp45h"
         android:text="@string/thank_you_for_registeration"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         />
 
     <TextView
@@ -38,7 +38,8 @@
         android:lineSpacingExtra="4.3sp"
         android:gravity="center_horizontal"
         android:text="@string/wait_the_activiation_process"
-        android:layout_gravity="center_horizontal"
+
+        android:layout_gravity="center"
         />
 
     <TextView
@@ -51,13 +52,10 @@
         android:textColor="@color/darkbluecolor"
         android:lineSpacingExtra="4.3sp"
         android:gravity="center_horizontal"
-
         android:text="@string/from_our_support_team"
+        android:layout_gravity="center"
         android:layout_marginStart="@dimen/dp73h"
-        android:layout_marginEnd="@dimen/dp73h"
-        />
-
-
+        android:layout_marginEnd="@dimen/dp73h" />
 
     <ImageView
         android:layout_width="match_parent"

@@ -88,6 +88,7 @@ dependencies {
     implementation 'com.github.abumoallim:Android-Multi-Select-Dialog:v1.9'
     implementation'com.github.thunder413:DateTimeUtils:1.0'
     implementation 'org.jsoup:jsoup:1.11.3'
+    implementation 'com.github.esafirm.android-image-picker:imagepicker:1.13.1'
 }
 apply plugin: 'com.google.gms.google-services'
 

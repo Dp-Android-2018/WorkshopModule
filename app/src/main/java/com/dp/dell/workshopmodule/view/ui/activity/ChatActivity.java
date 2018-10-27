@@ -16,6 +16,8 @@ import com.dp.dell.workshopmodule.view.ui.callback.BaseInterface;
 import com.dp.dell.workshopmodule.view.ui.callback.CallAnotherActivityNavigator;
 import com.dp.dell.workshopmodule.viewmodel.ChatViewModel;
 import com.dp.dell.workshopmodule.viewmodel.ToolbarViewModel;
+import com.esafirm.imagepicker.features.ImagePicker;
+import com.esafirm.imagepicker.model.Image;
 
 /**
  * Created by DELL on 14/03/2018.
@@ -83,7 +85,11 @@ public class ChatActivity extends BaseActivity implements BaseInterface,CallAnot
     /*Handling On Activity Result If It take picture and pick location */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        viewModel.onActivityResult(requestCode,resultCode,data);
+        if (ImagePicker.shouldHandle(requestCode, resultCode, data)) {
+            Image image = ImagePicker.getFirstImageOrNull(data);
+            viewModel.onActivityResult(requestCode,resultCode,data,image);
+            return;
+        }
     }
 
     /*Displaying Place Picker To make User Pick Up his Location */

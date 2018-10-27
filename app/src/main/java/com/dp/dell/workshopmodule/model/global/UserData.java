@@ -1,5 +1,6 @@
 package com.dp.dell.workshopmodule.model.global;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
@@ -42,6 +43,9 @@ public class UserData {
 
 	@SerializedName("urgent_request_types")
 	private List<BaseModel> urgentRequestTypes;
+
+	@SerializedName("profile_images")
+	private ArrayList<String> workshopImageProfile;
 
 	@SerializedName("name")
 	private String name;
@@ -209,6 +213,10 @@ public class UserData {
 
 	public String getLongitude(){
 		return longitude;
+	}
+
+	public ArrayList<String> getWorkshopImageProfile() {
+		return workshopImageProfile;
 	}
 
 	@Override
