@@ -6,7 +6,7 @@
     <data>
         <variable
             name="dialogViewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.CustomDialogCitiesViewModel"/>
+            type="com.findandfix.workshop.viewmodel.CustomDialogCitiesViewModel"/>
     </data>
 
     <android.support.v7.widget.CardView

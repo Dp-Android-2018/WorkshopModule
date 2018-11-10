@@ -3,7 +3,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.dp.dell.workshopmodule.viewmodel.AboutViewModel"/>
+            type="com.findandfix.workshop.viewmodel.AboutViewModel"/>
     </data>
     <ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"

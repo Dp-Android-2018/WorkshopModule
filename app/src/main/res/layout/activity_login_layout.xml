@@ -7,7 +7,7 @@
     <data>
         <variable
             name="LoginViewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.LoginViewModel"/>
+            type="com.findandfix.workshop.viewmodel.LoginViewModel"/>
     </data>
 <RelativeLayout
     android:layout_width="match_parent"

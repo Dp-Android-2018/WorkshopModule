@@ -4,7 +4,7 @@
     <data>
         <variable
             name="progressViewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.InProgress.InProgressViewModel"/>
+            type="com.findandfix.workshop.viewmodel.InProgress.InProgressViewModel"/>
     </data>
 
 

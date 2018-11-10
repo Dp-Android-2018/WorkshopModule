@@ -4,7 +4,7 @@
     <import type="android.view.View"/>
     <variable
         name="viewModel"
-        type="com.dp.dell.workshopmodule.viewmodel.MainFragViewModel"/>
+        type="com.findandfix.workshop.viewmodel.MainFragViewModel"/>
 </data>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

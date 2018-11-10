@@ -3,7 +3,7 @@
 <data>
     <variable
         name="cityViewModel"
-        type="com.dp.dell.workshopmodule.viewmodel.CityItemViewModel"/>
+        type="com.findandfix.workshop.viewmodel.CityItemViewModel"/>
 </data>
 
 

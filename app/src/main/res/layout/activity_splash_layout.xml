@@ -4,7 +4,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.dp.dell.workshopmodule.viewmodel.SplashViewModel"/>
+            type="com.findandfix.workshop.viewmodel.SplashViewModel"/>
     </data>
 <RelativeLayout
      android:layout_width="match_parent"

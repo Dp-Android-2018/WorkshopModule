@@ -9,11 +9,11 @@
 
         <variable
             name="viewmodel"
-            type="com.dp.dell.workshopmodule.viewmodel.SecondStepRegistration.SecondStepRegisterViewModel" />
+            type="com.findandfix.workshop.viewmodel.SecondStepRegistration.SecondStepRegisterViewModel" />
 
         <variable
             name="validateViewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.SecondStepRegistration.SecondStepValidateViewModel"/>
+            type="com.findandfix.workshop.viewmodel.SecondStepRegistration.SecondStepValidateViewModel"/>
     </data>
 
     <RelativeLayout

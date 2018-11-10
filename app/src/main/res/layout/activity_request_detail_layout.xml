@@ -4,7 +4,7 @@
         <import type="android.view.View"/>
         <variable
             name="requestDetailViewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.PublishedRequestDetail.RequestDetailViewModel"/>
+            type="com.findandfix.workshop.viewmodel.PublishedRequestDetail.RequestDetailViewModel"/>
     </data>
 
 

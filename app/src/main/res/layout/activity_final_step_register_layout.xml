@@ -6,7 +6,7 @@
         <import type="android.view.View" />
         <variable
             name="viewmodel"
-            type="com.dp.dell.workshopmodule.viewmodel.FinalStep.FinalStepRegisterViewModel"/>
+            type="com.findandfix.workshop.viewmodel.FinalStep.FinalStepRegisterViewModel"/>
 
     </data>
 <RelativeLayout

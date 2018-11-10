@@ -7,7 +7,7 @@
         <import type="android.view.View"/>
         <variable
             name="viewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.MainActViewModel"/>
+            type="com.findandfix.workshop.viewmodel.MainActViewModel"/>
     </data>
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer"

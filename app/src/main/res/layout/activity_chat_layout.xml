@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.dp.dell.workshopmodule.viewmodel.ChatViewModel"/>
+            type="com.findandfix.workshop.viewmodel.ChatViewModel"/>
     </data>
 
 

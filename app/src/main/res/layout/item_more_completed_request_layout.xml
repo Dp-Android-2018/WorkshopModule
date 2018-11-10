@@ -4,7 +4,7 @@
     <data>
         <variable
             name="completedViewMOdel"
-            type="com.dp.dell.workshopmodule.viewmodel.HappeningNow.ItemRequestViewModel"/>
+            type="com.findandfix.workshop.viewmodel.HappeningNow.ItemRequestViewModel"/>
     </data>
 
 

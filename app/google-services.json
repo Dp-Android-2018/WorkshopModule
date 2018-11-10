@@ -101,6 +101,68 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:470725562493:android:19a361f4e7f95e13",
+        "android_client_info": {
+          "package_name": "com.findandfix.carowner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470725562493-49av4sirgaa6h1e4er0ebcpis9i7fpvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9VUDIcAXbf78_YXJsWeZFaE_TMZgU1-0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:470725562493:android:9aa2ec4f04ff6158",
+        "android_client_info": {
+          "package_name": "com.findandfix.workshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "470725562493-49av4sirgaa6h1e4er0ebcpis9i7fpvq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9VUDIcAXbf78_YXJsWeZFaE_TMZgU1-0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:470725562493:android:eee95812253e5cdb",
         "android_client_info": {
           "package_name": "dp.findandfix"

@@ -3,7 +3,7 @@
 <data>
     <variable
         name="headerviewmodel"
-        type="com.dp.dell.workshopmodule.viewmodel.MainActViewModel"/>
+        type="com.findandfix.workshop.viewmodel.MainActViewModel"/>
 </data>
 
 <LinearLayout

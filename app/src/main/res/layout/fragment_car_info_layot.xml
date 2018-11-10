@@ -3,7 +3,7 @@
 <data>
     <variable
         name="carViewModel"
-        type="com.dp.dell.workshopmodule.viewmodel.CarInfoFragmentViewModel"/>
+        type="com.findandfix.workshop.viewmodel.CarInfoFragmentViewModel"/>
 </data>
 
 <ScrollView android:layout_width="match_parent"

@@ -3,7 +3,7 @@
     <data>
         <variable
             name="itemViewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.CustomDialogItemViewModel"/>
+            type="com.findandfix.workshop.viewmodel.CustomDialogItemViewModel"/>
 
     </data>
 <RelativeLayout

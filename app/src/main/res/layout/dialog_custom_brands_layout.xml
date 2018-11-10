@@ -6,7 +6,7 @@
     <data>
         <variable
             name="dialogBrandsViewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.CustomBrandsDialogViewModel"/>
+            type="com.findandfix.workshop.viewmodel.CustomBrandsDialogViewModel"/>
     </data>
     <android.support.v7.widget.CardView
         android:layout_width="@dimen/dp270w"

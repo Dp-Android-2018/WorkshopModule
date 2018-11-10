@@ -4,7 +4,7 @@
     <data>
         <variable
             name="completedViewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.CompletedRequest.CompletedRequestsViewModel"/>
+            type="com.findandfix.workshop.viewmodel.CompletedRequest.CompletedRequestsViewModel"/>
     </data>
 
 <RelativeLayout

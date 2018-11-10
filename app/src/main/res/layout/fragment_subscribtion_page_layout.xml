@@ -3,7 +3,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.dp.dell.workshopmodule.viewmodel.SubscribePageViewModel"/>
+            type="com.findandfix.workshop.viewmodel.SubscribePageViewModel"/>
     </data>
 <LinearLayout
     android:layout_width="match_parent"

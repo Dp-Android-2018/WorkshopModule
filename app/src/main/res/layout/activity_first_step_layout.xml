@@ -6,11 +6,11 @@
         <import type="android.view.View"/>
         <variable
             name="FirstStepRegisterViewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.FirstStepRegistration.FirstStepRegisterViewModel"/>
+            type="com.findandfix.workshop.viewmodel.FirstStepRegistration.FirstStepRegisterViewModel"/>
 
         <variable
             name="FirstStepValidation"
-            type="com.dp.dell.workshopmodule.viewmodel.FirstStepRegistration.FirstStepRegisterValidations"/>
+            type="com.findandfix.workshop.viewmodel.FirstStepRegistration.FirstStepRegisterValidations"/>
     </data>
 
 

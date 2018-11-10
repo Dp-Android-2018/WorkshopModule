@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.dp.dell.workshopmodule">
+    package="com.findandfix.workshop">
     <uses-feature android:name="android.hardware.camera" android:required="true"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -15,7 +15,7 @@
 
 
     <application
-        android:name="com.dp.dell.workshopmodule.view.ui.Application.MyApplication"
+        android:name=".ui.Application.MyApplication"
         android:allowBackup="true"
         android:largeHeap="true"
         android:icon="@mipmap/logo"
@@ -33,129 +33,129 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths"/>
         </provider>
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.Testing"
+        <activity android:name=".ui.activity.Testing"
             android:screenOrientation="portrait"/>
-        <activity android:name=".view.ui.activity.WorkshopProfileActivity"
+        <activity android:name=".ui.activity.WorkshopProfileActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
         <receiver
-            android:name="com.dp.dell.workshopmodule.model.ConnectionReceiver"
+            android:name=".model.ConnectionReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.MainActivity"
+        <activity android:name=".ui.activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait" />
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.WorkingDayActivity"
+        <activity android:name=".ui.activity.WorkingDayActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.WorkshopProfileImagesActivity"
+        <activity android:name=".ui.activity.WorkshopProfileImagesActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.OffersDetailActivity"
+        <activity android:name=".ui.activity.OffersDetailActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.RestPasswordActivity"
+        <activity android:name=".ui.activity.RestPasswordActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.ForgetPasswordCodeActivity"
+        <activity android:name=".ui.activity.ForgetPasswordCodeActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.ForgetPasswordMobileActivity"
+        <activity android:name=".ui.activity.ForgetPasswordMobileActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.MyAdvertisementActivity"
+        <activity android:name=".ui.activity.MyAdvertisementActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.LoginActivity"
+        <activity android:name=".ui.activity.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode = "singleInstance"
             android:screenOrientation="portrait"/>
 
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.NormalRequestActivity"
+        <activity android:name=".ui.activity.NormalRequestActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"
            />
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.InProgressRequestDetail"
+        <activity android:name=".ui.activity.InProgressRequestDetail"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.FirstStepRegisterActivity"
+        <activity android:name=".ui.activity.FirstStepRegisterActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.FinalStepRegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode = "singleInstance"
-            android:screenOrientation="portrait"/>
-
-
-
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.ThirdStepRegisterActivity"
+        <activity android:name=".ui.activity.FinalStepRegisterActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode = "singleInstance"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.UrgentRequestActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
 
 
-
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.AddAdvertisement"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.RequestDetailActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.AddAdvertismentDescription"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.AddAdvertismentCountry"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.AddAdvertismentRange"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.AdvertismentPublished"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.EditProfileInfoActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.SecondStepRegisterActivity"
+        <activity android:name=".ui.activity.ThirdStepRegisterActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode = "singleInstance"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.AddAdvertisementImage"
+        <activity android:name=".ui.activity.UrgentRequestActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
 
-         <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.ChatActivity"
+
+        <activity android:name=".ui.activity.AddAdvertisement"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.activity.RequestDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.AddAdvertismentDescription"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.AddAdvertismentCountry"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.AddAdvertismentRange"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.AdvertismentPublished"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.EditProfileInfoActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.SecondStepRegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode = "singleInstance"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.activity.AddAdvertisementImage"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+
+
+         <activity android:name=".ui.activity.ChatActivity"
             android:theme="@style/AppTheme.NoActionBar"
              android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.SplashActivity"
+        <activity android:name=".ui.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -164,58 +164,58 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.ChangePasswordActivity"
+        <activity android:name=".ui.activity.ChangePasswordActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
-    <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.ThemePreferenceActivity"
+    <activity android:name=".ui.activity.ThemePreferenceActivity"
         android:screenOrientation="portrait"/>
-    <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.MyConversationsActivity"
+    <activity android:name=".ui.activity.MyConversationsActivity"
         android:screenOrientation="portrait"
         android:theme="@style/AppTheme.NoActionBar"/>
 
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.PlayingVideoActivity"
+        <activity android:name=".ui.activity.PlayingVideoActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.AddAchievmentTitleActivity"
+        <activity android:name=".ui.activity.AddAchievmentTitleActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.SocialNetworkActivity"
+        <activity android:name=".ui.activity.SocialNetworkActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode = "singleInstance"
             android:screenOrientation="portrait"/>
 
 
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.AddAchievmentDescriptionActivity"
+        <activity android:name=".ui.activity.AddAchievmentDescriptionActivity"
     android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.MoreCompletedUrgentRequestActivity"
+        <activity android:name=".ui.activity.MoreCompletedUrgentRequestActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.AddAchievmentBeforeFixing"
+        <activity android:name=".ui.activity.AddAchievmentBeforeFixing"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.AddAchievmentAfterFixing"
+        <activity android:name=".ui.activity.AddAchievmentAfterFixing"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
-        <activity android:name="com.dp.dell.workshopmodule.view.ui.activity.MoreCompletedNormalRequestActivity"
+        <activity android:name=".ui.activity.MoreCompletedNormalRequestActivity"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
 
 
-        <service android:name="com.dp.dell.workshopmodule.notification.FirebaseMessageService">
+        <service android:name=".notification.FirebaseMessageService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
 
-        <service android:name="com.dp.dell.workshopmodule.notification.MyFirebaseInstanceIdService">
+        <service android:name=".notification.MyFirebaseInstanceIdService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
@@ -223,7 +223,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD85pFzYeV3sad6u_9cRPxIlpZXDBvLzzs"
+            android:value="AIzaSyAxKbKgFAx-YrXFENITGa-UO_XLPGKhdlk"
              />
         <meta-data
             android:name="com.google.android.gms.version"

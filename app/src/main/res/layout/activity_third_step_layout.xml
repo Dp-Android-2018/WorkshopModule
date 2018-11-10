@@ -4,35 +4,35 @@
     <data>
         <variable
             name="viewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.ThirdStepRegisterViewModel"/>
+            type="com.findandfix.workshop.viewmodel.ThirdStepRegistration.ThirdStepRegisterViewModel"/>
 
         <variable
             name="satviewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.SaturdayViewModel"/>
+            type="com.findandfix.workshop.viewmodel.ThirdStepRegistration.SaturdayViewModel"/>
 
         <variable
             name="sunviewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.SunDayViewModel"/>
+            type="com.findandfix.workshop.viewmodel.ThirdStepRegistration.SunDayViewModel"/>
 
         <variable
             name="monviewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.MonDayViewModel"/>
+            type="com.findandfix.workshop.viewmodel.ThirdStepRegistration.MonDayViewModel"/>
 
         <variable
             name="tueviewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.TuesdayViewModel"/>
+            type="com.findandfix.workshop.viewmodel.ThirdStepRegistration.TuesdayViewModel"/>
 
         <variable
             name="wedviewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.WednesDayViewModel"/>
+            type="com.findandfix.workshop.viewmodel.ThirdStepRegistration.WednesDayViewModel"/>
 
         <variable
             name="thuviewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.ThursDayViewModel"/>
+            type="com.findandfix.workshop.viewmodel.ThirdStepRegistration.ThursDayViewModel"/>
 
         <variable
             name="friviewModel"
-            type="com.dp.dell.workshopmodule.viewmodel.ThirdStepRegistration.FriDayViewModel"/>
+            type="com.findandfix.workshop.viewmodel.ThirdStepRegistration.FriDayViewModel"/>
     </data>
 <RelativeLayout
     android:layout_width="match_parent"

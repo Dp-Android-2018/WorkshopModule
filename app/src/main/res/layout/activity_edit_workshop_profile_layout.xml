@@ -6,15 +6,15 @@
 
         <variable
             name="viewmodel"
-            type="com.dp.dell.workshopmodule.viewmodel.EditProfileInfoViewModel" />
+            type="com.findandfix.workshop.viewmodel.EditProfileInfoViewModel" />
 
         <variable
             name="specializeviewmodel"
-            type="com.dp.dell.workshopmodule.viewmodel.EditProfileSpecializationViewModel" />
+            type="com.findandfix.workshop.viewmodel.EditProfileSpecializationViewModel" />
 
         <variable
             name="editprofileviewmodel"
-            type="com.dp.dell.workshopmodule.viewmodel.HandleEditProfileViewModel" />
+            type="com.findandfix.workshop.viewmodel.HandleEditProfileViewModel" />
     </data>
 
     <LinearLayout

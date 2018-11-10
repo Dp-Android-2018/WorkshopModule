@@ -3,7 +3,7 @@
     <data>
         <variable
     name="viewmodel"
-    type="com.dp.dell.workshopmodule.viewmodel.ItemOfferViewModel"/>
+    type="com.findandfix.workshop.viewmodel.ItemOfferViewModel"/>
     </data>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
